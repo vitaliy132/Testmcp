@@ -1,0 +1,451 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-nd-lime: #d0ff71;
+  --color-nd-ink: #010202;
+  --color-nd-muted: #6b6b6b;
+  --color-nd-soft: #eeeeee;
+  --color-nd-dark: #121212;
+  --color-nd-darker: #0a0a0a;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #fff;
+  color: var(--color-nd-ink);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark body {
+  background: #121212;
+  color: #f5f5f5;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(14deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 2.4s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* About hero — arched rotating image cluster (MadeByShape pattern) */
+/*
+  MadeByShape archedImageCarousel dimensions:
+  mobile  clip h-70vw, wheel 350vw / -ml-125vw, spoke w-40vw
+  tablet  clip h-65vw, wheel 250vw / -ml-75vw,  spoke w-25vw
+  desktop clip h-35vw, wheel 250vw / -ml-75vw,  spoke w-20vw
+*/
+.about-arc-clip {
+  position: relative;
+  width: 100%;
+  height: 70vw;
+  overflow: hidden;
+  padding-top: 1.25rem;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .about-arc-clip {
+    height: 65vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-arc-clip {
+    height: 35vw;
+  }
+}
+
+.about-arc-wheel {
+  position: relative;
+  width: 350vw;
+  height: 350vw;
+  margin-left: -125vw;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .about-arc-wheel {
+    width: 250vw;
+    height: 250vw;
+    margin-left: -75vw;
+  }
+}
+
+.about-arc-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+@media (min-width: 1280px) {
+  .about-arc-inner {
+    transform: rotate(-40deg);
+  }
+}
+
+.about-arc-spoke {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40vw;
+  height: 50%;
+  transform-origin: bottom left;
+}
+
+@media (min-width: 768px) {
+  .about-arc-spoke {
+    width: 25vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-arc-spoke {
+    width: 20vw;
+  }
+}
+
+.about-arc-spoke-media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 100%;
+  border-radius: 1rem;
+  background: var(--color-nd-soft);
+}
+
+@media (min-width: 1024px) {
+  .about-arc-spoke-media {
+    border-radius: 1.5rem;
+  }
+}
+
+.about-arc-spoke-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+  Stats carousel — MadeByShape statistics Swiper:
+  slidesPerView: 1 / 768:2 / 1024:3 / 1280:4
+*/
+.about-stat-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .about-stat-slide {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-stat-slide {
+    flex-basis: 33.333%;
+    max-width: 33.333%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-stat-slide {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
+
+/*
+  Team carousel scale — MadeByShape entriesProfiles Swiper:
+  slidesPerView: 1.6 / 640:2 / 768:2.5 / 1024:3.5 / 1280:4 / 2100:5
+  speed: 10000 (mobile) / 20000 (tablet+)
+*/
+.about-team-slide {
+  flex: 0 0 calc(100vw / 1.6);
+  max-width: calc(100vw / 1.6);
+}
+
+@media (min-width: 640px) {
+  .about-team-slide {
+    flex-basis: calc(100vw / 2);
+    max-width: calc(100vw / 2);
+  }
+}
+
+@media (min-width: 768px) {
+  .about-team-slide {
+    flex-basis: calc(100vw / 2.5);
+    max-width: calc(100vw / 2.5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-team-slide {
+    flex-basis: calc(100vw / 3.5);
+    max-width: calc(100vw / 3.5);
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-team-slide {
+    flex-basis: calc(100vw / 4);
+    max-width: calc(100vw / 4);
+  }
+}
+
+@media (min-width: 2100px) {
+  .about-team-slide {
+    flex-basis: calc(100vw / 5);
+    max-width: calc(100vw / 5);
+  }
+}
+
+@keyframes about-team-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-about-team-marquee {
+  /* ~16 cards × 10s/slide (mobile Swiper speed) for one loop half */
+  animation: about-team-marquee 160s linear infinite;
+  width: max-content;
+}
+
+@media (min-width: 768px) {
+  .animate-about-team-marquee {
+    /* ~16 cards × 20s/slide */
+    animation-duration: 320s;
+  }
+}
+
+.animate-about-team-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-about-team-marquee {
+    animation: none;
+  }
+}
+
+.gooey-line {
+  background: #fff;
+  display: inline-block;
+  padding: 0.15em 0.35em 0.2em;
+  border-radius: 0.35em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color 0.25s ease;
+}
+
+html.dark .gooey-line {
+  background: #1a1a1a;
+}
+
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-nd-lime);
+  color: var(--color-nd-ink);
+  border-radius: 9999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-lime:hover {
+  transform: scale(1.03);
+  filter: brightness(0.97);
+}
+
+.btn-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-nd-soft);
+  color: var(--color-nd-ink);
+  border-radius: 9999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+html.dark .btn-soft {
+  background: #2a2a2a;
+  color: #f5f5f5;
+}
+
+.btn-soft:hover {
+  transform: scale(1.03);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+html.dark .tag {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes hero-reel-grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1.5%, 1%);
+  }
+  50% {
+    transform: translate(1%, -1.5%);
+  }
+  75% {
+    transform: translate(-0.5%, -1%);
+  }
+}
+
+.hero-reel-grain {
+  pointer-events: none;
+  position: absolute;
+  inset: -20%;
+  z-index: 3;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: hero-reel-grain 0.45s steps(3) infinite;
+}
+
+.hero-reel-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reel-grain {
+    animation: none;
+    opacity: 0.1;
+  }
+}
+
+/* Type sits on the showreel — soft shadow only, no solid text boxes */
+.hero-overlay-title {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* Soft asymmetric silhouette for the hero showreel */
+.hero-reel-frame {
+  border-radius: 1.25rem 2.75rem 1.75rem 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-reel-frame {
+    border-radius: 1.5rem 3.5rem 2rem 3rem;
+  }
+}
