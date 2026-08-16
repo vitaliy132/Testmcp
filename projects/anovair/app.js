@@ -66,10 +66,24 @@ function toast(msg) {
   toast._t = setTimeout(() => el.classList.remove('show'), 1800)
 }
 
+function imgSrc(p, i = 0) {
+  return p.files?.[i] || p.images?.[i] || p.files?.[0] || p.images?.[0] || ''
+}
+
+function imgTag(p, i, attrs = {}) {
+  const local = p.files?.[i] || p.files?.[0] || ''
+  const remote = p.images?.[i] || p.images?.[0] || ''
+  const src = local || remote
+  const fallback = remote && remote !== src ? remote : local && local !== src ? local : ''
+  const cls = attrs.class ? ` class="${attrs.class}"` : ''
+  const alt = attrs.alt != null ? attrs.alt : p.title
+  const loading = attrs.class === 'b' ? 'lazy' : 'eager'
+  const onerr = fallback ? ` onerror="this.onerror=null;this.src='${escapeAttr(fallback)}'"` : ''
+  return `<img${cls} src="${escapeAttr(src)}" alt="${escapeAttr(alt)}" loading="${loading}" referrerpolicy="no-referrer"${onerr} />`
+}
+
 function cardHTML(p) {
   const off = pct(p)
-  const imgA = p.images[0] || ''
-  const imgB = p.images[1] || imgA
   const sizes = (p.sizes || [])
     .map((s, i) => `<button type="button" class="size${i === 0 ? ' on' : ''}" data-size="${escapeAttr(s)}">${escapeHtml(s)}</button>`)
     .join('')
@@ -77,8 +91,8 @@ function cardHTML(p) {
     <a class="card-media" href="product.html?id=${encodeURIComponent(p.id)}">
       ${off ? `<span class="badge">${off}% off</span>` : ''}
       ${p.b2g1 ? `<span class="badge b2g1">Buy 2 get 1 free</span>` : ''}
-      <img src="${imgA}" alt="${escapeAttr(p.title)}" loading="lazy" />
-      <img class="b" src="${imgB}" alt="" loading="lazy" />
+      ${imgTag(p, 0)}
+      ${imgTag(p, 1, { class: 'b', alt: '' })}
     </a>
     <div class="card-body">
       <a class="card-title" href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.title)}</a>
@@ -285,7 +299,7 @@ function renderCart() {
         const p = byId(i.id)
         if (!p) return ''
         return `<div class="cart-row">
-          <img src="${p.images[0] || ''}" alt="" />
+          ${imgTag(p, 0, { alt: '' })}
           <div>
             <div>${escapeHtml(p.title)}</div>
             <div class="meta">Size ${escapeHtml(i.size)}</div>
@@ -389,7 +403,8 @@ function mountProduct() {
   document.title = `${p.title} — Anovair`
   const gallery = $('[data-gallery]')
   if (gallery) {
-    gallery.innerHTML = p.images.map((src) => `<img src="${src}" alt="${escapeAttr(p.title)}" loading="lazy" />`).join('')
+    const shots = (p.images && p.images.length ? p.images : p.files || []).map((_, i) => i)
+    gallery.innerHTML = shots.map((i) => imgTag(p, i)).join('')
   }
   $('[data-p-title]') && ($('[data-p-title]').textContent = p.title)
   const price = $('[data-p-price]')
