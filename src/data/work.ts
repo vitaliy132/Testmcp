@@ -8,8 +8,9 @@ export const work = [
     title:
       'Anovair — Shopify menswear storefront, warehouse-sale merchandising, collection/PDP, and cart UX.',
     tags: ['Shopify', 'E-Commerce', 'CRO'],
-    image: 'https://anovair.com/cdn/shop/files/Warehouse_Banner_new.jpg?v=1783623031&width=1600',
-    imageAlt: 'Anovair website — warehouse sale hero',
+    image: 'https://anovair.com/cdn/shop/files/Jorge_1.jpg?v=1783623208&width=1600',
+    imageAlt: 'Anovair campaign — editorial menswear portrait',
+    imagePosition: '50% 18%',
     url: workSites.anovair,
   },
   {
@@ -19,8 +20,9 @@ export const work = [
     title: 'Premium DTC storefront with product storytelling, wishlist and modern checkout UX.',
     tags: ['Next.js', 'E-Commerce', 'CRO'],
     image:
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'FORMA Studio website — minimal lifestyle retail hero',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'FORMA Studio lookbook — considered home at dusk',
+    imagePosition: '50% 50%',
     url: workSites.formaStudio,
   },
   {
@@ -32,6 +34,7 @@ export const work = [
     tags: ['Web Design', 'Fintech', 'SaaS'],
     image: 'https://www.investwithaqua.com/assets/advisor-office-CB0Zu6Q6.jpg',
     imageAlt: 'Aqua website — advisor using the TAIP platform',
+    imagePosition: '50% 22%',
     url: workSites.aqua,
   },
   {
@@ -42,8 +45,9 @@ export const work = [
       'Proud Mary Coffee — Shopify specialty-coffee storefront, subscriptions, collection/PDP, and cart UX.',
     tags: ['Shopify', 'E-Commerce', 'Brand'],
     image:
-      'https://www.proudmarycoffee.com.au/cdn/shop/files/WrightC_Humbler_RenderV2_236cf380-85fb-4977-a455-18686bce1f59.png?v=1741210366',
-    imageAlt: 'Proud Mary Coffee website — Humbler coffee bag',
+      'https://www.proudmarycoffee.com.au/cdn/shop/files/preview_images/7f197418a9ae4d82897c4c32774f6e21.thumbnail.0000000000_2000x.jpg?v=1786402541',
+    imageAlt: 'Proud Mary Coffee — ripe coffee cherries on the branch',
+    imagePosition: '50% 50%',
     url: workSites.proudMary,
   },
 ] as const

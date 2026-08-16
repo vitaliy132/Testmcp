@@ -74,15 +74,14 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
 
           <div className="relative w-full overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
             <div className="aspect-[4/3] w-full overflow-hidden">
-              <div className="relative h-full w-full origin-top scale-110 transition-transform duration-500 ease-out xl:group-hover:-translate-y-2.5">
-                <iframe
-                  src={project.url}
-                  title={project.imageAlt}
-                  className="pointer-events-none absolute top-0 left-0 h-[400%] w-[400%] origin-top-left scale-[0.25] border-0"
-                  loading="lazy"
-                  tabIndex={-1}
-                />
-              </div>
+              <img
+                src={project.image}
+                alt={project.imageAlt}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full origin-center scale-105 object-cover transition-transform duration-500 ease-out xl:group-hover:scale-110"
+                style={{ objectPosition: project.imagePosition }}
+              />
             </div>
           </div>
         </div>
