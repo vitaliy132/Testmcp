@@ -64,7 +64,7 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
 
   return (
     <section className="pb-16 lg:pb-24">
-      <PageContainer>
+      <PageContainer variant="about">
         <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] lg:rounded-3xl">
           <div className="relative aspect-[4/3] w-full lg:aspect-video">
             {reduceMotion ? (

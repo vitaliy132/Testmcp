@@ -9,7 +9,7 @@ export function WorkStills({ project }: { project: WorkCaseStudyItem }) {
 
   return (
     <section className="pb-16 lg:pb-24">
-      <PageContainer>
+      <PageContainer variant="about">
         <div className="flex flex-col gap-3 lg:gap-4">
           <div className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
             <div className="aspect-[4/3] w-full overflow-hidden lg:aspect-[16/9]">

@@ -11,25 +11,28 @@ export function WorkIntro({ project }: { project: WorkCaseStudyItem }) {
   ]
 
   return (
-    <section className="py-16 lg:py-24">
-      <PageContainer>
-        <div className="mb-12 flex flex-wrap justify-between gap-10 lg:mb-16 lg:gap-16">
-          <h2 className="w-full max-w-md text-[clamp(1.5rem,3vw,2.5rem)] leading-none tracking-tight text-balance lg:w-[38%]">
+    <section className="py-10 lg:py-16 xl:py-24">
+      <PageContainer variant="about">
+        <div className="flex flex-wrap items-start justify-between gap-8 lg:gap-0">
+          <h2 className="w-full max-w-xl text-[clamp(1.5rem,3vw,2.5rem)] leading-none tracking-tight text-balance lg:w-[56%] lg:pr-16">
             {caseStudy.dek}
           </h2>
-          <p className="w-full text-base font-light leading-7 text-nd-muted lg:w-[52%] lg:text-[1.05rem] dark:text-white/65">
-            {caseStudy.body}
-          </p>
-        </div>
 
-        <dl className="grid gap-8 border-t border-black/5 pt-8 sm:grid-cols-3 dark:border-white/10">
-          {meta.map((item) => (
-            <div key={item.label}>
-              <dt className="mb-1 text-sm font-light text-nd-muted dark:text-white/45">{item.label}</dt>
-              <dd className="text-lg tracking-tight">{item.value}</dd>
-            </div>
-          ))}
-        </dl>
+          <div className="w-full lg:w-[44%] xl:pr-10">
+            <p className="text-base font-light leading-7 text-pretty text-nd-muted xl:text-lg dark:text-white/65">
+              {caseStudy.body}
+            </p>
+
+            <dl className="mt-6 flex max-w-2xl flex-wrap justify-between gap-6 pr-6 lg:mt-10 lg:pr-0">
+              {meta.map((item) => (
+                <div key={item.label} className="min-w-[6rem] pr-4">
+                  <dt className="mb-1 text-sm font-light text-nd-muted dark:text-white/45">{item.label}</dt>
+                  <dd className="text-lg tracking-tight lg:text-xl">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
       </PageContainer>
     </section>
   )

@@ -10,14 +10,35 @@ export function ArrowIcon({ className = 'h-3 w-3' }: { className?: string }) {
   )
 }
 
-function GooeyVisual({ label }: { label: string }) {
+export type GooeyTone = 'lime' | 'ink'
+
+const gooeyTones: Record<GooeyTone, { pill: string; icon: string; arrow: string }> = {
+  lime: {
+    pill: 'bg-nd-lime text-nd-ink',
+    icon: 'bg-nd-lime',
+    arrow: 'text-nd-ink',
+  },
+  ink: {
+    pill: 'bg-nd-ink text-white dark:bg-[#2a2a2a] dark:text-white',
+    icon: 'bg-nd-ink dark:bg-[#2a2a2a]',
+    arrow: 'text-white',
+  },
+}
+
+function GooeyVisual({ label, tone = 'lime' }: { label: string; tone?: GooeyTone }) {
+  const colors = gooeyTones[tone]
+
   return (
     <>
-      <span className="relative inline-flex items-center justify-center overflow-hidden rounded-full bg-nd-lime px-5 py-2 text-sm font-medium leading-tight text-nd-ink">
+      <span
+        className={`relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 py-2 text-sm font-medium leading-tight ${colors.pill}`}
+      >
         <span className="relative top-px">{label}</span>
       </span>
-      <span className="relative -ml-1 flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-nd-lime transition-transform duration-300 ease-out group-hover:translate-x-3 group-hover:rotate-45">
-        <span className="relative h-3 w-3 overflow-hidden text-nd-ink">
+      <span
+        className={`relative -ml-1 flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full transition-transform duration-300 ease-out group-hover:translate-x-3 group-hover:rotate-45 ${colors.icon}`}
+      >
+        <span className={`relative h-3 w-3 overflow-hidden ${colors.arrow}`}>
           <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full group-hover:translate-x-full">
             <ArrowIcon />
           </span>
@@ -39,13 +60,21 @@ type GooeyLinkProps = {
   className?: string
   onClick?: () => void
   external?: boolean
+  tone?: GooeyTone
 }
 
 /** Anchor / Link style shell used by StartProjectButton */
-export function GooeyLink({ href, label, className = '', onClick, external }: GooeyLinkProps) {
+export function GooeyLink({
+  href,
+  label,
+  className = '',
+  onClick,
+  external,
+  tone = 'lime',
+}: GooeyLinkProps) {
   const classes = `${gooeyClass} ${className}`
   const style = { filter: 'url(#buttonFilter)' } as const
-  const visual = <GooeyVisual label={label} />
+  const visual = <GooeyVisual label={label} tone={tone} />
 
   if (external || !isInternalHref(href)) {
     return (
@@ -71,9 +100,16 @@ export function GooeyLink({ href, label, className = '', onClick, external }: Go
 type GooeySubmitButtonProps = {
   label: string
   disabled?: boolean
+  tone?: GooeyTone
 } & Omit<ComponentPropsWithoutRef<'button'>, 'type' | 'children'>
 
-export function GooeySubmitButton({ label, disabled, className = '', ...rest }: GooeySubmitButtonProps) {
+export function GooeySubmitButton({
+  label,
+  disabled,
+  className = '',
+  tone = 'lime',
+  ...rest
+}: GooeySubmitButtonProps) {
   return (
     <button
       type="submit"
@@ -82,7 +118,7 @@ export function GooeySubmitButton({ label, disabled, className = '', ...rest }: 
       style={{ filter: 'url(#buttonFilter)' }}
       {...rest}
     >
-      <GooeyVisual label={label} />
+      <GooeyVisual label={label} tone={tone} />
     </button>
   )
 }

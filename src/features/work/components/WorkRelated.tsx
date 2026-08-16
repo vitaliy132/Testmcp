@@ -58,7 +58,7 @@ export function WorkRelated({ project }: { project: WorkCaseStudyItem }) {
 
   return (
     <section className="border-t border-black/5 py-16 lg:py-24 dark:border-white/10">
-      <PageContainer>
+      <PageContainer variant="about">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6 lg:mb-14">
           <div className="flex flex-col items-start gap-3">
             <SectionEyebrow>{workPageCopy.relatedEyebrow}</SectionEyebrow>
