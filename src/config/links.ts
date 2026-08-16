@@ -19,7 +19,7 @@ export const routes = {
 export const workSites = {
   anovair: '/projects/anovair/',
   formaStudio: '/projects/forma-studio/',
-  brickSalt: '/projects/brick-salt/',
+  aqua: '/projects/aqua/',
   proudMary: '/projects/proud-mary/',
 } as const
 

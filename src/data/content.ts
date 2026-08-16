@@ -27,16 +27,15 @@ export const work = [
     url: workSites.formaStudio,
   },
   {
-    id: 'brick-salt',
-    client: 'BRICK & SALT',
-    year: '2025',
+    id: 'aqua',
+    client: 'Aqua',
+    year: '2026',
     title:
-      'Industrial-elegant small plates restaurant — cinematic scroll, seasonal menu and reservation flow.',
-    tags: ['Next.js', 'UX', 'Booking Flow'],
-    image:
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'BRICK & SALT website — plated dishes on a warmly lit restaurant table',
-    url: workSites.brickSalt,
+      'Aqua TAIP — fintech marketing site for a turnkey alternative investment platform, modular product lines, and demo flow.',
+    tags: ['Web Design', 'Fintech', 'SaaS'],
+    image: 'https://www.investwithaqua.com/assets/advisor-office-CB0Zu6Q6.jpg',
+    imageAlt: 'Aqua website — advisor using the TAIP platform',
+    url: workSites.aqua,
   },
   {
     id: 'proud-mary',
