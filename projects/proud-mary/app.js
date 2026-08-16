@@ -70,7 +70,7 @@ function iconBag() {
 
 function navDropdown(label, links) {
   return `<div class="nav-item">
-    <button type="button">${escapeHtml(label)}</button>
+    <button type="button">${escapeHtml(label)}<span class="nav-caret" aria-hidden="true"></span></button>
     <div class="dropdown">${links.map(([href, t]) => `<a href="${href}">${escapeHtml(t)}</a>`).join('')}</div>
   </div>`
 }
@@ -110,7 +110,9 @@ function chromeHTML() {
   return `<div class="promo"><a href="collection.html?id=deluxe-coffee">Deluxe Vault Sale | Buy 1 Tin, get 1 50% OFF!</a></div>
     <div class="header-wrap">
       <header class="site-header">
-        <button class="menu-btn" type="button" data-open-nav aria-label="Menu"><span></span></button>
+        <div class="header-left">
+          <button class="menu-btn" type="button" data-open-nav aria-label="Menu"><span></span></button>
+        </div>
         <a class="logo" href="index.html"><img src="${P.assets.logo}" alt="Proud Mary Coffee" /></a>
         <div class="nav-right">
           <div class="curr-wrap" data-curr>
@@ -158,6 +160,10 @@ function chromeHTML() {
     </div>`
 }
 
+function payIcon(name) {
+  return `<img src="https://www.proudmarycoffee.com.au/cdn/shopifycloud/storefront/assets/payment_icons/${name}.svg" alt="" />`
+}
+
 function footerHTML() {
   return `<footer class="site-footer">
     <div class="foot-grid">
@@ -183,19 +189,33 @@ function footerHTML() {
         <p class="hours"><strong>Proud Mary Café - Melbourne</strong><br>Monday – Friday 7am to 3pm<br>Saturday – Sunday 8am to 3pm</p>
         <p class="hours" style="margin-top:12px"><strong>Aunty Peg's</strong><br>Monday – Sunday 9am to 5pm</p>
         <p class="hours" style="margin-top:12px"><strong>Proud Mary Wholesale</strong><br>Monday – Friday 9am to 5pm</p>
-        <h4 style="margin-top:22px">Join The Proud Mary Crew</h4>
+      </div>
+      <div>
+        <h3>Join The Proud Mary Crew</h3>
         <p class="hours">Are you keen? Get first dibs…</p>
         <form class="crew" data-demo-form>
-          <input name="email" type="email" placeholder="Email" required />
+          <input name="email" type="email" placeholder="Email address" required />
           <button type="submit">Join</button>
         </form>
         <p class="note" style="margin-top:8px"></p>
+        <div class="ack">
+          <h4>Acknowledgement of Country</h4>
+          <p>Proud Mary Coffee acknowledges the Traditional Custodians of the land in which we work and recognises their continuing connection to the land, waters, and community. We would like to pay our respect to all First Nations people, their cultures, and their Elders past, present and emerging.</p>
+        </div>
       </div>
     </div>
-    <p class="ack">Proud Mary Coffee acknowledges the Traditional Custodians of the land in which we work and recognises their continuing connection to the land, waters, and community. We would like to pay our respect to all First Nations people, their cultures, and their Elders past, present and emerging.</p>
     <div class="legal">
-      <span>© 2026 Proud Mary Coffee Roasters Pty Ltd · Demo storefront</span>
-      <a href="/">A Northern Digital project</a>
+      <div>
+        <span>© 2026 Proud Mary Coffee Roasters Pty Ltd · Demo storefront</span>
+        <div class="socials" style="margin-top:10px">
+          <a href="https://www.facebook.com/proudmarycoffeeroasters" aria-label="Facebook"><svg viewBox="0 0 30 30"><path d="M19 5h3.5c.3 0 .5-.2.5-.5v-4c0-.3-.2-.5-.5-.5h-4C14.8 0 12 2.8 12 6.5V11H7.5c-.3 0-.5.2-.5.5v4c0 .3.2.5.5.5H12v13.5c0 .3.2.5.5.5h4c.3 0 .5-.2.5-.5V16h4.5c.2 0 .4-.2.5-.4l1-4c0-.1 0-.3-.1-.4-.1-.1-.2-.2-.4-.2H17V7c0-1.1.9-2 2-2z"/></svg></a>
+          <a href="https://www.instagram.com/proudmarycoffee/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.4 7.2 2.3 8.5 2.2 8.8 2.2 12 2.2zm0 1.8c-3.2 0-3.5 0-4.8.1-2.2.1-3.2 1.2-3.3 3.3-.1 1.2-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 2.1 1.1 3.2 3.3 3.3 1.2.1 1.6.1 4.8.1s3.5 0 4.8-.1c2.2-.1 3.2-1.2 3.3-3.3.1-1.2.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-2.1-1.1-3.2-3.3-3.3-1.3-.1-1.6-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2zm6.2-.9a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="payments">
+        ${['american_express-2bdbf0e2','apple_pay-1721ebad','google_pay-34c30515','master-f5a74105','paypal-a7c68b85','shopify_pay-925ab76d','visa-b614b878'].map(payIcon).join('')}
+        <a href="/">A Northern Digital project</a>
+      </div>
     </div>
   </footer>
   <div class="cart-scrim" data-cart-scrim></div>
@@ -377,9 +397,54 @@ function closeCart() {
   $('[data-cart-scrim]')?.classList.remove('open')
 }
 
+function closeNavMenus(except) {
+  $$('.nav-item').forEach((item) => {
+    if (item === except) return
+    item.classList.remove('open')
+    item.querySelector('.dropdown')?.classList.remove('open')
+  })
+}
+
 function bindChrome() {
   $('[data-open-nav]')?.addEventListener('click', () => $('[data-drawer-nav]')?.classList.add('open'))
   $('[data-close-nav]')?.addEventListener('click', () => $('[data-drawer-nav]')?.classList.remove('open'))
+
+  $$('.nav-item').forEach((item) => {
+    const drop = item.querySelector('.dropdown')
+    if (!drop) {
+      item.addEventListener('mouseenter', () => closeNavMenus())
+      return
+    }
+    const open = () => {
+      closeNavMenus(item)
+      item.classList.add('open')
+      drop.classList.add('open')
+    }
+    const closeSoon = () => {
+      clearTimeout(item._t)
+        item._t = setTimeout(() => {
+        item.classList.remove('open')
+        drop.classList.remove('open')
+      }, 800)
+    }
+    item.addEventListener('mouseenter', () => {
+      clearTimeout(item._t)
+      open()
+    })
+    item.addEventListener('mouseleave', closeSoon)
+    drop.addEventListener('mouseenter', () => clearTimeout(item._t))
+    drop.addEventListener('mouseleave', closeSoon)
+    item.querySelector('button')?.addEventListener('click', (e) => {
+      e.preventDefault()
+      if (item.classList.contains('open')) {
+        item.classList.remove('open')
+        drop.classList.remove('open')
+      } else open()
+    })
+  })
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item')) closeNavMenus()
+  })
   $('[data-open-cart]')?.addEventListener('click', openCart)
   $('[data-close-cart]')?.addEventListener('click', closeCart)
   $('[data-cart-scrim]')?.addEventListener('click', closeCart)
@@ -452,47 +517,82 @@ function bindChrome() {
   })
 }
 
+function visibleCount() {
+  if (window.innerWidth < 640) return 2
+  if (window.innerWidth < 1024) return 3
+  return 4
+}
+
 function bindRails() {
   $$('[data-rail]').forEach((rail) => {
     const wrap = rail.closest('.rail-wrap')
-    wrap?.querySelector('.prev')?.addEventListener('click', () => rail.scrollBy({ left: -280, behavior: 'smooth' }))
-    wrap?.querySelector('.next')?.addEventListener('click', () => rail.scrollBy({ left: 280, behavior: 'smooth' }))
+    if (!wrap) return
+    let index = 0
+    const cards = () => $$('.card', rail)
+    const maxIndex = () => Math.max(0, cards().length - visibleCount())
+    const paint = () => {
+      const list = cards()
+      if (!list.length) return
+      const v = visibleCount()
+      const pad = window.innerWidth < 640 ? 16 : 40
+      const gap = 20
+      const width = Math.max(140, (wrap.clientWidth - pad * 2 - gap * (v - 1)) / v)
+      list.forEach((c) => {
+        c.style.flex = `0 0 ${width}px`
+        c.style.width = `${width}px`
+      })
+      const max = Math.max(0, list.length - v)
+      if (index > max) index = 0
+      if (index < 0) index = max
+      rail.style.transform = `translateX(${-index * (width + gap)}px)`
+    }
+    wrap.querySelector('.prev')?.addEventListener('click', () => {
+      index -= 1
+      if (index < 0) index = maxIndex()
+      paint()
+    })
+    wrap.querySelector('.next')?.addEventListener('click', () => {
+      index += 1
+      if (index > maxIndex()) index = 0
+      paint()
+    })
+    window.addEventListener('resize', paint)
+    requestAnimationFrame(() => {
+      paint()
+      setTimeout(() => wrap.classList.add('ready'), 400)
+    })
   })
+}
+
+function mountQuotes() {
+  const track = $('[data-quotes]')
+  if (!track) return
+  const slides = P.quotes
+  track.innerHTML = slides
+    .map(
+      (q, i) =>
+        `<div class="quote-slide${i === 0 ? ' on' : ''}"><q>“${escapeHtml(q.text)}”</q><cite>${escapeHtml(q.source)}</cite></div>`
+    )
+    .join('')
+  let index = 0
+  const paint = () => {
+    $$('.quote-slide', track).forEach((el, i) => el.classList.toggle('on', i === index))
+    track.style.transform = `translateX(-${index * 100}%)`
+  }
+  const go = (dir) => {
+    index = (index + dir + slides.length) % slides.length
+    paint()
+  }
+  $('[data-quote-prev]')?.addEventListener('click', () => go(-1))
+  $('[data-quote-next]')?.addEventListener('click', () => go(1))
+  setInterval(() => go(1), 7000)
 }
 
 function mountHome() {
   fillRail($('[data-rail="subscriptions"]'), P.home.subscriptions)
   fillRail($('[data-rail="newest"]'), P.home.newest)
-  fillRail($('[data-rail="merch"]'), P.home.merch)
-
-  const feel = $('[data-feel]')
-  if (feel) {
-    const tiles = [
-      { href: 'collection.html?id=wild-coffee', img: P.assets.tileWild, graphic: P.assets.graphicWild, alt: 'Wild' },
-      { href: 'collection.html?id=deluxe-coffee', img: P.assets.tileDeluxe, graphic: P.assets.graphicDeluxe, alt: 'Deluxe' },
-      { href: 'collection.html?id=mild-coffee', img: P.assets.tileMild, graphic: P.assets.graphicMild, alt: 'Mild' },
-      { href: 'collection.html?id=curious-coffee', img: P.assets.tileCurious, graphic: P.assets.graphicCurious, alt: 'Curious' },
-    ]
-    const html = tiles
-      .map(
-        (t) => `<a class="feel-card" href="${t.href}">
-          <img src="${t.img}" alt="${t.alt}" />
-          <img class="graphic" src="${t.graphic}" alt="" />
-        </a>`
-      )
-      .join('')
-    feel.innerHTML = html + html
-    $('[data-feel-prev]')?.addEventListener('click', () => feel.scrollBy({ left: -300, behavior: 'smooth' }))
-    $('[data-feel-next]')?.addEventListener('click', () => feel.scrollBy({ left: 300, behavior: 'smooth' }))
-  }
-
-  const quotes = $('[data-quotes]')
-  if (quotes) {
-    const slides = P.quotes
-      .map((q) => `<div class="quote-slide"><q>“${escapeHtml(q.text)}”</q><cite>${escapeHtml(q.source)}</cite></div>`)
-      .join('')
-    quotes.innerHTML = slides + slides
-  }
+  fillGrid($('[data-merch]'), P.home.merch.map(byId).filter(Boolean).slice(0, 4))
+  mountQuotes()
 }
 
 function mountCollection() {
@@ -631,7 +731,6 @@ function boot() {
 
   bindChrome()
   renderCart()
-  bindRails()
   bindForms()
 
   const page = document.body.dataset.page
@@ -640,6 +739,7 @@ function boot() {
   if (page === 'product') mountProduct()
   if (page === 'policies') mountPolicies()
   if (page === 'about') mountAbout()
+  bindRails()
 }
 
 boot()
