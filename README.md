@@ -20,10 +20,10 @@ Work cards open live client sites. Source for each demo lives in `projects/`:
 
 | Project | Folder | Local URL |
 | --- | --- | --- |
-| Arden Wealth | `projects/arden-wealth/` | `/projects/arden-wealth/` |
+| Anovair | `projects/anovair/` | `/projects/anovair/` |
 | FORMA Studio | `projects/forma-studio/` | `/projects/forma-studio/` |
 | BRICK & SALT | `projects/brick-salt/` | `/projects/brick-salt/` |
-| Savoy Sip | `projects/savoy-sip/` | `/projects/savoy-sip/` |
+| Proud Mary Coffee | `projects/proud-mary/` | `/projects/proud-mary/` |
 
 ## Notes
 

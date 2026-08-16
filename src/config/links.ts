@@ -17,10 +17,10 @@ export const routes = {
 
 /** Live demo client sites — source lives in /projects/<id>/ */
 export const workSites = {
-  ardenWealth: '/projects/arden-wealth/',
+  anovair: '/projects/anovair/',
   formaStudio: '/projects/forma-studio/',
   brickSalt: '/projects/brick-salt/',
-  savoySip: '/projects/savoy-sip/',
+  proudMary: '/projects/proud-mary/',
 } as const
 
 export const anchors = {

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop – Proud Mary Coffee Melbourne</title>
+    <link rel="icon" href="https://www.proudmarycoffee.com.au/cdn/shop/files/PM-FAVICON.png?v=1624952807" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="collection">
+    <div data-chrome></div>
+    <main class="page">
+      <h1 data-col-title>All Coffee</h1>
+      <p class="lede" data-col-blurb></p>
+      <div class="toolbar">
+        <nav class="filters">
+          <a href="collection.html?id=coffee" data-filter="coffee">All</a>
+          <a href="collection.html?id=blend-coffees" data-filter="blend-coffees">Blend</a>
+          <a href="collection.html?id=mild-coffee" data-filter="mild-coffee">Mild</a>
+          <a href="collection.html?id=curious-coffee" data-filter="curious-coffee">Curious</a>
+          <a href="collection.html?id=wild-coffee" data-filter="wild-coffee">Wild</a>
+          <a href="collection.html?id=deluxe-coffee" data-filter="deluxe-coffee">Deluxe</a>
+          <a href="collection.html?id=coffee-subscriptions" data-filter="coffee-subscriptions">Subscriptions</a>
+          <a href="collection.html?id=pmc-merchandise" data-filter="pmc-merchandise">Merch</a>
+          <a href="collection.html?id=brewing-equipment" data-filter="brewing-equipment">Equipment</a>
+          <a href="collection.html?id=gifting" data-filter="gifting">Gifting</a>
+          <a href="collection.html?id=teas" data-filter="teas">Tea + Chocolate</a>
+        </nav>
+        <label class="sorts">
+          Sort
+          <select data-sort>
+            <option value="featured">Featured</option>
+            <option value="az">Alphabetically, A-Z</option>
+            <option value="za">Alphabetically, Z-A</option>
+            <option value="lo">Price, low to high</option>
+            <option value="hi">Price, high to low</option>
+          </select>
+        </label>
+      </div>
+      <nav class="filters" style="margin-top:-8px">
+        <span>Feeling</span>
+        <a href="#" data-feeling="all" class="on">All</a>
+        <a href="#" data-feeling="deluxe-coffee">Deluxe</a>
+        <a href="#" data-feeling="wild-coffee">Wild</a>
+        <a href="#" data-feeling="curious-coffee">Curious</a>
+        <a href="#" data-feeling="mild-coffee">Mild</a>
+      </nav>
+      <div class="grid" data-grid></div>
+    </main>
+    <div data-footer></div>
+    <script src="./catalog.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

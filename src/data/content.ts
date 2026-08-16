@@ -5,16 +5,15 @@ export { IMG }
 
 export const work = [
   {
-    id: 'arden-wealth',
-    client: 'Arden Wealth',
-    year: '2025',
+    id: 'anovair',
+    client: 'Anovair',
+    year: '2026',
     title:
-      'Private wealth platform — cinematic GSAP storytelling, portfolio dashboard, planning tools and advisory flow.',
-    tags: ['Next.js', 'GSAP', 'Product UX'],
-    image:
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'Arden Wealth website — full-bleed architectural hero',
-    url: workSites.ardenWealth,
+      'Anovair — Shopify menswear storefront, warehouse-sale merchandising, collection/PDP, and cart UX.',
+    tags: ['Shopify', 'E-Commerce', 'CRO'],
+    image: 'https://anovair.com/cdn/shop/files/Warehouse_Banner_new.jpg?v=1783623031&width=1600',
+    imageAlt: 'Anovair website — warehouse sale hero',
+    url: workSites.anovair,
   },
   {
     id: 'forma-studio',
@@ -40,15 +39,16 @@ export const work = [
     url: workSites.brickSalt,
   },
   {
-    id: 'savoy-sip',
-    client: 'Savoy Sip',
-    year: '2025',
-    title: 'Specialty Mayfair café — cinematic GSAP scroll, menu storytelling and visit-led conversion.',
-    tags: ['Next.js', 'GSAP', 'Brand'],
+    id: 'proud-mary',
+    client: 'Proud Mary Coffee',
+    year: '2026',
+    title:
+      'Proud Mary Coffee — Shopify specialty-coffee storefront, subscriptions, collection/PDP, and cart UX.',
+    tags: ['Shopify', 'E-Commerce', 'Brand'],
     image:
-      'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'Savoy Sip website — ceramic coffee cup in soft window light',
-    url: workSites.savoySip,
+      'https://www.proudmarycoffee.com.au/cdn/shop/files/WrightC_Humbler_RenderV2_236cf380-85fb-4977-a455-18686bce1f59.png?v=1741210366',
+    imageAlt: 'Proud Mary Coffee website — Humbler coffee bag',
+    url: workSites.proudMary,
   },
 ]
 
