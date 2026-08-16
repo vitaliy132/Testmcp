@@ -1,4 +1,3 @@
-import { external } from '@/config/external'
 import { routes } from '@/config/routes'
 
 export const aboutIntro = {
@@ -11,7 +10,7 @@ export const aboutIntro = {
     mid: ' and Web Design Agency based in Leeds, UK specialising in ',
     webDesign: { label: 'Web Design', href: routes.webDesign },
     mid2: ', Web Development, ',
-    ecommerce: { label: 'eCommerce', href: external.ecommerce },
+    ecommerce: { label: 'eCommerce', href: routes.ecommerce },
     mid3: ' and ',
     seo: {
       label: 'Organic SEO',

@@ -1,5 +1,3 @@
-import { IMG } from '@/data/assets'
-
 export const PLANNER_SERVICE_OPTIONS = [
   'Website',
   'eCommerce',
@@ -45,7 +43,6 @@ export type PlannerStep = {
   id: number
   heading: string
   mediaCaption: string
-  mediaImage: string
   progress: number
 }
 
@@ -54,28 +51,24 @@ export const plannerSteps: PlannerStep[] = [
     id: 1,
     heading: 'Let’s start at the very beginning',
     mediaCaption: 'A quick intro from Northern Digital',
-    mediaImage: IMG.studio1,
     progress: 25,
   },
   {
     id: 2,
     heading: 'Let’s talk budget & timelines',
     mediaCaption: 'The most crucial part of a partnership',
-    mediaImage: IMG.studio2,
     progress: 50,
   },
   {
     id: 3,
     heading: 'What services do you require?',
     mediaCaption: 'What do you need us for?',
-    mediaImage: IMG.studio3,
     progress: 75,
   },
   {
     id: 4,
     heading: 'Give us the deets!',
     mediaCaption: 'Why a brief is so important',
-    mediaImage: IMG.studio6,
     progress: 100,
   },
 ]

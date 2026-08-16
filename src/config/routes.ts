@@ -4,6 +4,7 @@ export const routes = {
   home: '/',
   about: '/about',
   contact: '/contact',
+  careers: '/careers',
   privacy: '/privacy-policy',
   planner: '/project-planner',
   faqs: '/frequently-asked-questions',
@@ -13,6 +14,10 @@ export const routes = {
   seo: '/seo',
   craftCms: '/craft-cms',
   shopify: '/shopify',
+  /** eCommerce work is covered by the Shopify service page. */
+  ecommerce: '/shopify',
+  /** No standalone processes page yet — FAQs cover how we work. */
+  processes: '/frequently-asked-questions',
 } as const
 
 /** Live demo client sites — source lives in /projects/<id>/ */
@@ -26,12 +31,12 @@ export const workSites = {
 export const anchors = {
   services: '#services',
   work: '#work',
+  showreel: '#showreel',
   blog: '#blog',
   about: '#about',
   aboutIntro: '#about-intro',
   team: '/about#team',
   testimonials: '/about#testimonials',
-  homeTestimonial: '#home-testimonial',
 } as const
 
 /** Home-page hash as an absolute path, e.g. `#work` → `/#work`. */

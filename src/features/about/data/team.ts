@@ -1,3 +1,4 @@
+import { routes } from '@/config/routes'
 import { CDN, hover, portrait } from '@/features/about/data/media'
 
 export type AboutTeamMember = {
@@ -16,7 +17,6 @@ export const aboutTeam: AboutTeamMember[] = [
     role: 'Co-Founder',
     image: portrait('Group-461.jpg', '1705050203', 'f4eb0ba70df536ec5c5cc81977e0dca3'),
     linkedin: 'https://www.linkedin.com/in/andygolpys',
-    profileHref: 'https://madebyshape.co.uk/about/andy-golpys/',
     hoverImages: [
       hover('profile-images-2024/hover-images/andy/andy-4.png', '1704887804', '0ab1706115fb5536f8bec13610b3e50c', 100),
       hover('profile-images-2024/hover-images/andy/andy-5.png', '1704887803', '542f8cc87631ad1bd8a52811ca00fcea', 100),
@@ -42,7 +42,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Jason',
     role: 'Co-Founder',
     image: portrait('Group-462.jpg', '1705050194', '6adcb59253a1139b5f0b12965f74cfaf'),
-    profileHref: 'https://madebyshape.co.uk/about/jason-mayo/',
     hoverImages: [
       hover('profile-images-2024/hover-images/jason/jason-7.jpg', '1704887811', 'a256d87ef2560e8367d05312312b4a46'),
       hover('profile-images-2024/hover-images/jason/jason-1.png', '1704887811', 'c80f1bbea2f808594db546d22cba7cbd', 100),
@@ -58,7 +57,6 @@ export const aboutTeam: AboutTeamMember[] = [
     role: 'Web Developer',
     image: portrait('Group-463.jpg', '1705050191', 'c1f205fba057e236bd084792a49dc787'),
     linkedin: 'https://www.linkedin.com/in/tom-pickering-5134a4151/',
-    profileHref: 'https://madebyshape.co.uk/about/tom-pickering/',
     hoverImages: [
       hover('F30DDB5B-0050-440E-B4CE-DC86871BEE31.JPG', '1702994802', '4e9c7b1130c0a88391f50d5ea51cb13f'),
       hover('9EFE5673-550F-4B55-8B0C-E9914AEE5ED3.JPG', '1702994799', '2a998524340203b80eba5d76b8072edb'),
@@ -73,7 +71,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Jo',
     role: 'Web Developer',
     image: portrait('Group-458.jpg', '1705050192', 'a7929bffae0364a5b142122abfd0966b'),
-    profileHref: 'https://madebyshape.co.uk/about/jo-edwards/',
     hoverImages: [
       hover('profile-images-2024/hover-images/jo-e/IMG_3602.JPG', '1704892410', '2e777d4f81c7621ed871a1386344faf8'),
       hover('profile-images-2024/hover-images/jo-e/IMG_3603.JPG', '1704892410', 'c79f529ef6b1b5e814a6a98c496b5041'),
@@ -95,7 +92,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Mike',
     role: 'Designer',
     image: portrait('Group-464.jpg', '1705050258', 'fe7baf44f7b98215c91b3ef68df4b84f'),
-    profileHref: 'https://madebyshape.co.uk/about/mike-ashurst/',
     hoverImages: [
       hover('profile-images-2024/hover-images/mike/IMG_2375.jpeg', '1704892527', '579649907c9cd80469be8c843664d2aa'),
       hover('profile-images-2024/hover-images/mike/IMG_6083.jpeg', '1704892525', 'bd6c4caf77c585abff33df8e6545fcd2'),
@@ -111,7 +107,6 @@ export const aboutTeam: AboutTeamMember[] = [
     role: 'Brand Designer',
     image: portrait('Group-460.jpg', '1705050197', 'cd4e8e7b530392cbd434c11d31100a24'),
     linkedin: 'https://www.linkedin.com/in/ella-dawson-732bb519b/',
-    profileHref: 'https://madebyshape.co.uk/about/ella-dawson/',
     hoverImages: [
       hover('profile-images-2024/hover-images/ella/Walking.jpeg', '1704892051', '6945ee323d792c76c457f9504cd75d0f'),
       hover('profile-images-2024/hover-images/ella/Sexy-Food.jpeg', '1704892070', 'd7068417ab3f4b991e718f2ed13eb42a'),
@@ -127,14 +122,12 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Mark',
     role: 'Search Engine Optimisation',
     image: portrait('profile-placeholder-male.jpg', '1705050411', '904d94fdb9e6449b062145600cd3f17d'),
-    profileHref: 'https://madebyshape.co.uk/about/mark-hayes/',
   },
   {
     name: 'Natasia',
     role: 'Content Writer',
     image: portrait('Group-448.jpg', '1705050210', '2ed9ac059a1fcb05278f1715ac9ee551'),
     linkedin: 'https://www.linkedin.com/in/natasiarubin/',
-    profileHref: 'https://madebyshape.co.uk/about/natasia-rubin/',
     hoverImages: [
       hover('profile-images-2024/hover-images/natasia/witches.jpg', '1704892559', '51ea64c9b8fa458ca4e4f06d03c47216'),
       hover(
@@ -153,7 +146,6 @@ export const aboutTeam: AboutTeamMember[] = [
     role: 'Web developer',
     image: portrait('Group-457.jpg', '1705050192', 'd2c1ea44507870cc5785ae8dcd19cb8d'),
     linkedin: 'https://uk.linkedin.com/in/joseph-buckley-a5453659',
-    profileHref: 'https://madebyshape.co.uk/about/joe-buckley/',
     hoverImages: [
       hover('profile-images-2024/hover-images/joe/united.JPG', '1704892450', 'ff242d11af66144b609fa173e2a68656'),
       hover(
@@ -173,7 +165,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Chris',
     role: 'Accounts & Finance',
     image: portrait('Group-455.jpg', '1705050198', '33f31969b6dc67d53f1f4b7b2a57fa41'),
-    profileHref: 'https://madebyshape.co.uk/about/chris-golpys/',
     hoverImages: [
       hover('profile-images-2024/hover-images/chris/IMG_4901.jpeg', '1704892140', 'bbb5311723a8c1f7acd45674f7bba685'),
       hover('profile-images-2024/hover-images/chris/-.jpeg', '1704892151', 'd680bc43e47294a9e30463fa1d4fb6f6'),
@@ -189,7 +180,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Ruby',
     role: 'Design Intern',
     image: portrait('Group-456.jpg', '1705050201', '16790fe91bb98c5920eebf04519b208f'),
-    profileHref: 'https://madebyshape.co.uk/about/ruby-jayne/',
     hoverImages: [
       hover('profile-images-2024/hover-images/ruby/IMG_7564.jpeg', '1704892964', 'd2de4b73607c1d294ca339a8ffa4b3bd'),
       hover('profile-images-2024/hover-images/ruby/IMG_6676.jpeg', '1704892961', '7fdb921529e682a53456c1176285d72e'),
@@ -205,7 +195,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Dipper',
     role: 'Client Relations',
     image: portrait('Group-451.jpg', '1705050202', '313c8abddd89c09d8e659ef34a9ed448'),
-    profileHref: 'https://madebyshape.co.uk/about/dipper/',
     hoverImages: [
       hover(
         'profile-images-2024/hover-images/dipper/28f469bb-4cc1-43fa-b02b-72f367f1f64e.JPG',
@@ -222,7 +211,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Nick',
     role: 'Web Developer',
     image: portrait('Group-453.jpg', '1705050194', 'e91c44f1cf11c0773bcaea228086ab7d'),
-    profileHref: 'https://madebyshape.co.uk/about/nick-kingan/',
     hoverImages: [
       hover('profile-images-2024/hover-images/nick/playtime.jpeg', '1704892607', '47b617839c1dd0c19baacc4321950000'),
       hover('profile-images-2024/hover-images/nick/halloween.jpg', '1704892606', '015114067e8a2cd065dc46b1c3cd615c'),
@@ -241,7 +229,6 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'Roxie',
     role: 'Security',
     image: portrait('Group-450.jpg', '1705050207', 'cc175f76b24c1d096c7f0b14e90ad6ca'),
-    profileHref: 'https://madebyshape.co.uk/about/roxie-rose/',
     hoverImages: [
       hover('profile-images-2024/hover-images/roxie/IMG_6148.jpeg', '1704892868', '48e682dd65d355c4573cf53eec4b7cbe'),
       hover('profile-images-2024/hover-images/roxie/IMG_6001.jpeg', '1704898981', '7da03f2cf8cdc65b4126cfb54d275629'),
@@ -255,7 +242,6 @@ export const aboutTeam: AboutTeamMember[] = [
     role: 'Content Writer',
     image: portrait('Group-449.jpg', '1705050205', 'dc3a6f651eb740d7d0dc06d4b8c0f04f'),
     linkedin: 'https://www.linkedin.com/in/kerry-hounslea/',
-    profileHref: 'https://madebyshape.co.uk/about/kerry-hounslea/',
     hoverImages: [
       hover('profile-images-2024/hover-images/kerry/IMG_7733.jpg', '1704898516', 'b82cbaa36d14ecc7218b62728a8274f2'),
       hover('profile-images-2024/hover-images/kerry/IMG_8324.JPG', '1704898513', '3b842a1843a195cb8838f8326fc9cd97'),
@@ -274,7 +260,7 @@ export const aboutTeam: AboutTeamMember[] = [
     name: 'You',
     role: 'Want to work at Northern Digital?',
     image: `${CDN}/Male-Profile-Placeholder.jpg?w=400&h=533&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1706004348&s=347928037c7bcb7846e8fd704a321982`,
-    profileHref: 'https://madebyshape.co.uk/careers/',
+    profileHref: routes.careers,
     isPlaceholder: true,
   },
 ]

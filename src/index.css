@@ -301,20 +301,6 @@ html.dark body {
   }
 }
 
-.gooey-line {
-  background: #fff;
-  display: inline-block;
-  padding: 0.15em 0.35em 0.2em;
-  border-radius: 0.35em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  transition: background-color 0.25s ease;
-}
-
-html.dark .gooey-line {
-  background: #1a1a1a;
-}
-
 .btn-lime {
   display: inline-flex;
   align-items: center;
@@ -375,21 +361,6 @@ html.dark .btn-soft {
   opacity: 1;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.06);
-  padding: 0.25rem 0.7rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-}
-
-html.dark .tag {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 @keyframes hero-reel-grain {
   0%,
   100% {
@@ -447,5 +418,20 @@ html.dark .tag {
 @media (min-width: 1024px) {
   .hero-reel-frame {
     border-radius: 1.5rem 3.5rem 2rem 3rem;
+  }
+}
+
+/*
+  Home video carousel — one large card with the next clip peeking.
+*/
+.home-video-slide {
+  flex: 0 0 min(88vw, 920px);
+  max-width: min(88vw, 920px);
+}
+
+@media (min-width: 1024px) {
+  .home-video-slide {
+    flex-basis: min(72vw, 1080px);
+    max-width: min(72vw, 1080px);
   }
 }

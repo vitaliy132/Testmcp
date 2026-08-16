@@ -1,6 +1,5 @@
 import { IMG } from '@/data/assets'
 import { work } from '@/data/work'
-import { external } from '@/config/external'
 import { anchors, homeHash, routes } from '@/config/routes'
 import { serviceList } from '@/features/service/data/registry'
 import type { MenuLink } from '@/types/nav'
@@ -19,6 +18,7 @@ export const aboutLinks: MenuLink[] = [
   { label: 'About us', description: 'An award winning agency in Leeds', href: routes.about },
   { label: 'Meet the Team', description: 'Putting faces to names', href: anchors.team },
   { label: 'Testimonials', description: 'What our clients say about us', href: anchors.testimonials },
+  { label: 'Careers', description: 'Want to work at Northern Digital?', href: routes.careers },
 ]
 
 export const featuredCards = {
@@ -42,7 +42,7 @@ export const footerCols = {
   Learn: [
     { label: 'About', href: routes.about },
     { label: 'Testimonials', href: anchors.testimonials },
-    { label: 'Processes', href: external.processes },
+    { label: 'Processes', href: routes.processes },
     { label: 'FAQs', href: routes.faqs },
     { label: 'Blog', href: homeHash(anchors.blog) },
   ],
@@ -52,8 +52,8 @@ export const footerCols = {
   ],
   New: [
     { label: 'Services', href: homeHash(anchors.services) },
-    { label: 'Careers', href: external.careers },
-    { label: 'Sectors', href: external.sectors },
+    { label: 'Careers', href: routes.careers },
+    { label: 'Sectors', href: homeHash(anchors.services) },
     { label: 'Contact', href: routes.contact },
   ],
 } as const

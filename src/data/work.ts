@@ -14,18 +14,6 @@ export const work = [
     url: workSites.anovair,
   },
   {
-    id: 'forma-studio',
-    client: 'FORMA Studio',
-    year: '2025',
-    title: 'Premium DTC storefront with product storytelling, wishlist and modern checkout UX.',
-    tags: ['Next.js', 'E-Commerce', 'CRO'],
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'FORMA Studio lookbook — considered home at dusk',
-    imagePosition: '50% 50%',
-    url: workSites.formaStudio,
-  },
-  {
     id: 'aqua',
     client: 'Aqua',
     year: '2026',
@@ -49,6 +37,18 @@ export const work = [
     imageAlt: 'Proud Mary Coffee — ripe coffee cherries on the branch',
     imagePosition: '50% 50%',
     url: workSites.proudMary,
+  },
+  {
+    id: 'forma-studio',
+    client: 'FORMA Studio',
+    year: '2025',
+    title: 'Premium DTC storefront with product storytelling, wishlist and modern checkout UX.',
+    tags: ['Next.js', 'E-Commerce', 'CRO'],
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+    imageAlt: 'FORMA Studio lookbook — considered home at dusk',
+    imagePosition: '50% 50%',
+    url: workSites.formaStudio,
   },
 ] as const
 

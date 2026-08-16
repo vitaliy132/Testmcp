@@ -67,8 +67,6 @@ export const serviceList: ServiceRecord[] = (Object.keys(servicePages) as Servic
   ...navMeta[key],
 }))
 
-export const serviceKeys = serviceList.map((service) => service.key)
-
 export const homeServices = [...serviceList]
   .sort((a, b) => a.homeOrder - b.homeOrder)
   .map((service) => ({

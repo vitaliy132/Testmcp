@@ -1,0 +1,8 @@
+export { CareersHero } from '@/features/careers/components/CareersHero'
+export { CareersGallery } from '@/features/careers/components/CareersGallery'
+export { CareersLife } from '@/features/careers/components/CareersLife'
+export { CareersRoles } from '@/features/careers/components/CareersRoles'
+export { CareersPerks } from '@/features/careers/components/CareersPerks'
+export { CareersSpeculative } from '@/features/careers/components/CareersSpeculative'
+export { CareersTeam } from '@/features/careers/components/CareersTeam'
+export { CareersCta } from '@/features/careers/components/CareersCta'

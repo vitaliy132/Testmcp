@@ -4,7 +4,7 @@ import { isInternalHref } from '@/lib/links'
 
 type SmartLinkProps = {
   href: string
-  children: ReactNode
+  children?: ReactNode
   newTab?: boolean
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>
 

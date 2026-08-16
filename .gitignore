@@ -1,5 +1,11 @@
-# Local HyperFrames project — keep off GitHub
-hyperframes-showreel/
+# HyperFrames authoring projects and generated artifacts — keep off GitHub
+/hyperframes-showreel/
+/videos/
+/assets/sfx/
+**/.hyperframes/
+**/hyperframes.json
+**/.hyperframesignore
+**/.playwright/
 
 # Logs
 logs

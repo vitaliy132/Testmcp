@@ -1,7 +1,8 @@
 import { aboutTeamCopy } from '@/features/about/data'
-import { external } from '@/config/external'
+import { anchors } from '@/config/routes'
 import { InfiniteTeamCarousel } from '@/features/about/components/TeamCarousel'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
+import { SmartLink } from '@/components/ui/SmartLink'
 
 export function TeamSection() {
   return (
@@ -20,14 +21,9 @@ export function TeamSection() {
       <InfiniteTeamCarousel />
 
       <div className="mt-10 flex w-full justify-center px-2 lg:mt-16 lg:px-3 xl:px-4">
-        <a
-          href={external.meetTheTeam}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-lime"
-        >
+        <SmartLink href={anchors.team} className="btn-lime">
           {aboutTeamCopy.cta}
-        </a>
+        </SmartLink>
       </div>
     </section>
   )

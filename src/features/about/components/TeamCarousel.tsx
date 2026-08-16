@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { aboutTeam, type AboutTeamMember } from '@/features/about/data'
+import { anchors } from '@/config/routes'
 import { CornerFillet } from '@/components/ui/CornerFillet'
+import { SmartLink } from '@/components/ui/SmartLink'
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -23,8 +25,7 @@ function TeamCard({ member, index = 0 }: { member: AboutTeamMember; index?: numb
   const [hovering, setHovering] = useState(false)
   const [hoverIndex, setHoverIndex] = useState(0)
   const hoverImages = member.hoverImages ?? []
-  const profileHref = member.profileHref ?? '#team'
-  const external = profileHref.startsWith('http')
+  const profileHref = member.profileHref ?? anchors.team
   // MadeByShape: every other slide gets mt-10 / lg:mt-16 so cards zigzag, not a straight line
   const staggered = index % 2 === 0
 
@@ -51,10 +52,8 @@ function TeamCard({ member, index = 0 }: { member: AboutTeamMember; index?: numb
       onMouseLeave={() => setHovering(false)}
     >
       <div className="relative w-full">
-        <a
+        <SmartLink
           href={profileHref}
-          target={external ? '_blank' : undefined}
-          rel={external ? 'noreferrer' : undefined}
           className="absolute inset-0 z-10"
           aria-label={`${member.name}'s profile`}
         />
@@ -72,15 +71,13 @@ function TeamCard({ member, index = 0 }: { member: AboutTeamMember; index?: numb
               <LinkedInIcon className="h-3.5 w-3.5" />
             </a>
           ) : null}
-          <a
+          <SmartLink
             href={profileHref}
-            target={external ? '_blank' : undefined}
-            rel={external ? 'noreferrer' : undefined}
             aria-label={`Open ${member.name}'s profile`}
             className="grid h-8 w-8 place-items-center rounded-full bg-nd-lime text-nd-ink transition duration-300 group-hover:rotate-90"
           >
             <PlusIcon className="h-3.5 w-3.5" />
-          </a>
+          </SmartLink>
         </div>
 
         {/* Portrait / hover stack */}

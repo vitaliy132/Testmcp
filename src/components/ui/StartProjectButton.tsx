@@ -26,5 +26,3 @@ export function StartProjectButton({
     />
   )
 }
-
-export { ButtonGooFilter } from '@/components/ui/GooeyButton'

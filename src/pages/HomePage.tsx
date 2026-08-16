@@ -1,4 +1,4 @@
-import { Hero, About, BrandMarquee, Work, Services, Testimonial, Blog, AiSection } from '@/features/home'
+import { Hero, About, BrandMarquee, VideoCarousel, Work, Services, Blog, AiSection } from '@/features/home'
 
 export function HomePage() {
   return (
@@ -6,9 +6,9 @@ export function HomePage() {
       <Hero />
       <About />
       <BrandMarquee />
+      <VideoCarousel />
       <Work />
       <Services />
-      <Testimonial />
       <Blog />
       <AiSection />
     </>

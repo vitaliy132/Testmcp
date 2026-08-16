@@ -401,5 +401,3 @@ export const servicePages: Record<ServiceKey, ServicePageContent> = {
     ctaHeadline: 'Start your Shopify store with us',
   },
 }
-
-export const serviceKeys = Object.keys(servicePages) as ServiceKey[]

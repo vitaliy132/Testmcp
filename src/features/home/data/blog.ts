@@ -1,4 +1,3 @@
-import { external } from '@/config/external'
 import { IMG } from '@/data/assets'
 
 export const blog = [
@@ -9,7 +8,7 @@ export const blog = [
     readTime: '2 min read',
     cover: IMG.rise,
     authorImage: IMG.andyProfile,
-    url: external.blog.rise,
+    author: 'Andy',
   },
   {
     title: 'Our Culture, Our Value & Our Studio',
@@ -18,7 +17,7 @@ export const blog = [
     readTime: '6 min read',
     cover: IMG.wireframes,
     authorImage: IMG.natasia,
-    url: external.blog.culture,
+    author: 'Natasia',
   },
   {
     title: "Why haven't we upscaled our web design agency?",
@@ -27,7 +26,7 @@ export const blog = [
     readTime: '10 min read',
     cover: IMG.office,
     authorImage: IMG.andyProfile,
-    url: external.blog.upscale,
+    author: 'Andy',
   },
   {
     title: 'Why our studio outside of Manchester works for us',
@@ -36,7 +35,7 @@ export const blog = [
     readTime: '4 min read',
     cover: IMG.printer,
     authorImage: IMG.andyProfile,
-    url: external.blog.studio,
+    author: 'Andy',
   },
   {
     title: 'Types of clients we want to work with',
@@ -45,7 +44,7 @@ export const blog = [
     readTime: '6 min read',
     cover: IMG.natasiaDesk,
     authorImage: IMG.andyProfile,
-    url: external.blog.clients,
+    author: 'Andy',
   },
   {
     title: 'Why I chose to work for a small design agency',
@@ -54,6 +53,6 @@ export const blog = [
     readTime: '4 min read',
     cover: IMG.cards,
     authorImage: IMG.ella,
-    url: external.blog.smallAgency,
+    author: 'Ella',
   },
 ]

@@ -36,16 +36,6 @@ export const servicesCopy = {
   },
 }
 
-export const testimonialCopy = {
-  quote: 'Northern Digital created something better than I ever could have imagined',
-  name: 'Hannah Wessel',
-  role: 'Co-Founder, Stoneletters',
-  image: IMG.stoneletters,
-  imageAlt: 'Stoneletters testimonial',
-  portrait: IMG.hannah,
-  portraitAlt: 'Hannah Wessel',
-}
-
 export const blogCopy = {
   eyebrow: 'From the studio',
   heading: 'The latest from our design studio',
@@ -55,7 +45,6 @@ export const blogCopy = {
 export const aiCopy = {
   eyebrow: 'Don’t believe the hype?',
   heading: ['See what AI has', 'to say about us'] as const,
-  floatImages: [IMG.studio1, IMG.studio2, IMG.studio3, IMG.studio4, IMG.studio5, IMG.studio6],
 }
 
 export const heroReelSlides = [
