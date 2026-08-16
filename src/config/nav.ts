@@ -25,13 +25,13 @@ export const featuredCards = {
   services: {
     title: 'View all Services',
     description: 'We don’t stop there, check out all the services we offer here at Northern Digital',
-    href: anchors.services,
+    href: homeHash(anchors.services),
     image: IMG.servicesDropdown,
   },
   about: {
     title: 'Watch our Showreel',
     description: 'Want a snippet of our work in under a minute? We’ve got just the thing for ya...',
-    href: anchors.work,
+    href: homeHash(anchors.work),
     image: IMG.sketch,
   },
 } as const

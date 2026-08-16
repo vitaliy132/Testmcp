@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { homeServices } from '@/features/service/data/registry'
 import { servicesCopy } from '@/features/home/data/copy'
 import { IMG } from '@/data/assets'
+import { anchors } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
@@ -27,7 +28,7 @@ export function Services() {
                   {servicesCopy.body}
                 </p>
                 <div className="flex flex-wrap items-center gap-5">
-                  <StartProjectButton href="#services" label={servicesCopy.cta} />
+                  <StartProjectButton href={anchors.services} label={servicesCopy.cta} />
                   <a href={servicesCopy.andy.href} className="group flex items-center gap-3 text-sm">
                     <img
                       src={IMG.andy}

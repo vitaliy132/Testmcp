@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { DropdownLink } from '@/components/layout/header/DropdownLink'
 import { FeaturedCard } from '@/components/layout/header/FeaturedCard'
 import { aboutLinks, featuredCards, servicesLinks, workCount } from '@/config/nav'
-import { anchors, routes } from '@/config/routes'
+import { anchors, homeHash, routes } from '@/config/routes'
+import { SmartLink } from '@/components/ui/SmartLink'
 import type { OpenMenu } from '@/types/nav'
 
 export type { OpenMenu }
@@ -18,8 +19,8 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
   return (
     <nav className="relative z-10 hidden items-center gap-0.5 md:flex lg:gap-1">
       <div className="relative" onMouseEnter={() => open('services')}>
-        <a
-          href={anchors.services}
+        <SmartLink
+          href={homeHash(anchors.services)}
           className={`inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition ${
             openMenu === 'services'
               ? 'bg-black/[0.05] text-nd-ink dark:bg-white/10 dark:text-white'
@@ -32,7 +33,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
           <span className="rounded-full bg-nd-soft px-1.5 py-px text-[11px] leading-tight tracking-tight text-nd-ink/70 dark:bg-white/10 dark:text-white/70">
             {workCount}
           </span>
-        </a>
+        </SmartLink>
 
         <div
           className={`absolute left-1/2 top-full z-50 pt-4 transition duration-200 ${
@@ -58,13 +59,13 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
         </div>
       </div>
 
-      <a
-        href={anchors.work}
+      <SmartLink
+        href={homeHash(anchors.work)}
         className="rounded-full px-3 py-2 text-sm font-medium text-nd-ink/80 transition hover:bg-black/[0.04] hover:text-nd-ink dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
         onMouseEnter={scheduleClose}
       >
         Work
-      </a>
+      </SmartLink>
 
       <div className="relative" onMouseEnter={() => open('about')}>
         <Link
@@ -105,13 +106,13 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
         </div>
       </div>
 
-      <a
-        href={anchors.blog}
+      <SmartLink
+        href={homeHash(anchors.blog)}
         className="rounded-full px-3 py-2 text-sm font-medium text-nd-ink/80 transition hover:bg-black/[0.04] hover:text-nd-ink dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
         onMouseEnter={scheduleClose}
       >
         Blog
-      </a>
+      </SmartLink>
       <Link
         to={routes.contact}
         className="rounded-full px-3 py-2 text-sm font-medium text-nd-ink/80 transition hover:bg-black/[0.04] hover:text-nd-ink dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"

@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { Link } from 'react-router-dom'
 import { aboutLinks, servicesLinks, workCount } from '@/config/nav'
-import { anchors, routes } from '@/config/routes'
+import { anchors, homeHash, routes } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
 import { SmartLink } from '@/components/ui/SmartLink'
 import type { OpenMenu } from '@/types/nav'
@@ -38,7 +38,7 @@ export function MobileNav({
         {mobileExpanded === 'services' && (
           <div className="mb-2 space-y-1 pl-2">
             {servicesLinks.map((item) => (
-              <a
+              <SmartLink
                 key={item.label}
                 href={item.href}
                 className="block rounded-xl px-3 py-2.5 hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
@@ -46,14 +46,14 @@ export function MobileNav({
               >
                 <div className="font-medium">{item.label}</div>
                 <div className="text-sm text-nd-muted dark:text-white/55">{item.description}</div>
-              </a>
+              </SmartLink>
             ))}
           </div>
         )}
 
-        <a href={anchors.work} className="py-2 text-lg font-medium" onClick={closeAll}>
+        <SmartLink href={homeHash(anchors.work)} className="py-2 text-lg font-medium" onClick={closeAll}>
           Work
-        </a>
+        </SmartLink>
 
         <button
           type="button"
@@ -79,9 +79,9 @@ export function MobileNav({
           </div>
         )}
 
-        <a href={anchors.blog} className="py-2 text-lg font-medium" onClick={closeAll}>
+        <SmartLink href={homeHash(anchors.blog)} className="py-2 text-lg font-medium" onClick={closeAll}>
           Blog
-        </a>
+        </SmartLink>
         <Link to={routes.contact} className="py-2 text-lg font-medium" onClick={closeAll}>
           Contact
         </Link>

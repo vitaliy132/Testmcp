@@ -1,4 +1,5 @@
 import { ArrowIcon } from '@/components/layout/header/icons'
+import { SmartLink } from '@/components/ui/SmartLink'
 
 export function FeaturedCard({
   title,
@@ -14,7 +15,7 @@ export function FeaturedCard({
   onClick?: () => void
 }) {
   return (
-    <a
+    <SmartLink
       href={href}
       onClick={onClick}
       className="group flex h-full w-full flex-col justify-between rounded-2xl bg-black/[0.04] p-5 transition-colors hover:bg-black/[0.06] dark:bg-white/[0.06] dark:hover:bg-white/[0.1]"
@@ -35,6 +36,6 @@ export function FeaturedCard({
           className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.04]"
         />
       </div>
-    </a>
+    </SmartLink>
   )
 }

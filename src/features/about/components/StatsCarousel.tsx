@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
 import { aboutStats } from '@/features/about/data'
+import { PageContainer } from '@/components/ui/PageContainer'
 import { useSnapScroller } from '@/components/ui/useSnapScroller'
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
@@ -62,35 +63,39 @@ export function StatsCarousel() {
   })
 
   return (
-    <div ref={sectionRef}>
-      <div
-        ref={scrollerRef}
-        className="flex snap-x snap-mandatory overflow-x-auto pb-2 scrollbar-none"
-      >
-        {aboutStats.map((stat) => (
-          <StatCard key={stat.label} {...stat} active={inView} />
-        ))}
-      </div>
-      <div className="mt-5 flex items-center gap-2 px-2 xl:hidden">
-        <button
-          type="button"
-          aria-label="Previous stats"
-          disabled={atStart}
-          onClick={() => scrollBy(-1)}
-          className="grid h-10 w-10 place-items-center rounded-full bg-nd-soft text-lg transition enabled:hover:bg-nd-lime disabled:pointer-events-none disabled:opacity-30 dark:bg-white/10 dark:enabled:hover:bg-white/20"
-        >
-          ←
-        </button>
-        <button
-          type="button"
-          aria-label="Next stats"
-          disabled={atEnd}
-          onClick={() => scrollBy(1)}
-          className="grid h-10 w-10 place-items-center rounded-full bg-nd-soft text-lg transition enabled:hover:bg-nd-lime disabled:pointer-events-none disabled:opacity-30 dark:bg-white/10 dark:enabled:hover:bg-white/20"
-        >
-          →
-        </button>
-      </div>
-    </div>
+    <section className="pb-20 lg:pb-24">
+      <PageContainer variant="about">
+        <div ref={sectionRef}>
+          <div
+            ref={scrollerRef}
+            className="flex snap-x snap-mandatory overflow-x-auto pb-2 scrollbar-none"
+          >
+            {aboutStats.map((stat) => (
+              <StatCard key={stat.label} {...stat} active={inView} />
+            ))}
+          </div>
+          <div className="mt-5 flex items-center gap-2 px-2 xl:hidden">
+            <button
+              type="button"
+              aria-label="Previous stats"
+              disabled={atStart}
+              onClick={() => scrollBy(-1)}
+              className="grid h-10 w-10 place-items-center rounded-full bg-nd-soft text-lg transition enabled:hover:bg-nd-lime disabled:pointer-events-none disabled:opacity-30 dark:bg-white/10 dark:enabled:hover:bg-white/20"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Next stats"
+              disabled={atEnd}
+              onClick={() => scrollBy(1)}
+              className="grid h-10 w-10 place-items-center rounded-full bg-nd-soft text-lg transition enabled:hover:bg-nd-lime disabled:pointer-events-none disabled:opacity-30 dark:bg-white/10 dark:enabled:hover:bg-white/20"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </PageContainer>
+    </section>
   )
 }

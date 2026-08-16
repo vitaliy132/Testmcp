@@ -1,23 +1,17 @@
-import type { ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { isInternalHref } from '@/lib/links'
 
-export function SmartLink({
-  href,
-  className,
-  children,
-  onClick,
-  newTab,
-}: {
+type SmartLinkProps = {
   href: string
-  className?: string
   children: ReactNode
-  onClick?: () => void
   newTab?: boolean
-}) {
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>
+
+export function SmartLink({ href, children, newTab, ...rest }: SmartLinkProps) {
   if (isInternalHref(href)) {
     return (
-      <Link to={href} className={className} onClick={onClick}>
+      <Link to={href} {...rest}>
         {children}
       </Link>
     )
@@ -26,10 +20,9 @@ export function SmartLink({
   return (
     <a
       href={href}
-      className={className}
-      onClick={onClick}
-      target={newTab ? '_blank' : undefined}
-      rel={newTab ? 'noreferrer' : undefined}
+      {...rest}
+      target={newTab ? '_blank' : rest.target}
+      rel={newTab ? 'noreferrer' : rest.rel}
     >
       {children}
     </a>
