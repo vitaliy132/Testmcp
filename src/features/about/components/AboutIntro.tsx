@@ -1,43 +1,33 @@
 import { type ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { aboutIntro } from '@/data/about'
-
-function isInternalPath(href: string) {
-  return href.startsWith('/') && !href.startsWith('//')
-}
+import { aboutIntro } from '@/features/about/data'
+import { PageContainer } from '@/components/ui/PageContainer'
+import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
+import { SmartLink } from '@/components/ui/SmartLink'
 
 const linkClassName =
   'rounded-md bg-nd-soft px-1 py-0.5 underline decoration-transparent transition duration-500 hover:bg-nd-lime dark:bg-white/10 dark:hover:bg-nd-lime dark:hover:text-nd-ink'
 
 function IntroLink({ href, children }: { href: string; children: ReactNode }) {
-  if (isInternalPath(href)) {
-    return (
-      <Link to={href} className={linkClassName}>
-        {children}
-      </Link>
-    )
-  }
-
   return (
-    <a href={href} target="_blank" rel="noreferrer" className={linkClassName}>
+    <SmartLink href={href} className={linkClassName} newTab={!href.startsWith('/')}>
       {children}
-    </a>
+    </SmartLink>
   )
 }
 
 export function AboutIntro() {
   return (
     <section id="about-intro" className="scroll-mt-28 py-16 lg:py-24">
-      <div className="mx-auto w-full px-2 sm:px-6 xl:px-12 2xl:px-20">
+      <PageContainer variant="about">
         <div className="flex w-full flex-wrap">
           <div className="relative mb-8 w-full lg:mb-0 lg:w-[56%] lg:pr-10 xl:pr-16">
-            <div className="mb-3 inline-flex items-center gap-2 xl:absolute xl:left-4 xl:top-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/80" />
-              <span className="text-sm font-light text-nd-muted lg:text-base dark:text-white/80">
-                {aboutIntro.eyebrow}
-              </span>
-            </div>
+            <SectionEyebrow
+              tone="muted"
+              className="mb-3 inline-flex items-center gap-2 xl:absolute xl:left-4 xl:top-2"
+            >
+              {aboutIntro.eyebrow}
+            </SectionEyebrow>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +71,7 @@ export function AboutIntro() {
             </div>
           </div>
         </div>
-      </div>
+      </PageContainer>
     </section>
   )
 }

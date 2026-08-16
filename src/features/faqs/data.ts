@@ -1,22 +1,11 @@
-export type FaqBullet = {
-  strong?: string
-  text: string
-}
+import type { FaqItem, FaqSection } from '@/types/faq'
 
-export type FaqItem = {
-  question: string
-  answer: string
-  bullets?: FaqBullet[]
-}
-
-export type FaqSection = {
-  title: string
-  items: FaqItem[]
-}
+export type { FaqItem, FaqSection }
 
 export const faqHero = {
   title: 'Frequently Asked Questions',
   subtitle: 'The answers to your questions.',
+  headline: ['The answers to', 'your questions.'] as const,
 }
 
 export const faqSections: FaqSection[] = [

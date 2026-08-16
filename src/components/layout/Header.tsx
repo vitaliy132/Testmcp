@@ -1,59 +1,22 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { brand } from '@/config/brand'
-import { routes } from '@/config/links'
+import { routes } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
-import { DesktopNav, type OpenMenu } from '@/components/layout/header/DesktopNav'
+import { DesktopNav } from '@/components/layout/header/DesktopNav'
 import { MobileNav } from '@/components/layout/header/MobileNav'
 import { ThemeToggle } from '@/components/layout/header/ThemeToggle'
-
-function clamp(n: number, min: number, max: number) {
-  return Math.min(max, Math.max(min, n))
-}
+import { useHeaderScroll } from '@/components/layout/header/useHeaderScroll'
+import type { OpenMenu } from '@/types/nav'
 
 export function Header() {
-  const [headerSmall, setHeaderSmall] = useState(false)
-  const [headerHidden, setHeaderHidden] = useState(false)
-  const [barWidth, setBarWidth] = useState('98vw')
   const [menuOpen, setMenuOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<OpenMenu>(null)
   const [mobileExpanded, setMobileExpanded] = useState<OpenMenu>(null)
   const closeTimer = useRef<number | null>(null)
-  const lastY = useRef(0)
-  const direction = useRef<'up' | 'down'>('up')
-
-  useEffect(() => {
-    const update = () => {
-      const y = window.scrollY
-      const delta = y - lastY.current
-
-      if (Math.abs(delta) > 4) {
-        direction.current = delta > 0 ? 'down' : 'up'
-        lastY.current = y
-      }
-
-      const small = y > 80
-      setHeaderSmall(small)
-
-      // Match Shape: shrink width as you scroll, then settle
-      const progress = clamp(y / 280, 0, 1)
-      const width = 98 - progress * 18 // 98vw → ~80vw
-      setBarWidth(small ? `${width.toFixed(2)}vw` : '98vw')
-
-      // Hide when scrolling down past 400px; show when scrolling up or near top
-      const shouldHide = direction.current === 'down' && y > 400 && !menuOpen && !openMenu
-      setHeaderHidden(shouldHide)
-    }
-
-    lastY.current = window.scrollY
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
-    return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
-    }
-  }, [menuOpen, openMenu])
+  const { headerSmall, headerHidden, setHeaderHidden, barWidth } = useHeaderScroll(
+    menuOpen || openMenu !== null,
+  )
 
   const open = (menu: OpenMenu) => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current)

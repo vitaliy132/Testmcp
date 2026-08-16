@@ -1,16 +1,10 @@
-import { routes } from '@/config/links'
+import { routes } from '@/config/routes'
+import type { FaqItem } from '@/types/faq'
+import type { ServiceCapability, ServiceKey } from '@/types/service'
 
-export type ServiceKey = 'branding' | 'webDesign' | 'seo' | 'craftCms' | 'shopify'
+export type { FaqItem, ServiceCapability, ServiceKey }
 
-export type ServiceCapability = {
-  name: string
-  description: string
-}
-
-export type ServiceFaq = {
-  question: string
-  answer: string
-}
+export type ServiceFaq = FaqItem
 
 export type ServicePageContent = {
   key: ServiceKey
@@ -24,7 +18,7 @@ export type ServicePageContent = {
   capabilities: ServiceCapability[]
   trustPoints: string[]
   faqsTitle: string
-  faqs: ServiceFaq[]
+  faqs: FaqItem[]
   ctaHeadline: string
 }
 

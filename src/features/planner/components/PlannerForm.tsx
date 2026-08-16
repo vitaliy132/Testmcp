@@ -16,11 +16,12 @@ import {
   validatePlannerStep,
   type PlannerFormData,
   type PlannerService,
-} from '@/data/planner'
-import { routes } from '@/config/links'
+} from '@/features/planner/data'
+import { routes } from '@/config/routes'
 import { submitWeb3Form } from '@/lib/web3forms'
-import { FloatingField } from '@/components/planner/FloatingField'
 import { GooeySubmitButton } from '@/components/ui/GooeyButton'
+import { PlannerStepMedia } from '@/features/planner/components/PlannerStepMedia'
+import { PlannerStepFields } from '@/features/planner/components/PlannerStepFields'
 
 const MAX_BRIEF_BYTES = 10 * 1024 * 1024
 
@@ -155,18 +156,7 @@ export function PlannerForm() {
     <section className="w-full pt-20 pb-10 lg:pt-32 lg:pb-16 xl:pt-40">
       <div className="px-2 sm:px-6 xl:px-12 2xl:px-20">
         <form onSubmit={onSubmit} className="relative flex w-full flex-wrap" noValidate>
-          <div className="order-2 w-full px-2 md:order-1 md:w-[37.5%] lg:w-[31.25%] lg:px-4">
-            <div className="relative aspect-[9/14] w-full overflow-hidden rounded-2xl bg-nd-soft group lg:rounded-3xl dark:bg-[#1a1a1a]">
-              <img
-                src={meta.mediaImage}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 z-20 w-full bg-black/80 px-3 py-2 text-center text-xs text-white lg:text-sm">
-                {meta.mediaCaption}
-              </div>
-            </div>
-          </div>
+          <PlannerStepMedia meta={meta} />
 
           <div className="order-1 mb-5 flex w-full flex-wrap px-2 md:order-2 md:mb-0 md:w-[62.5%] lg:ml-[6.25%] lg:w-[56.25%] lg:px-4 xl:w-1/2 2xl:ml-[12.5%] 2xl:w-[43.75%]">
             <div className="relative flex w-full flex-wrap items-center rounded-2xl border border-black/10 px-5 pt-20 pb-2 lg:rounded-none lg:border-none lg:p-0 lg:pt-20 xl:py-28 dark:border-white/15">
@@ -187,152 +177,15 @@ export function PlannerForm() {
                   {meta.heading}
                 </div>
 
-                {step === 1 && (
-                  <div className="space-y-4">
-                    <FloatingField
-                      id={`${formId}-name`}
-                      label="Name"
-                      value={data.fullName}
-                      onChange={(v) => patch({ fullName: v })}
-                      required
-                    />
-                    <FloatingField
-                      id={`${formId}-email`}
-                      label="Email"
-                      type="email"
-                      value={data.emailAddress}
-                      onChange={(v) => patch({ emailAddress: v })}
-                      required
-                    />
-                    <FloatingField
-                      id={`${formId}-company`}
-                      label="Company"
-                      value={data.company}
-                      onChange={(v) => patch({ company: v })}
-                      required
-                    />
-                  </div>
-                )}
-
-                {step === 2 && (
-                  <div className="space-y-5">
-                    <div>
-                      <p className="mb-3 text-sm text-nd-muted dark:text-white/55">
-                        I want to launch my project on:
-                      </p>
-                      <FloatingField
-                        id={`${formId}-date`}
-                        label="DD/MM/YYYY"
-                        type="tel"
-                        inputMode="numeric"
-                        value={data.date}
-                        onChange={(v) => patch({ date: v })}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <p className="mb-3 text-sm text-nd-muted dark:text-white/55">My budget is between</p>
-                      <div className="grid grid-cols-2 gap-3">
-                        <FloatingField
-                          id={`${formId}-from`}
-                          label="From (£)"
-                          type="tel"
-                          inputMode="numeric"
-                          value={data.priceFrom}
-                          onChange={(v) => patch({ priceFrom: v })}
-                          required
-                        />
-                        <FloatingField
-                          id={`${formId}-to`}
-                          label="To (£)"
-                          type="tel"
-                          inputMode="numeric"
-                          value={data.priceTo}
-                          onChange={(v) => patch({ priceTo: v })}
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {step === 3 && (
-                  <div className="flex flex-wrap gap-2">
-                    {PLANNER_SERVICE_OPTIONS.map((service) => {
-                      const selected = data.services.includes(service)
-                      return (
-                        <button
-                          key={service}
-                          type="button"
-                          onClick={() => toggleService(service)}
-                          aria-pressed={selected}
-                          className={`rounded-full border px-4 py-2 text-sm transition ${
-                            selected
-                              ? 'border-nd-ink bg-nd-ink text-white dark:border-white dark:bg-white dark:text-nd-ink'
-                              : 'border-black/15 text-nd-ink hover:border-black/30 dark:border-white/20 dark:text-white dark:hover:border-white/40'
-                          }`}
-                        >
-                          {service}
-                        </button>
-                      )
-                    })}
-                  </div>
-                )}
-
-                {step === 4 && (
-                  <div className="space-y-5">
-                    <div className="relative w-full">
-                      <textarea
-                        id={`${formId}-summary`}
-                        value={data.summary}
-                        onChange={(e) => patch({ summary: e.target.value })}
-                        required
-                        placeholder=" "
-                        rows={5}
-                        className="peer w-full appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-7 pb-3 text-sm text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10"
-                      />
-                      <label
-                        htmlFor={`${formId}-summary`}
-                        className="pointer-events-none absolute top-4 left-5 origin-bottom-left text-nd-muted transition-transform duration-300 peer-focus:-translate-y-2.5 peer-focus:scale-75 peer-[:not(:placeholder-shown)]:-translate-y-2.5 peer-[:not(:placeholder-shown)]:scale-75 dark:text-white/55"
-                      >
-                        Please provide a summary of your project
-                      </label>
-                    </div>
-
-                    <div>
-                      <p className="mb-2 text-sm text-nd-muted dark:text-white/55">Or upload a project brief</p>
-                      <button
-                        type="button"
-                        onClick={() => fileRef.current?.click()}
-                        className="flex h-40 w-full flex-col items-center justify-center rounded-xl border border-dashed border-black/20 bg-nd-soft/60 px-6 text-center transition hover:border-black/35 dark:border-white/25 dark:bg-[#1a1a1a] dark:hover:border-white/40"
-                      >
-                        <span className="text-sm font-medium">
-                          {data.briefFileName ?? 'Drop or choose a file'}
-                        </span>
-                        <span className="mt-1 text-xs text-nd-muted dark:text-white/50">
-                          File size PDF, docx, max. 10 MB
-                        </span>
-                      </button>
-                      <input
-                        ref={fileRef}
-                        type="file"
-                        accept=".pdf,.doc,.docx,application/pdf"
-                        className="hidden"
-                        onChange={onBriefChange}
-                      />
-                    </div>
-
-                    <label className="flex cursor-pointer items-start gap-3 text-sm dark:text-white/85">
-                      <input
-                        type="checkbox"
-                        checked={data.newsletter}
-                        onChange={(e) => patch({ newsletter: e.target.checked })}
-                        className="mt-1 h-4 w-4 rounded border-black/25 accent-nd-lime"
-                      />
-                      <span>Subscribe to our newsletter for all the latest Northern Digital goss!</span>
-                    </label>
-                  </div>
-                )}
+                <PlannerStepFields
+                  step={step}
+                  data={data}
+                  formId={formId}
+                  fileRef={fileRef}
+                  patch={patch}
+                  toggleService={toggleService}
+                  onBriefChange={onBriefChange}
+                />
 
                 {error && (
                   <p className="mt-4 text-sm text-red-600 dark:text-red-400" role="alert">

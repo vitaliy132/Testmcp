@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { aiLinks } from '@/config/links'
-import { IMG } from '@/data/assets'
+import { aiLinks } from '@/config/external'
+import { aiCopy } from '@/features/home/data/copy'
 
-const floatImgs = [IMG.studio1, IMG.studio2, IMG.studio3, IMG.studio4, IMG.studio5, IMG.studio6]
+const floatImgs = aiCopy.floatImages
 
 export function AiSection() {
   return (
@@ -33,11 +33,11 @@ export function AiSection() {
       </div>
 
       <div className="relative mx-auto max-w-[900px] px-5 text-center lg:px-8">
-        <p className="mb-3 text-sm font-medium text-nd-muted dark:text-white/55">Don’t believe the hype?</p>
+        <p className="mb-3 text-sm font-medium text-nd-muted dark:text-white/55">{aiCopy.eyebrow}</p>
         <h2 className="text-[clamp(2rem,5vw,4rem)] leading-[1.05] tracking-tight">
-          See what AI has
+          {aiCopy.heading[0]}
           <br />
-          to say about us
+          {aiCopy.heading[1]}
         </h2>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {aiLinks.map((link) => (

@@ -1,4 +1,4 @@
-import { routes } from '@/config/links'
+import { routes } from '@/config/routes'
 import { GooeyLink } from '@/components/ui/GooeyButton'
 
 type StartProjectButtonProps = {

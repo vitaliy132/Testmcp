@@ -7,7 +7,8 @@ import { FaqsPage } from '@/pages/FaqsPage'
 import { PlannerPage } from '@/pages/PlannerPage'
 import { PrivacyPage } from '@/pages/PrivacyPage'
 import { ServicePage } from '@/pages/ServicePage'
-import { routes } from '@/config/links'
+import { routes } from '@/config/routes'
+import { serviceList } from '@/features/service'
 
 export function AppRoutes() {
   return (
@@ -20,11 +21,13 @@ export function AppRoutes() {
         <Route path={routes.planner} element={<PlannerPage />} />
         <Route path={routes.faqs} element={<FaqsPage />} />
         <Route path={routes.faqsAlias} element={<Navigate to={routes.faqs} replace />} />
-        <Route path={routes.branding} element={<ServicePage serviceKey="branding" />} />
-        <Route path={routes.webDesign} element={<ServicePage serviceKey="webDesign" />} />
-        <Route path={routes.seo} element={<ServicePage serviceKey="seo" />} />
-        <Route path={routes.craftCms} element={<ServicePage serviceKey="craftCms" />} />
-        <Route path={routes.shopify} element={<ServicePage serviceKey="shopify" />} />
+        {serviceList.map((service) => (
+          <Route
+            key={service.key}
+            path={service.path}
+            element={<ServicePage serviceKey={service.key} />}
+          />
+        ))}
         <Route path="*" element={<Navigate to={routes.home} replace />} />
       </Route>
     </Routes>

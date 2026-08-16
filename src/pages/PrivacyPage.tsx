@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { privacyContent } from '@/data/privacy'
+import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
 export function PrivacyPage() {
   return (
@@ -9,12 +10,9 @@ export function PrivacyPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="mb-5 inline-flex items-center gap-2"
+          className="mb-5"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-nd-ink dark:bg-white" aria-hidden />
-          <span className="text-sm font-light text-nd-muted dark:text-white/70 lg:text-base">
-            {privacyContent.eyebrow}
-          </span>
+          <SectionEyebrow>{privacyContent.eyebrow}</SectionEyebrow>
         </motion.div>
 
         <motion.h1

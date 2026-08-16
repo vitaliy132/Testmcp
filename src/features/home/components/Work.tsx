@@ -1,28 +1,17 @@
 import { motion } from 'framer-motion'
-import { work } from '@/data/content'
-import { routes } from '@/config/links'
+import { work, type WorkItem } from '@/data/work'
+import { routes } from '@/config/routes'
+import { workCopy } from '@/features/home/data/copy'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
+import { CornerFillet } from '@/components/ui/CornerFillet'
+import { PageContainer } from '@/components/ui/PageContainer'
+import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
-type WorkItem = (typeof work)[number]
-
-/** Quarter-circle fillets so the top-right cutout meets the image cleanly (Shape pattern) */
 function CornerFillets() {
   return (
     <>
-      <svg
-        className="absolute top-0 left-px h-10 w-10 -translate-x-full fill-current text-white dark:text-[#121212]"
-        viewBox="0 0 100 100"
-        aria-hidden
-      >
-        <path d="M98.1 0h1.9v51.9h-1.9c0-27.6-22.4-50-50-50V0h50z" />
-      </svg>
-      <svg
-        className="absolute right-0 bottom-px h-10 w-10 translate-y-full fill-current text-white dark:text-[#121212]"
-        viewBox="0 0 100 100"
-        aria-hidden
-      >
-        <path d="M98.1 0h1.9v51.9h-1.9c0-27.6-22.4-50-50-50V0h50z" />
-      </svg>
+      <CornerFillet className="absolute top-0 left-px h-10 w-10 -translate-x-full text-white dark:text-[#121212]" />
+      <CornerFillet className="absolute right-0 bottom-px h-10 w-10 translate-y-full text-white dark:text-[#121212]" />
     </>
   )
 }
@@ -31,11 +20,11 @@ function WorkCta() {
   return (
     <div className="flex w-full flex-col items-center justify-center text-center">
       <h3 className="mb-5 text-[clamp(1.5rem,3vw,2.75rem)] leading-none tracking-tight">
-        Like what
+        {workCopy.ctaHeading[0]}
         <br />
-        you see?
+        {workCopy.ctaHeading[1]}
       </h3>
-      <StartProjectButton href={routes.contact} label="Contact us" />
+      <StartProjectButton href={routes.contact} label={workCopy.ctaLabel} />
     </div>
   )
 }
@@ -118,14 +107,11 @@ export function Work() {
 
   return (
     <section id="work" className="py-16 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-3 sm:px-5 lg:px-8">
+      <PageContainer variant="work">
         <div className="mb-10 flex flex-col items-start gap-3 lg:mb-16 lg:gap-5">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-nd-ink dark:bg-white" />
-            <p className="text-sm font-light text-nd-muted lg:text-base dark:text-white/55">Our Work</p>
-          </div>
+          <SectionEyebrow>{workCopy.eyebrow}</SectionEyebrow>
           <h2 className="max-w-sm text-[clamp(1.75rem,4vw,3.75rem)] leading-none tracking-tight text-balance">
-            Take a look at our projects
+            {workCopy.heading}
           </h2>
         </div>
 
@@ -152,7 +138,7 @@ export function Work() {
         <div className="mt-4 flex justify-center lg:hidden">
           <WorkCta />
         </div>
-      </div>
+      </PageContainer>
     </section>
   )
 }

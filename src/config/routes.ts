@@ -1,0 +1,41 @@
+/** Internal SPA routes, work demos, and in-page anchors. */
+
+export const routes = {
+  home: '/',
+  about: '/about',
+  contact: '/contact',
+  privacy: '/privacy-policy',
+  planner: '/project-planner',
+  faqs: '/frequently-asked-questions',
+  faqsAlias: '/faqs',
+  branding: '/branding',
+  webDesign: '/web-design',
+  seo: '/seo',
+  craftCms: '/craft-cms',
+  shopify: '/shopify',
+} as const
+
+/** Live demo client sites — source lives in /projects/<id>/ */
+export const workSites = {
+  anovair: '/projects/anovair/',
+  formaStudio: '/projects/forma-studio/',
+  aqua: '/projects/aqua/',
+  proudMary: '/projects/proud-mary/',
+} as const
+
+export const anchors = {
+  services: '#services',
+  work: '#work',
+  blog: '#blog',
+  about: '#about',
+  aboutIntro: '#about-intro',
+  team: '/about#team',
+  testimonials: '/about#testimonials',
+  homeTestimonial: '#home-testimonial',
+} as const
+
+/** Home-page hash as an absolute path, e.g. `#work` → `/#work`. */
+export function homeHash(hash: string) {
+  const normalized = hash.startsWith('#') ? hash : `#${hash}`
+  return `/${normalized}`
+}

@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { anchors, routes } from '@/config/links'
 import { brand } from '@/config/brand'
+import { anchors, routes } from '@/config/routes'
+import { aboutTeaser } from '@/features/home/data/copy'
+import { PageContainer } from '@/components/ui/PageContainer'
 
 export function About() {
   return (
     <section id="about" className="py-16 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+      <PageContainer>
         <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr] lg:gap-16">
-          <p className="text-sm font-medium text-nd-muted dark:text-white/55">Who are we?</p>
+          <p className="text-sm font-medium text-nd-muted dark:text-white/55">{aboutTeaser.eyebrow}</p>
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -37,7 +39,7 @@ export function About() {
             </div>
           </div>
         </div>
-      </div>
+      </PageContainer>
     </section>
   )
 }

@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { anchors } from '@/config/links'
-import { IMG } from '@/data/assets'
-import { HeroReel } from '@/components/home/HeroReel'
+import { anchors } from '@/config/routes'
+import { heroCopy } from '@/features/home/data/copy'
+import { HeroReel } from '@/features/home/components/HeroReel'
+import { PageContainer } from '@/components/ui/PageContainer'
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
-      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+      <PageContainer>
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -23,10 +24,10 @@ export function Hero() {
             href={anchors.about}
             className="absolute right-4 top-4 z-30 flex max-w-[min(100%,18rem)] items-center gap-3 rounded-full bg-white/95 py-1.5 pl-1.5 pr-5 backdrop-blur transition hover:scale-[1.02] dark:bg-[#1a1a1a]/95 lg:right-8 lg:top-6"
           >
-            <img src={IMG.andy} alt="Andy" className="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14" />
+            <img src={heroCopy.andy.image} alt="Andy" className="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14" />
             <div className="text-left leading-tight">
-              <div className="text-sm font-medium">Hear from Andy</div>
-              <div className="text-xs text-nd-muted dark:text-white/60">Co-Founder of Northern Digital</div>
+              <div className="text-sm font-medium">{heroCopy.andy.title}</div>
+              <div className="text-xs text-nd-muted dark:text-white/60">{heroCopy.andy.subtitle}</div>
             </div>
           </a>
 
@@ -38,7 +39,7 @@ export function Hero() {
               className="mb-4 inline-flex items-center gap-2 text-sm text-white/85 lg:text-base"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-nd-lime" aria-hidden />
-              <span>Hiya, we’re Northern Digital</span>
+              <span>{heroCopy.eyebrow}</span>
               <span className="animate-wave text-xl" aria-hidden>
                 👋
               </span>
@@ -50,11 +51,11 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.08 }}
               className="hero-overlay-title max-w-[14ch] text-[clamp(2.1rem,6.5vw,5.5rem)] leading-[0.95] tracking-tight text-white"
             >
-              A web design and
+              {heroCopy.headline[0]}
               <br />
-              branding agency
+              {heroCopy.headline[1]}
               <br />
-              in Leeds
+              {heroCopy.headline[2]}
             </motion.h1>
 
             <motion.div
@@ -64,15 +65,15 @@ export function Hero() {
               className="mt-7 flex flex-wrap items-center gap-3 lg:gap-5"
             >
               <a href={anchors.work} className="btn-soft">
-                View our work
+                {heroCopy.workCta}
               </a>
               <Link to={anchors.team} className="btn-ghost text-white">
-                Meet the team →
+                {heroCopy.teamCta}
               </Link>
             </motion.div>
           </div>
         </motion.div>
-      </div>
+      </PageContainer>
     </section>
   )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { aboutHeroImages } from '@/data/about'
+import { aboutHeroCopy, aboutHeroImages } from '@/features/about/data'
+import { anchors } from '@/config/routes'
 
 /**
  * MadeByShape archedImageCarousel* (GSAP) config:
@@ -126,9 +127,9 @@ export function AboutHero() {
           transition={{ duration: 0.55 }}
           className="max-w-[16ch] text-center text-3xl leading-none tracking-tight text-balance text-nd-muted sm:text-5xl md:text-6xl xl:text-8xl dark:text-white/85"
         >
-          Good design
+          {aboutHeroCopy.headline[0]}
           <br />
-          makes life better.
+          {aboutHeroCopy.headline[1]}
         </motion.h1>
       </div>
 
@@ -150,8 +151,8 @@ export function AboutHero() {
       </div>
 
       <div className="relative z-20 flex justify-center px-4 pt-2 sm:px-6">
-        <a href="#about-intro" className="btn-lime">
-          Learn about us
+        <a href={anchors.aboutIntro} className="btn-lime">
+          {aboutHeroCopy.cta}
         </a>
       </div>
     </section>

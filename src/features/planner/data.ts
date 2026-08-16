@@ -1,4 +1,4 @@
-import { IMG } from './content'
+import { IMG } from '@/data/assets'
 
 export const PLANNER_SERVICE_OPTIONS = [
   'Website',

@@ -1,0 +1,7 @@
+export { ServiceHero } from '@/features/service/components/ServiceHero'
+export { ServicePitch } from '@/features/service/components/ServicePitch'
+export { ServiceCapabilities } from '@/features/service/components/ServiceCapabilities'
+export { ServiceFaqs } from '@/features/service/components/ServiceFaqs'
+export { ServiceCta } from '@/features/service/components/ServiceCta'
+export { serviceList, servicePages, serviceKeys, homeServices } from '@/features/service/data/registry'
+export type { ServiceKey, ServicePageContent } from '@/features/service/data/pages'

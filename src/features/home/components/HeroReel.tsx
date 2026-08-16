@@ -7,23 +7,10 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion'
-import { IMG } from '@/data/assets'
+import { heroReelChips, heroReelSlides } from '@/features/home/data/copy'
 
-const SLIDES = [
-  { src: IMG.studio1, alt: 'Designers in the studio' },
-  { src: IMG.sketch, alt: 'Sketch Studios project' },
-  { src: IMG.studio2, alt: 'Studio collaboration' },
-  { src: IMG.nthDegree, alt: 'Nth Degree furniture shoot' },
-  { src: IMG.studio3, alt: 'Creative session in studio' },
-  { src: IMG.wireframes, alt: 'Team reviewing wireframes' },
-] as const
-
-const CHIPS = [
-  { label: 'Web', x: '58%', y: '28%', delay: 0 },
-  { label: 'Brand', x: '74%', y: '42%', delay: 0.4 },
-  { label: 'SEO', x: '52%', y: '68%', delay: 0.8 },
-  { label: 'Craft', x: '78%', y: '72%', delay: 1.2 },
-] as const
+const SLIDES = heroReelSlides
+const CHIPS = heroReelChips
 
 const SLIDE_MS = 5500
 
@@ -80,7 +67,7 @@ export function HeroReel() {
     return (
       <div className="absolute inset-0" aria-hidden>
         <img
-          src={IMG.studio1}
+          src={SLIDES[0].src}
           alt=""
           className="h-full w-full object-cover opacity-90"
         />

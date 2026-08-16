@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { DropdownLink } from '@/components/layout/header/DropdownLink'
 import { FeaturedCard } from '@/components/layout/header/FeaturedCard'
-import { aboutLinks, anchors, routes, servicesLinks } from '@/config/links'
-import { IMG } from '@/data/assets'
+import { aboutLinks, featuredCards, servicesLinks, workCount } from '@/config/nav'
+import { anchors, routes } from '@/config/routes'
+import type { OpenMenu } from '@/types/nav'
 
-export type OpenMenu = 'services' | 'about' | null
+export type { OpenMenu }
 
 type DesktopNavProps = {
   openMenu: OpenMenu
@@ -29,7 +30,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
         >
           Services
           <span className="rounded-full bg-nd-soft px-1.5 py-px text-[11px] leading-tight tracking-tight text-nd-ink/70 dark:bg-white/10 dark:text-white/70">
-            13
+            {workCount}
           </span>
         </a>
 
@@ -50,13 +51,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
                 ))}
               </div>
               <div className="w-[42%] pl-2">
-                <FeaturedCard
-                  title="View all Services"
-                  description="We don’t stop there, check out all the services we offer here at Northern Digital"
-                  href={anchors.services}
-                  image={IMG.servicesDropdown}
-                  onClick={closeAll}
-                />
+                <FeaturedCard {...featuredCards.services} onClick={closeAll} />
               </div>
             </div>
           </div>
@@ -103,13 +98,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
                 ))}
               </div>
               <div className="w-[45%] pl-2">
-                <FeaturedCard
-                  title="Watch our Showreel"
-                  description="Want a snippet of our work in under a minute? We’ve got just the thing for ya..."
-                  href={anchors.work}
-                  image={IMG.sketch}
-                  onClick={closeAll}
-                />
+                <FeaturedCard {...featuredCards.about} onClick={closeAll} />
               </div>
             </div>
           </div>

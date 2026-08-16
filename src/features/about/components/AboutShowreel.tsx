@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import { aboutShowreel } from '@/data/about'
-import { CornerFillet } from '@/components/about/CornerFillet'
+import { aboutShowreel } from '@/features/about/data'
+import { CornerFillet } from '@/components/ui/CornerFillet'
 
 export function AboutShowreel() {
   const videoRef = useRef<HTMLVideoElement>(null)

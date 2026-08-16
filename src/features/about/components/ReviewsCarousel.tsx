@@ -1,5 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { aboutGoogleBadge, aboutReviews, aboutReviewsLink } from '@/data/about'
+import {
+  aboutGoogleBadge,
+  aboutReviews,
+  aboutReviewsCopy,
+  aboutReviewsLink,
+} from '@/features/about/data'
+import { useSnapScroller } from '@/components/ui/useSnapScroller'
 
 function StarIcon({ className }: { className?: string }) {
   return (
@@ -10,40 +15,12 @@ function StarIcon({ className }: { className?: string }) {
 }
 
 export function ReviewsCarousel() {
-  const scrollerRef = useRef<HTMLDivElement>(null)
-  const [atStart, setAtStart] = useState(true)
-  const [atEnd, setAtEnd] = useState(false)
-
-  const updateEdges = () => {
-    const el = scrollerRef.current
-    if (!el) return
-    setAtStart(el.scrollLeft <= 2)
-    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 2)
-  }
-
-  useEffect(() => {
-    const el = scrollerRef.current
-    if (!el) return
-    updateEdges()
-    el.addEventListener('scroll', updateEdges, { passive: true })
-    window.addEventListener('resize', updateEdges)
-    return () => {
-      el.removeEventListener('scroll', updateEdges)
-      window.removeEventListener('resize', updateEdges)
-    }
-  }, [])
-
-  const scrollBy = (dir: -1 | 1) => {
-    const el = scrollerRef.current
-    if (!el) return
-    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.75, 520), behavior: 'smooth' })
-  }
+  const { ref: scrollerRef, atStart, atEnd, scrollBy } = useSnapScroller()
 
   return (
     <section id="testimonials" className="scroll-mt-28 pb-20 lg:pb-24 2xl:pb-32">
       <div className="w-full pl-2 sm:pl-6 xl:pl-12 2xl:pl-20">
         <div className="flex w-full flex-wrap">
-          {/* Left sidebar — MadeByShape lg:w-4/16 */}
           <div className="mb-10 flex w-full flex-row items-end justify-between px-2 md:pr-6 lg:mb-0 lg:w-1/4 lg:flex-col lg:items-start lg:justify-between lg:px-3 xl:px-4">
             <div className="w-full">
               <div className="mb-3 w-56 lg:mb-5">
@@ -60,7 +37,7 @@ export function ReviewsCarousel() {
               </div>
               <div className="flex flex-col items-start space-y-3 lg:space-y-5">
                 <h2 className="max-w-sm text-balance text-2xl leading-none tracking-tight text-nd-ink md:text-3xl lg:max-w-none xl:text-4xl dark:text-white">
-                  People love us, and we love them
+                  {aboutReviewsCopy.heading}
                 </h2>
                 <a
                   href={aboutReviewsLink}
@@ -68,7 +45,7 @@ export function ReviewsCarousel() {
                   rel="noreferrer"
                   className="btn-lime"
                 >
-                  Read more Reviews
+                  {aboutReviewsCopy.cta}
                 </a>
               </div>
             </div>
@@ -99,7 +76,6 @@ export function ReviewsCarousel() {
             </div>
           </div>
 
-          {/* Right carousel — MadeByShape lg:w-12/16 */}
           <div className="relative w-full lg:w-3/4">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-20 bg-gradient-to-r from-white dark:from-[#121212] lg:block" />
             <div

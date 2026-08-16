@@ -1,8 +1,10 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { Link } from 'react-router-dom'
-import { aboutLinks, anchors, routes, servicesLinks } from '@/config/links'
+import { aboutLinks, servicesLinks, workCount } from '@/config/nav'
+import { anchors, routes } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
-import type { OpenMenu } from '@/components/layout/header/DesktopNav'
+import { SmartLink } from '@/components/ui/SmartLink'
+import type { OpenMenu } from '@/types/nav'
 
 type MobileNavProps = {
   menuOpen: boolean
@@ -29,7 +31,7 @@ export function MobileNav({
         >
           <span className="inline-flex items-center gap-2">
             Services
-            <span className="rounded-full bg-nd-soft px-1.5 py-px text-[11px] dark:bg-white/10">13</span>
+            <span className="rounded-full bg-nd-soft px-1.5 py-px text-[11px] dark:bg-white/10">{workCount}</span>
           </span>
           <span className={`transition ${mobileExpanded === 'services' ? 'rotate-45' : ''}`}>+</span>
         </button>
@@ -63,33 +65,17 @@ export function MobileNav({
         </button>
         {mobileExpanded === 'about' && (
           <div className="mb-2 space-y-1 pl-2">
-            {aboutLinks.map((item) => {
-              const internal = item.href.startsWith('/') && !item.href.startsWith('//')
-              if (internal) {
-                return (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="block rounded-xl px-3 py-2.5 hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-                    onClick={closeAll}
-                  >
-                    <div className="font-medium">{item.label}</div>
-                    <div className="text-sm text-nd-muted dark:text-white/55">{item.description}</div>
-                  </Link>
-                )
-              }
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block rounded-xl px-3 py-2.5 hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-                  onClick={closeAll}
-                >
-                  <div className="font-medium">{item.label}</div>
-                  <div className="text-sm text-nd-muted dark:text-white/55">{item.description}</div>
-                </a>
-              )
-            })}
+            {aboutLinks.map((item) => (
+              <SmartLink
+                key={item.label}
+                href={item.href}
+                className="block rounded-xl px-3 py-2.5 hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+                onClick={closeAll}
+              >
+                <div className="font-medium">{item.label}</div>
+                <div className="text-sm text-nd-muted dark:text-white/55">{item.description}</div>
+              </SmartLink>
+            ))}
           </div>
         )}
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import { aboutTeam, type AboutTeamMember } from '@/data/about'
-import { CornerFillet } from '@/components/about/CornerFillet'
+import { aboutTeam, type AboutTeamMember } from '@/features/about/data'
+import { CornerFillet } from '@/components/ui/CornerFillet'
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (

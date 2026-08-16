@@ -1,4 +1,4 @@
-import { PlannerForm } from '@/components/planner/PlannerForm'
+import { PlannerForm } from '@/features/planner'
 
 export function PlannerPage() {
   return <PlannerForm />

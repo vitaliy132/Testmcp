@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
-import { aboutStats } from '@/data/about'
+import { aboutStats } from '@/features/about/data'
+import { useSnapScroller } from '@/components/ui/useSnapScroller'
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
   const [value, setValue] = useState(0)
@@ -53,38 +54,12 @@ function StatCard({
 }
 
 export function StatsCarousel() {
-  const scrollerRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const inView = useInView(sectionRef, { once: true, amount: 0.2 })
-  const [atStart, setAtStart] = useState(true)
-  const [atEnd, setAtEnd] = useState(false)
-
-  const updateEdges = () => {
-    const el = scrollerRef.current
-    if (!el) return
-    setAtStart(el.scrollLeft <= 2)
-    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 2)
-  }
-
-  useEffect(() => {
-    const el = scrollerRef.current
-    if (!el) return
-    updateEdges()
-    el.addEventListener('scroll', updateEdges, { passive: true })
-    window.addEventListener('resize', updateEdges)
-    return () => {
-      el.removeEventListener('scroll', updateEdges)
-      window.removeEventListener('resize', updateEdges)
-    }
-  }, [])
-
-  const scrollBy = (dir: -1 | 1) => {
-    const el = scrollerRef.current
-    if (!el) return
+  const { ref: scrollerRef, atStart, atEnd, scrollBy } = useSnapScroller((el) => {
     const slide = el.querySelector<HTMLElement>('.about-stat-slide')
-    const amount = slide?.offsetWidth ?? el.clientWidth
-    el.scrollBy({ left: dir * amount, behavior: 'smooth' })
-  }
+    return slide?.offsetWidth ?? el.clientWidth
+  })
 
   return (
     <div ref={sectionRef}>

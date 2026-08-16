@@ -1,3 +1,5 @@
+import { Marquee } from '@/components/ui/Marquee'
+
 const brands = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }))
 
 function BrandSlot() {
@@ -18,11 +20,11 @@ export function BrandMarquee() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent dark:from-[#121212] sm:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent dark:from-[#121212] sm:w-24" />
 
-        <div className="animate-marquee flex w-max items-center gap-10 sm:gap-14">
+        <Marquee className="items-center gap-10 sm:gap-14">
           {row.map((brand, i) => (
             <BrandSlot key={`${brand.id}-${i}`} />
           ))}
-        </div>
+        </Marquee>
       </div>
     </section>
   )

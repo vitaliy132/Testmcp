@@ -1,17 +1,20 @@
 import { motion } from 'framer-motion'
-import { blog } from '@/data/content'
+import { blog } from '@/features/home/data/blog'
+import { blogCopy } from '@/features/home/data/copy'
+import { external } from '@/config/external'
+import { PageContainer } from '@/components/ui/PageContainer'
 
 export function Blog() {
   return (
     <section id="blog" className="py-16 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+      <PageContainer>
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="mb-2 text-sm font-medium text-nd-muted dark:text-white/55">From the studio</p>
-            <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] tracking-tight">The latest from our design studio</h2>
+            <p className="mb-2 text-sm font-medium text-nd-muted dark:text-white/55">{blogCopy.eyebrow}</p>
+            <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] tracking-tight">{blogCopy.heading}</h2>
           </div>
-          <a href="https://madebyshape.co.uk/web-design-blog/" className="btn-soft">
-            Visit our blog
+          <a href={external.blogHome} className="btn-soft">
+            {blogCopy.cta}
           </a>
         </div>
 
@@ -46,7 +49,7 @@ export function Blog() {
             </motion.a>
           ))}
         </div>
-      </div>
+      </PageContainer>
     </section>
   )
 }

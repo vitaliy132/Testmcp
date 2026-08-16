@@ -1,10 +1,7 @@
-import { routes } from '@/config/links'
+import { routes } from '@/config/routes'
+import type { FaqItem } from '@/types/faq'
 
-export type ContactFaq = {
-  question: string
-  answer: string
-  bullets?: { strong?: string; text: string }[]
-}
+export type ContactFaq = FaqItem
 
 export type ContactFormData = {
   name: string
@@ -55,7 +52,7 @@ export const contactContent = {
   viewAllFaqsHref: routes.faqs,
 } as const
 
-export const contactFaqs: ContactFaq[] = [
+export const contactFaqs: FaqItem[] = [
   {
     question: 'How long does a website project usually take to complete?',
     answer: 'Timelines depend on the spec of the website project, but here are some guidelines...',
