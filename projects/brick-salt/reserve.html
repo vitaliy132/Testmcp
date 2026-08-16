@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserve — BRICK & SALT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="word" href="./">BRICK & SALT</a>
+        <nav class="nav-links">
+          <a href="./menu.html">Menu</a>
+          <a href="./reserve.html">Reserve</a>
+        </nav>
+        <a class="pill" href="./reserve.html">Book a table</a>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <h2>Hold a table.</h2>
+          <p class="lede">Parties of 2–8. Larger tables by email. Walk-ins at the bar from 5.30.</p>
+          <div class="hours">
+            <span>Tue–Thu · 17:30–22:00</span>
+            <span>Fri–Sat · 17:00–22:30</span>
+            <span>Sun–Mon · closed</span>
+          </div>
+        </div>
+        <form class="form">
+          <input name="name" placeholder="Name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="date" type="date" required />
+          <select name="covers">
+            <option>2 covers</option>
+            <option>3 covers</option>
+            <option>4 covers</option>
+            <option>6 covers</option>
+            <option>8 covers</option>
+          </select>
+          <button type="submit">Request table</button>
+          <p class="note" style="color: var(--rust); min-height: 1.4em;"></p>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="wrap">
+        <span>12 Blossom Street, Ancoats.</span>
+        <a href="/">A Northern Digital project</a>
+      </div>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>

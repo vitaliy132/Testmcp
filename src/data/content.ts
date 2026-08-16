@@ -1,4 +1,4 @@
-import { external, routes } from '@/config/links'
+import { external, routes, workSites } from '@/config/links'
 import { IMG } from '@/data/assets'
 
 export { IMG }
@@ -14,7 +14,7 @@ export const work = [
     image:
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Arden Wealth website — full-bleed architectural hero',
-    url: '#work',
+    url: workSites.ardenWealth,
   },
   {
     id: 'forma-studio',
@@ -25,7 +25,7 @@ export const work = [
     image:
       'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'FORMA Studio website — minimal lifestyle retail hero',
-    url: '#work',
+    url: workSites.formaStudio,
   },
   {
     id: 'brick-salt',
@@ -37,7 +37,7 @@ export const work = [
     image:
       'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'BRICK & SALT website — plated dishes on a warmly lit restaurant table',
-    url: '#work',
+    url: workSites.brickSalt,
   },
   {
     id: 'savoy-sip',
@@ -48,7 +48,7 @@ export const work = [
     image:
       'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Savoy Sip website — ceramic coffee cup in soft window light',
-    url: '#work',
+    url: workSites.savoySip,
   },
 ]
 

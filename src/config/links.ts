@@ -15,6 +15,14 @@ export const routes = {
   shopify: '/shopify',
 } as const
 
+/** Live demo client sites — source lives in /projects/<id>/ */
+export const workSites = {
+  ardenWealth: '/projects/arden-wealth/',
+  formaStudio: '/projects/forma-studio/',
+  brickSalt: '/projects/brick-salt/',
+  savoySip: '/projects/savoy-sip/',
+} as const
+
 export const anchors = {
   services: '#services',
   work: '#work',
