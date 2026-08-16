@@ -420,18 +420,3 @@ html.dark .btn-soft {
     border-radius: 1.5rem 3.5rem 2rem 3rem;
   }
 }
-
-/*
-  Home video carousel — one large card with the next clip peeking.
-*/
-.home-video-slide {
-  flex: 0 0 min(88vw, 920px);
-  max-width: min(88vw, 920px);
-}
-
-@media (min-width: 1024px) {
-  .home-video-slide {
-    flex-basis: min(72vw, 1080px);
-    max-width: min(72vw, 1080px);
-  }
-}

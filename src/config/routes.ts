@@ -18,7 +18,13 @@ export const routes = {
   ecommerce: '/shopify',
   /** No standalone processes page yet — FAQs cover how we work. */
   processes: '/frequently-asked-questions',
+  workPattern: '/work/:slug',
 } as const
+
+/** Case-study page for a home-grid project, e.g. `/work/anovair`. */
+export function workItem(slug: string) {
+  return `/work/${slug}`
+}
 
 /** Live demo client sites — source lives in /projects/<id>/ */
 export const workSites = {
@@ -31,7 +37,6 @@ export const workSites = {
 export const anchors = {
   services: '#services',
   work: '#work',
-  showreel: '#showreel',
   blog: '#blog',
   about: '#about',
   aboutIntro: '#about-intro',

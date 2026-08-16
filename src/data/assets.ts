@@ -9,7 +9,6 @@ export const IMG = {
   natasia: '/images/profiles/natasia.webp',
   ella: '/images/profiles/ella.webp',
   sketch: '/images/studio/sketch.webp',
-  nthDegree: '/images/studio/nth-degree.webp',
   brand: '/expertise/brand.webp',
   websites: '/expertise/websites.webp',
   seo: '/expertise/seo.webp',

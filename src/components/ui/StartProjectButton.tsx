@@ -1,5 +1,6 @@
 import { routes } from '@/config/routes'
 import { GooeyLink } from '@/components/ui/GooeyButton'
+import { isInternalHref } from '@/lib/links'
 
 type StartProjectButtonProps = {
   href?: string
@@ -14,7 +15,7 @@ export function StartProjectButton({
   onClick,
   label = 'Start a project',
 }: StartProjectButtonProps) {
-  const external = href.startsWith('http') || href.startsWith('#')
+  const external = !isInternalHref(href)
 
   return (
     <GooeyLink

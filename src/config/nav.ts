@@ -29,8 +29,8 @@ export const featuredCards = {
     image: IMG.servicesDropdown,
   },
   about: {
-    title: 'Watch our Showreel',
-    description: 'Want a snippet of our work in under a minute? We’ve got just the thing for ya...',
+    title: 'See the work',
+    description: 'Live sites, shown as they are — Anovair, Aqua, Proud Mary, and more.',
     href: homeHash(anchors.work),
     image: IMG.sketch,
   },

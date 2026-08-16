@@ -8,6 +8,7 @@ import { PlannerPage } from '@/pages/PlannerPage'
 import { PrivacyPage } from '@/pages/PrivacyPage'
 import { CareersPage } from '@/pages/CareersPage'
 import { ServicePage } from '@/pages/ServicePage'
+import { WorkPage } from '@/pages/WorkPage'
 import { routes } from '@/config/routes'
 import { serviceList } from '@/features/service'
 
@@ -23,6 +24,7 @@ export function AppRoutes() {
         <Route path={routes.planner} element={<PlannerPage />} />
         <Route path={routes.faqs} element={<FaqsPage />} />
         <Route path={routes.faqsAlias} element={<Navigate to={routes.faqs} replace />} />
+        <Route path={routes.workPattern} element={<WorkPage />} />
         {serviceList.map((service) => (
           <Route
             key={service.key}

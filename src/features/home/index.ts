@@ -1,7 +1,6 @@
 export { Hero } from '@/features/home/components/Hero'
 export { About } from '@/features/home/components/About'
 export { BrandMarquee } from '@/features/home/components/BrandMarquee'
-export { VideoCarousel } from '@/features/home/components/VideoCarousel'
 export { Work } from '@/features/home/components/Work'
 export { Services } from '@/features/home/components/Services'
 export { Blog } from '@/features/home/components/Blog'

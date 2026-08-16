@@ -1,0 +1,6 @@
+export { WorkHero } from '@/features/work/components/WorkHero'
+export { WorkIntro } from '@/features/work/components/WorkIntro'
+export { WorkVideo } from '@/features/work/components/WorkVideo'
+export { WorkStills } from '@/features/work/components/WorkStills'
+export { WorkRelated } from '@/features/work/components/WorkRelated'
+export { workPageCopy } from '@/features/work/data'

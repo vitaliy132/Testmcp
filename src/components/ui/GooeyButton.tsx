@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { Link } from 'react-router-dom'
+import { isInternalHref } from '@/lib/links'
 
 export function ArrowIcon({ className = 'h-3 w-3' }: { className?: string }) {
   return (
@@ -46,7 +47,7 @@ export function GooeyLink({ href, label, className = '', onClick, external }: Go
   const style = { filter: 'url(#buttonFilter)' } as const
   const visual = <GooeyVisual label={label} />
 
-  if (external || href.startsWith('#') || href.startsWith('http')) {
+  if (external || !isInternalHref(href)) {
     return (
       <a
         href={href}

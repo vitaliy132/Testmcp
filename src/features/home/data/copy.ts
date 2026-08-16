@@ -47,15 +47,6 @@ export const aiCopy = {
   heading: ['See what AI has', 'to say about us'] as const,
 }
 
-export const heroReelSlides = [
-  { src: IMG.studio1, alt: 'Designers in the studio' },
-  { src: IMG.sketch, alt: 'Sketch Studios project' },
-  { src: IMG.studio2, alt: 'Studio collaboration' },
-  { src: IMG.nthDegree, alt: 'Nth Degree furniture shoot' },
-  { src: IMG.studio3, alt: 'Creative session in studio' },
-  { src: IMG.wireframes, alt: 'Team reviewing wireframes' },
-] as const
-
 export const heroReelChips = [
   { label: 'Web', x: '58%', y: '28%', delay: 0 },
   { label: 'Brand', x: '74%', y: '42%', delay: 0.4 },
