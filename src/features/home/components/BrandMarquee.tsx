@@ -1,13 +1,26 @@
 import { Marquee } from '@/components/ui/Marquee'
+import { SmartLink } from '@/components/ui/SmartLink'
+import { brands, type Brand } from '@/features/home/data/brands'
 
-const brands = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }))
+const wordmarkClass =
+  'whitespace-nowrap text-[15px] font-medium uppercase tracking-[0.22em] text-nd-ink/70 transition duration-300 group-hover:text-nd-ink dark:text-white/70 dark:group-hover:text-white sm:text-base'
 
-function BrandSlot() {
+function BrandItem({ brand, decorative }: { brand: Brand; decorative: boolean }) {
+  const wordmark = <span className={wordmarkClass}>{brand.name}</span>
+  const className = 'group flex h-12 shrink-0 items-center sm:h-14'
+
+  if (brand.href && !decorative) {
+    return (
+      <SmartLink href={brand.href} className={className} aria-label={brand.name}>
+        {wordmark}
+      </SmartLink>
+    )
+  }
+
   return (
-    <div
-      className="flex h-12 w-28 shrink-0 items-center justify-center rounded-lg border border-dashed border-black/15 bg-black/[0.03] dark:border-white/20 dark:bg-white/[0.04] sm:h-14 sm:w-36"
-      aria-hidden
-    />
+    <div className={className} aria-hidden={decorative || undefined}>
+      {wordmark}
+    </div>
   )
 }
 
@@ -22,7 +35,7 @@ export function BrandMarquee() {
 
         <Marquee className="items-center gap-10 sm:gap-14">
           {row.map((brand, i) => (
-            <BrandSlot key={`${brand.id}-${i}`} />
+            <BrandItem key={`${brand.id}-${i}`} brand={brand} decorative={i >= brands.length} />
           ))}
         </Marquee>
       </div>
