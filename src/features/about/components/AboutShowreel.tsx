@@ -35,7 +35,6 @@ export function AboutShowreel() {
             type="button"
             onClick={toggleMute}
             aria-label={muted ? 'Unmute video' : 'Mute video'}
-            data-cursor={muted ? 'volume-off' : 'volume-on'}
             className="absolute inset-0 z-10 cursor-default"
           />
           <div className="relative aspect-[4/3] w-full lg:aspect-video">

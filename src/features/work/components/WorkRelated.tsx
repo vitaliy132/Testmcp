@@ -10,11 +10,7 @@ function RelatedCard({ project }: { project: WorkItem }) {
   const visibleTags = project.tags.slice(0, 2)
 
   return (
-    <SmartLink
-      href={project.href}
-      data-cursor="arrow-up-right"
-      className="group flex w-full flex-col items-start"
-    >
+    <SmartLink href={project.href} className="group flex w-full flex-col items-start">
       <div className="relative mb-5 w-full overflow-hidden">
         <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px dark:bg-[#121212]">
           <CornerFillet className="absolute top-0 left-px h-8 w-8 -translate-x-full text-white dark:text-[#121212]" />

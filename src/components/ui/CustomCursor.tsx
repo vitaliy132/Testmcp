@@ -53,7 +53,7 @@ function CursorGlyph({ icon }: { icon: CursorIcon }) {
   }
 
   return (
-    <svg className="h-10 w-10 fill-current" viewBox="0 0 384 512" aria-hidden>
+    <svg className="h-7 w-7 fill-current" viewBox="0 0 384 512" aria-hidden>
       <path d="M344 96c4.4 0 8 3.6 8 8v240c0 4.4-3.6 8-8 8s-8-3.6-8-8V123.3L45.7 413.7c-3.1 3.1-8.2 3.1-11.3 0s-3.1-8.2 0-11.3L324.7 112H104c-4.4 0-8-3.6-8-8s3.6-8 8-8h240z" />
     </svg>
   )
@@ -147,12 +147,12 @@ export function CustomCursor() {
     <div
       ref={trackerRef}
       aria-hidden
-      className={`pointer-events-none fixed top-0 left-0 z-[104] h-12 w-12 -translate-x-1/2 -translate-y-1/2 ${
+      className={`pointer-events-none fixed top-0 left-0 z-[104] h-10 w-10 -translate-x-1/2 -translate-y-1/2 ${
         enabled ? 'block' : 'hidden'
       }`}
     >
       <div
-        className={`absolute top-1/2 left-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-nd-lime text-black transition-transform duration-[600ms] motion-reduce:transition-none ${
+        className={`absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-nd-lime text-black transition-transform duration-[600ms] motion-reduce:transition-none ${
           active ? 'scale-100' : 'scale-0'
         }`}
       >
