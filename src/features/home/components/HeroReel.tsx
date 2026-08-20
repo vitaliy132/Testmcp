@@ -11,6 +11,7 @@ export function HeroReel() {
   const inView = useInView(rootRef, { amount: 0.1 })
   const [failed, setFailed] = useState(false)
   const showPoster = reduceMotion || failed
+  const grainPaused = showPoster || !inView
 
   useEffect(() => {
     const el = videoRef.current
@@ -47,7 +48,7 @@ export function HeroReel() {
           onError={() => setFailed(true)}
         />
       )}
-      <div className="hero-reel-grain" />
+      <div className={`hero-reel-grain${grainPaused ? ' is-paused' : ''}`} />
       <div className="hero-reel-vignette" />
     </div>
   )

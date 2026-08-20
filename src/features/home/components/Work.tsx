@@ -109,7 +109,7 @@ export function Work() {
   const secondPair = work.slice(2)
 
   return (
-    <section id="work" className="py-16 lg:py-24">
+    <section id="work" className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer variant="work">
         <div className="mb-10 flex flex-col items-start gap-3 lg:mb-16 lg:gap-5">
           <SectionEyebrow>{workCopy.eyebrow}</SectionEyebrow>

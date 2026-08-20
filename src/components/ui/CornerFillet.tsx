@@ -27,7 +27,7 @@ export function CornerFillet({
 }
 
 const notchFilletClass =
-  'pointer-events-none absolute h-10 w-10 text-white lg:h-12 lg:w-12 dark:text-[#121212]'
+  'pointer-events-none absolute h-10 w-10 text-white lg:h-12 lg:w-12 dark:text-nd-dark'
 
 /** Concave scoops for a bottom-right page-color notch (play/pause). */
 export function BottomRightNotchFillets() {

@@ -74,35 +74,50 @@ export function Hero() {
               />
 
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.12, ease: blobEase }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: blobEase }}
                 className="relative flex w-auto flex-col items-start"
               >
-                <div className="hero-copy-goo relative flex w-auto flex-col items-start">
-                  <div className="relative w-full bg-white dark:bg-[#121212]">
-                    <div className="relative z-20 mt-px inline-flex items-center gap-2 px-3 pt-1 pb-2 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
-                      <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
-                      <span>{heroCopy.eyebrow}</span>
-                      <span className="animate-wave text-2xl lg:text-3xl" aria-hidden>
-                        👋
-                      </span>
-                    </div>
+                <div className="relative w-full bg-white dark:bg-[#121212]">
+                  <div className="relative z-20 mt-px mb-3 inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
+                    <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
+                    <span>{heroCopy.eyebrow}</span>
+                    <span className="animate-wave text-2xl lg:text-3xl" aria-hidden>
+                      👋
+                    </span>
                   </div>
-
-                  <h1 className="rounded-br-3xl bg-white pt-1 pb-5 pl-3 pr-5 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:pl-5 lg:pr-8 xl:text-6xl 2xl:text-7xl dark:bg-[#121212] dark:text-white">
-                    {heroCopy.headline[0]}
-                    <br />
-                    {heroCopy.headline[1]}
-                    <br />
-                    {heroCopy.headline[2]}
-                  </h1>
                 </div>
 
-                <div className="relative -mt-3 inline-flex rounded-br-2xl bg-white px-3 pt-4 pb-4 lg:rounded-br-3xl lg:px-5 lg:pt-5 lg:pb-5 dark:bg-[#121212]">
+                <div className="relative w-auto">
                   <CornerFillet
                     fill="top-left"
-                    className={`${filletClass} top-3 right-px translate-x-full lg:top-4`}
+                    className={`${filletClass} top-0.5 right-px h-9 w-9 -translate-y-10 translate-x-full lg:h-10 lg:w-10`}
+                  />
+                  <div className="hero-gooey-wrap relative w-auto">
+                    <h1
+                      className="hero-gooey bg-white pt-16 pb-3 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl xl:text-6xl 2xl:text-7xl dark:bg-[#121212] dark:text-white"
+                      style={{ filter: 'url(#heroGoo)' }}
+                    >
+                      {heroCopy.headline.map((line, i) => (
+                        <span
+                          key={line}
+                          className="relative inline shrink-0 truncate pl-3 lg:pl-5"
+                          style={{ zIndex: heroCopy.headline.length - 1 - i }}
+                        >
+                          {line}
+                          {'\u00a0\u00a0'}
+                          <br />
+                        </span>
+                      ))}
+                    </h1>
+                  </div>
+                </div>
+
+                <div className="relative mt-2.5 inline-flex rounded-b-xl bg-white px-3 pt-1 pb-3 lg:mt-0 lg:rounded-b-2xl lg:px-5 lg:pt-3 lg:pr-8 lg:pb-5 dark:bg-[#121212]">
+                  <CornerFillet
+                    fill="top-left"
+                    className={`${filletClass} top-1 right-px translate-x-full lg:top-4`}
                   />
                   <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-7">
                     <GooeyLink href={anchors.work} label={heroCopy.workCta} tone="ink" />

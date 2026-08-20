@@ -10,15 +10,12 @@ export default function App() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.hash) {
-      const t = window.setTimeout(() => scrollToHash(location.hash), 80)
-      return () => window.clearTimeout(t)
-    }
+    if (location.hash) return scrollToHash(location.hash)
     window.scrollTo(0, 0)
   }, [location.pathname, location.hash])
 
   return (
-    <div className="min-h-screen bg-white text-nd-ink transition-colors duration-300 dark:bg-[#121212] dark:text-white">
+    <div className="min-h-screen bg-white text-nd-ink transition-colors duration-300 dark:bg-nd-dark dark:text-white">
       <ButtonGooFilter />
       <Header />
       <main>

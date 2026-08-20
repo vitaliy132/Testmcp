@@ -47,7 +47,7 @@ export const work: WorkItem[] = [
     title:
       'Anovair — Shopify menswear storefront, warehouse-sale merchandising, collection/PDP, and cart UX.',
     tags: ['Shopify', 'E-Commerce', 'CRO'],
-    image: 'https://anovair.com/cdn/shop/files/Jorge_1.jpg?v=1783623208&width=1600',
+    image: '/images/work/anovair-portrait.jpg',
     imageAlt: 'Anovair campaign — editorial menswear portrait',
     imagePosition: '50% 18%',
     href: workItem('anovair'),
@@ -95,7 +95,7 @@ export const work: WorkItem[] = [
     title:
       'Aqua TAIP — fintech marketing site for a turnkey alternative investment platform, modular product lines, and demo flow.',
     tags: ['Web Design', 'Fintech', 'SaaS'],
-    image: 'https://www.investwithaqua.com/assets/advisor-office-CB0Zu6Q6.jpg',
+    image: '/images/work/aqua.jpg',
     imageAlt: 'Aqua website — advisor using the TAIP platform',
     imagePosition: '50% 22%',
     href: workItem('aqua'),
@@ -143,8 +143,7 @@ export const work: WorkItem[] = [
     title:
       'Proud Mary Coffee — Shopify specialty-coffee storefront, subscriptions, collection/PDP, and cart UX.',
     tags: ['Shopify', 'E-Commerce', 'Brand'],
-    image:
-      'https://www.proudmarycoffee.com.au/cdn/shop/files/preview_images/7f197418a9ae4d82897c4c32774f6e21.thumbnail.0000000000_2000x.jpg?v=1786402541',
+    image: '/images/work/proud-mary.jpg',
     imageAlt: 'Proud Mary Coffee — ripe coffee cherries on the branch',
     imagePosition: '50% 50%',
     href: workItem('proud-mary'),
@@ -192,8 +191,7 @@ export const work: WorkItem[] = [
     title:
       'Architecture studio and concept store — furniture, artisan objects, and a Fethiye boutique in one site.',
     tags: ['Architecture', 'E-Commerce', 'Design'],
-    image:
-      'https://static.wixstatic.com/media/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg',
+    image: '/images/work/emna-studio.jpg',
     imageAlt: 'Emna Studio TROCTA coffee table — Mudalla geometry in marble and metal',
     imagePosition: '50% 50%',
     href: workItem('emna-studio'),

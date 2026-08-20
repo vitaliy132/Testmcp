@@ -25,5 +25,6 @@ export const aboutHeroImages = [
 
 export const aboutShowreel = {
   src: 'https://servd-made-byshape.b-cdn.net/production/uploads/videos/shape-showreel-2024_looping-v3.mp4',
+  poster: '/images/studio/hr-204.webp',
 }
 

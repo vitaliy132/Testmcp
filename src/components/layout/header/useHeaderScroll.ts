@@ -12,9 +12,13 @@ export function useHeaderScroll(paused: boolean) {
   const [barWidth, setBarWidth] = useState('100%')
   const lastY = useRef(0)
   const direction = useRef<'up' | 'down'>('up')
+  const raf = useRef(0)
+  const pausedRef = useRef(paused)
+  pausedRef.current = paused
 
   useEffect(() => {
-    const update = () => {
+    const apply = () => {
+      raf.current = 0
       const y = window.scrollY
       const delta = y - lastY.current
 
@@ -24,29 +28,39 @@ export function useHeaderScroll(paused: boolean) {
       }
 
       const small = y > 80
-      setHeaderSmall(small)
+      setHeaderSmall((prev) => (prev === small ? prev : small))
 
       const isLg = window.matchMedia(LG_QUERY).matches
-      if (!isLg) {
-        setBarWidth('100%')
-      } else {
-        const progress = clamp(y / 280, 0, 1)
-        const width = 98 - progress * 18
-        setBarWidth(small ? `${width.toFixed(2)}vw` : '98vw')
-      }
+      const nextWidth = !isLg
+        ? '100%'
+        : small
+          ? `${Math.round(98 - clamp(y / 280, 0, 1) * 18)}vw`
+          : '98vw'
+      setBarWidth((prev) => (prev === nextWidth ? prev : nextWidth))
 
-      const shouldHide = direction.current === 'down' && y > 400 && !paused
-      setHeaderHidden(shouldHide)
+      const shouldHide = direction.current === 'down' && y > 400 && !pausedRef.current
+      setHeaderHidden((prev) => (prev === shouldHide ? prev : shouldHide))
+    }
+
+    const schedule = () => {
+      if (raf.current) return
+      raf.current = requestAnimationFrame(apply)
     }
 
     lastY.current = window.scrollY
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
+    apply()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
     return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      if (raf.current) cancelAnimationFrame(raf.current)
     }
+  }, [])
+
+  useEffect(() => {
+    const shouldHide = direction.current === 'down' && window.scrollY > 400 && !paused
+    setHeaderHidden((prev) => (prev === shouldHide ? prev : shouldHide))
   }, [paused])
 
   return { headerSmall, headerHidden, setHeaderHidden, barWidth }

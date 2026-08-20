@@ -7,7 +7,7 @@ import { PageContainer } from '@/components/ui/PageContainer'
 
 export function About() {
   return (
-    <section id="about" className="py-16 lg:py-24">
+    <section id="about" className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer>
         <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr] lg:gap-16">
           <p className="text-sm font-medium text-nd-muted dark:text-white/55">{aboutTeaser.eyebrow}</p>

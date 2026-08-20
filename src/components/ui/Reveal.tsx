@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 type RevealTag = 'div' | 'h1' | 'p'
 
@@ -18,10 +18,11 @@ export function Reveal({
   duration?: number
   as?: RevealTag
 }) {
+  const reduceMotion = useReducedMotion() ?? false
   const props = {
-    initial: { opacity: 0, y },
+    initial: reduceMotion ? false : { opacity: 0, y },
     animate: { opacity: 1, y: 0 },
-    transition: { duration, delay },
+    transition: { duration: reduceMotion ? 0 : duration, delay: reduceMotion ? 0 : delay },
     className,
     children,
   }

@@ -31,7 +31,7 @@ export function Blog() {
   })
 
   return (
-    <section id="blog" className="py-16 lg:py-24">
+    <section id="blog" className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 lg:mb-12">
           <div>

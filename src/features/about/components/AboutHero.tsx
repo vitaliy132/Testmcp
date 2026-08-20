@@ -68,6 +68,7 @@ export function AboutHero() {
     }
 
     const applyPlaying = () => {
+      wheel.classList.toggle('is-spinning', Boolean(!reduceMotion && wantPlaying && spinAnim))
       if (reduceMotion || !spinAnim) return
       if (wantPlaying) {
         spinAnim.play()
@@ -138,6 +139,7 @@ export function AboutHero() {
       window.removeEventListener('resize', onResize)
       io.disconnect()
       spinAnim?.cancel()
+      wheel.classList.remove('is-spinning')
       if (recycleTimer != null) window.clearInterval(recycleTimer)
     }
   }, [reduceMotion])

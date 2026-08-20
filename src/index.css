@@ -18,6 +18,12 @@ html {
   overflow-x: clip;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html.dark {
   color-scheme: dark;
 }
@@ -68,6 +74,12 @@ html.dark body {
   display: inline-block;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave {
+    animation: none;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -83,6 +95,12 @@ html.dark body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 
 .scrollbar-none {
@@ -128,6 +146,9 @@ html.dark body {
   height: 350vw;
   margin-left: -125vw;
   transform-origin: center center;
+}
+
+.about-arc-wheel.is-spinning {
   will-change: transform;
 }
 
@@ -395,6 +416,10 @@ html.dark .btn-soft {
   animation: hero-reel-grain 0.45s steps(3) infinite;
 }
 
+.hero-reel-grain.is-paused {
+  animation: none;
+}
+
 .hero-reel-vignette {
   pointer-events: none;
   position: absolute;
@@ -410,14 +435,46 @@ html.dark .btn-soft {
   }
 }
 
-/* Melts greeting + headline + CTAs into one liquid blob */
-.hero-copy-goo {
+/*
+  MadeByShape .gooey-content: the h1 is inline with cloned
+  line-box backgrounds, then an SVG goo filter melts the
+  different-width lines into one liquid shape.
+*/
+.hero-gooey {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   filter: url(#heroGoo);
 }
 
-@supports (-webkit-touch-callout: none) {
-  .hero-copy-goo {
-    filter: none;
+@supports (-moz-appearance: none) {
+  .hero-gooey {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0;
+    filter: none !important;
+  }
+
+  .hero-gooey br {
+    display: none;
+  }
+
+  .hero-gooey-wrap {
+    overflow: hidden;
+    border-bottom-right-radius: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  @supports (-moz-appearance: none) {
+    .hero-gooey {
+      padding-top: 1rem;
+    }
+
+    .hero-gooey-wrap {
+      border-bottom-right-radius: 1.5rem;
+    }
   }
 }
 

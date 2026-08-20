@@ -1,90 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import type { WorkCaseStudyItem } from '@/data/work'
-import { BottomRightNotchFillets } from '@/components/ui/CornerFillet'
 import { PageContainer } from '@/components/ui/PageContainer'
-
-function PlayPauseIcon({ playing }: { playing: boolean }) {
-  if (playing) {
-    return (
-      <svg className="h-3 w-3 fill-current" viewBox="0 0 320 512" aria-hidden>
-        <path d="M128 64H0v384h128V64zm192 0H192v384h128V64z" />
-      </svg>
-    )
-  }
-  return (
-    <svg className="h-3 w-3 fill-current" viewBox="0 0 384 512" aria-hidden>
-      <path d="M384 256L0 32v448l384-224z" />
-    </svg>
-  )
-}
+import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
+import { useInViewVideo } from '@/components/ui/useInViewVideo'
 
 export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
   const reduceMotion = useReducedMotion() ?? false
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
   const [failed, setFailed] = useState(false)
   const { video, poster } = project.caseStudy
   const showPoster = reduceMotion || failed
+  const { playing, togglePlay } = useInViewVideo(videoRef, {
+    enabled: !showPoster,
+    src: video,
+  })
 
   useEffect(() => {
     setFailed(false)
-    setPlaying(false)
   }, [video])
-
-  useEffect(() => {
-    const el = videoRef.current
-    if (!el || reduceMotion || failed) return
-
-    let alive = true
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!alive) return
-        if (reduceMotion) {
-          el.pause()
-          setPlaying(false)
-          return
-        }
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
-          el.preload = 'auto'
-          void el
-            .play()
-            .then(() => {
-              if (alive) setPlaying(true)
-            })
-            .catch(() => {
-              if (alive) setPlaying(false)
-            })
-        } else {
-          el.pause()
-          if (alive) setPlaying(false)
-        }
-      },
-      { threshold: [0, 0.45, 1] },
-    )
-
-    io.observe(el)
-    return () => {
-      alive = false
-      io.disconnect()
-    }
-  }, [reduceMotion, video, failed])
-
-  const togglePlay = () => {
-    const el = videoRef.current
-    if (!el) return
-    if (el.paused) {
-      el.preload = 'auto'
-      void el
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => setPlaying(false))
-    } else {
-      el.pause()
-      setPlaying(false)
-    }
-  }
 
   return (
     <section className="pb-16 lg:pb-24">
@@ -110,29 +44,17 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
                 loop
                 playsInline
                 preload="metadata"
-                onError={() => {
-                  setFailed(true)
-                  setPlaying(false)
-                }}
+                onError={() => setFailed(true)}
               />
             )}
           </div>
 
           {showPoster ? null : (
-            <div className="absolute right-0 bottom-0 z-20 inline-flex rounded-tl-2xl bg-white pl-3 pt-3 lg:rounded-tl-3xl lg:pl-4 lg:pt-4 dark:bg-[#121212]">
-              <BottomRightNotchFillets />
-              <button
-                type="button"
-                onClick={togglePlay}
-                className="relative z-10 inline-flex items-center overflow-hidden rounded-full bg-nd-ink text-white dark:bg-white/15"
-                aria-label={playing ? `Pause ${project.client}` : `Play ${project.client}`}
-              >
-                <span className="px-4 py-2 text-sm leading-tight">{playing ? 'Pause' : 'Play'}</span>
-                <span className="grid h-9 w-9 place-items-center">
-                  <PlayPauseIcon playing={playing} />
-                </span>
-              </button>
-            </div>
+            <VideoPlayNotch
+              playing={playing}
+              onToggle={togglePlay}
+              label={playing ? `Pause ${project.client}` : `Play ${project.client}`}
+            />
           )}
         </div>
       </PageContainer>

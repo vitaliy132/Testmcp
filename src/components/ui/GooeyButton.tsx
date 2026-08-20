@@ -140,7 +140,7 @@ export function ButtonGooFilter() {
           <feBlend in="SourceGraphic" in2="buttonFilter" />
         </filter>
         <filter id="heroGoo" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
           <feColorMatrix
             in="blur"
             mode="matrix"

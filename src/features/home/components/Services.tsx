@@ -11,7 +11,7 @@ export function Services() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section id="services" className="px-4 py-8 sm:px-5 lg:px-8 lg:py-12">
+    <section id="services" className="scroll-mt-28 px-4 py-8 sm:px-5 lg:px-8 lg:py-12">
       <div className="mx-auto max-w-[1600px] overflow-hidden rounded-2xl bg-[#1f1f1f] py-16 text-white lg:rounded-3xl lg:py-24 xl:py-28 dark:bg-[#171717]">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 xl:px-12 2xl:px-16">
           <div className="mb-10 flex flex-wrap justify-between lg:mb-20">
