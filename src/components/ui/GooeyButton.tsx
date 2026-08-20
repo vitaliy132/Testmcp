@@ -123,7 +123,7 @@ export function GooeySubmitButton({
   )
 }
 
-/** SVG goo filter used by gooey buttons — mount once near root */
+/** SVG goo filters used by gooey buttons and the hero copy blob — mount once near root */
 export function ButtonGooFilter() {
   return (
     <svg width="0" height="0" className="absolute" aria-hidden colorInterpolationFilters="sRGB">
@@ -138,6 +138,16 @@ export function ButtonGooFilter() {
           />
           <feComposite in="SourceGraphic" in2="buttonFilter" operator="atop" />
           <feBlend in="SourceGraphic" in2="buttonFilter" />
+        </filter>
+        <filter id="heroGoo" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+            result="goo"
+          />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
         </filter>
       </defs>
     </svg>

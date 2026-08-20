@@ -196,8 +196,43 @@ export const work: WorkItem[] = [
       'https://static.wixstatic.com/media/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg',
     imageAlt: 'Emna Studio TROCTA coffee table — Mudalla geometry in marble and metal',
     imagePosition: '50% 50%',
-    href: workSites.emnaStudio,
+    href: workItem('emna-studio'),
     liveUrl: workSites.emnaStudio,
+    caseStudy: {
+      headline: 'Architecture and a concept store, under one roof.',
+      dek: 'A studio website for architecture, artisan furniture, and a Fethiye boutique',
+      body: 'Emna Studio needed one digital home for the practice, the atelier, and Le Concept Store. We built a site that can hold Mediterranean architecture, limited-edition furniture, and a curated boutique — so the Fethiye studio reads as one world, whether someone is browsing a TROCTA table or starting a project.',
+      industry: 'Architecture',
+      duration: '6 Weeks',
+      video: '/videos/emna-studio.mp4',
+      poster: '/videos/posters/emna-studio.jpg',
+      stills: [
+        {
+          src: 'https://static.wixstatic.com/media/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg',
+          alt: 'Emna Studio TROCTA coffee table — Mudalla geometry in marble and metal',
+        },
+        {
+          src: 'https://static.wixstatic.com/media/a22769_5374837cbfbb41398cc39ad2208a79ad~mv2.jpg/v1/fill/w_1600,h_1400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_5374837cbfbb41398cc39ad2208a79ad~mv2.jpg',
+          alt: 'Le Concept Store — renovated Greek house in Fethiye',
+        },
+        {
+          src: 'https://static.wixstatic.com/media/a22769_6d88f69ab4df4c1c87e3881f29c90d2d~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_6d88f69ab4df4c1c87e3881f29c90d2d~mv2.jpg',
+          alt: 'Emna Studio architecture — Mediterranean light and a precise line',
+        },
+      ],
+      chapters: [
+        {
+          eyebrow: 'Design',
+          heading: 'Practice and store, one visual world.',
+          body: 'The homepage opens on architecture, furniture, and consulting as equal doors, then Le Concept Store. Photography of the renovated Greek house, Mudalla furniture, and artisan objects keeps the boutique in the same world as the practice — not a bolted-on shop.',
+        },
+        {
+          eyebrow: 'Development',
+          heading: 'Catalog, gallery, and cart on one site.',
+          body: 'Architecture and design galleries sit next to a working concept-store catalog — furniture, tableware, wearables — with product pages and cart. The studio, the store, and the contact path share one chrome so a project enquiry and a TROCTA table can live in the same brand.',
+        },
+      ],
+    },
   },
 ]
 

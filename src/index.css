@@ -410,20 +410,24 @@ html.dark .btn-soft {
   }
 }
 
-/* Type sits on the showreel — soft shadow only, no solid text boxes */
-.hero-overlay-title {
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.35),
-    0 8px 28px rgba(0, 0, 0, 0.45);
+/* Melts greeting + headline + CTAs into one liquid blob */
+.hero-copy-goo {
+  filter: url(#heroGoo);
 }
 
-/* Soft asymmetric silhouette for the hero showreel */
+@supports (-webkit-touch-callout: none) {
+  .hero-copy-goo {
+    filter: none;
+  }
+}
+
+/* MadeByShape-style rounded showreel frame */
 .hero-reel-frame {
-  border-radius: 1.25rem 2.75rem 1.75rem 2.5rem;
+  border-radius: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .hero-reel-frame {
-    border-radius: 1.5rem 3.5rem 2rem 3rem;
+    border-radius: 2rem;
   }
 }

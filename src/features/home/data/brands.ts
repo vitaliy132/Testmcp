@@ -1,4 +1,4 @@
-import { workItem, workSites } from '@/config/routes'
+import { workItem } from '@/config/routes'
 
 export type PartnerLockup = 'noramble' | 'skew' | 'crystal' | 'releve'
 
@@ -15,7 +15,7 @@ export const partnerBrands: PartnerBrand[] = [
   { name: 'Proud Mary Coffee', href: workItem('proud-mary'), src: '/brands/proud-mary.png' },
   {
     name: 'Emna Studio',
-    href: workSites.emnaStudio,
+    href: workItem('emna-studio'),
     src: 'https://static.wixstatic.com/media/a22769_0bd5e08d46ce43708400e7b6e1e8c6ce~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_0bd5e08d46ce43708400e7b6e1e8c6ce~mv2.png',
   },
   { name: 'Noramble', lockup: 'noramble' },

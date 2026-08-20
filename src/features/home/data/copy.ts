@@ -6,7 +6,7 @@ export const heroCopy = {
   eyebrow: 'Hiya, we’re Northern Digital',
   headline: ['A web design and', 'branding agency', 'in Leeds'] as const,
   workCta: 'View our work',
-  teamCta: 'Meet the team →',
+  teamCta: 'Meet the team',
   andy: {
     title: 'Hear from Andy',
     subtitle: 'Co-Founder of Northern Digital',
