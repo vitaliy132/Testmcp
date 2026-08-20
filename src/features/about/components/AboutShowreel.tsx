@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { aboutShowreel } from '@/features/about/data'
-import { CornerFillet } from '@/components/ui/CornerFillet'
+import { BottomRightNotchFillets } from '@/components/ui/CornerFillet'
 import { PageContainer } from '@/components/ui/PageContainer'
 
 export function AboutShowreel() {
@@ -50,10 +50,8 @@ export function AboutShowreel() {
             />
           </div>
 
-          {/* MadeByShape-style bottom-right Pause control with corner fillets */}
-          <div className="absolute bottom-0 right-0 z-20 inline-flex rounded-tl-2xl bg-white pl-4 pt-4 lg:rounded-tl-3xl dark:bg-[#121212]">
-            <CornerFillet className="pointer-events-none absolute -left-px top-px h-8 w-8 -translate-x-full text-white dark:text-[#121212] lg:h-12 lg:w-12" />
-            <CornerFillet className="pointer-events-none absolute -right-px top-px h-8 w-8 -translate-y-full rotate-180 text-white dark:text-[#121212] lg:h-12 lg:w-12" />
+          <div className="absolute right-0 bottom-0 z-20 inline-flex rounded-tl-2xl bg-white pl-4 pt-4 lg:rounded-tl-3xl dark:bg-[#121212]">
+            <BottomRightNotchFillets />
             <button
               type="button"
               onClick={togglePlay}

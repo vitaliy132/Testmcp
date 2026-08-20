@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import type { WorkCaseStudyItem } from '@/data/work'
-import { CornerFillet } from '@/components/ui/CornerFillet'
+import { BottomRightNotchFillets } from '@/components/ui/CornerFillet'
 import { PageContainer } from '@/components/ui/PageContainer'
 
 function PlayPauseIcon({ playing }: { playing: boolean }) {
@@ -93,8 +93,7 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
 
           {reduceMotion ? null : (
             <div className="absolute right-0 bottom-0 z-20 inline-flex rounded-tl-2xl bg-white pl-3 pt-3 lg:rounded-tl-3xl lg:pl-4 lg:pt-4 dark:bg-[#121212]">
-              <CornerFillet className="pointer-events-none absolute -left-px top-px h-8 w-8 -translate-x-full text-white dark:text-[#121212] lg:h-10 lg:w-10" />
-              <CornerFillet className="pointer-events-none absolute right-px -top-px h-8 w-8 -translate-y-full rotate-180 text-white dark:text-[#121212] lg:h-10 lg:w-10" />
+              <BottomRightNotchFillets />
               <button
                 type="button"
                 onClick={togglePlay}
