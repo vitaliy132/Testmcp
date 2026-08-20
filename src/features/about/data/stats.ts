@@ -1,10 +1,12 @@
+import { brand } from '@/config/brand'
+
 export const aboutStats = [
   {
     label: 'Clients',
     value: 250,
     suffix: '+',
     description:
-      'With over a decade of experience, Northern Digital is an energetic, fresh and vibrant team offering creative talent and industry knowledge.',
+      `Founded in ${brand.foundedYear}, Northern Digital is an energetic, fresh and vibrant team offering creative talent and industry knowledge.`,
   },
   {
     label: 'Referrals',

@@ -2,12 +2,11 @@ import { Link } from 'react-router-dom'
 import { brand } from '@/config/brand'
 import { footerCols } from '@/config/nav'
 import { routes } from '@/config/routes'
-import { IMG } from '@/data/assets'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
 import { Marquee } from '@/components/ui/Marquee'
 import { SmartLink } from '@/components/ui/SmartLink'
-import { SocialLinks } from '@/components/ui/SocialLinks'
 import { PageContainer } from '@/components/ui/PageContainer'
+import { BrandAddress } from '@/components/ui/BrandAddress'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -26,10 +25,7 @@ export function Footer() {
           <h2 className="max-w-[12ch] text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] tracking-tight">
             Do you like what you see?
           </h2>
-          <div className="flex flex-wrap items-center gap-4">
-            <StartProjectButton />
-            <img src={IMG.googleBadgeWhite} alt="Google reviews" className="h-12 w-auto opacity-90" />
-          </div>
+          <StartProjectButton />
         </div>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -56,14 +52,7 @@ export function Footer() {
               <a href={`mailto:${brand.email}`} className="block hover:text-nd-lime">
                 {brand.email}
               </a>
-              <p className="pt-3 text-sm text-white/55">
-                {brand.address.lines.map((line) => (
-                  <span key={line}>
-                    {line}
-                    <br />
-                  </span>
-                ))}
-              </p>
+              <BrandAddress className="pt-3 text-sm text-white/55" />
             </div>
           </div>
         </div>
@@ -72,11 +61,9 @@ export function Footer() {
           <span>
             © {brand.legalName} {year}
           </span>
-          <span>Company Reg Number {brand.companyReg}</span>
           <Link to={routes.privacy} className="hover:text-white">
             Privacy Policy
           </Link>
-          <SocialLinks variant="footer" />
         </div>
       </PageContainer>
     </footer>

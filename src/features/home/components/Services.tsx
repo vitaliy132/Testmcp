@@ -33,6 +33,8 @@ export function Services() {
                     <img
                       src={IMG.andy}
                       alt={servicesCopy.andy.title}
+                      loading="lazy"
+                      decoding="async"
                       className="h-11 w-11 rounded-full object-cover"
                     />
                     <span className="leading-tight transition duration-500 group-hover:-translate-x-3">
@@ -73,6 +75,8 @@ export function Services() {
                       <img
                         src={service.image}
                         alt={service.name}
+                        loading="lazy"
+                        decoding="async"
                         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
                           isActive ? 'opacity-100' : 'opacity-100 lg:opacity-0'
                         }`}

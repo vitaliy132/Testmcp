@@ -29,6 +29,8 @@ export function AwardsMarquee() {
               key={`${src}-${i}`}
               src={src}
               alt=""
+              loading="lazy"
+              decoding="async"
               className="h-28 w-auto shrink-0 rounded-xl bg-nd-soft object-contain p-2 dark:bg-[#1a1a1a] sm:h-36"
             />
           ))}

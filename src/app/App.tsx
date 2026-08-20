@@ -1,8 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ButtonGooFilter } from '@/components/ui/GooeyButton'
+import { PageFallback } from '@/components/ui/PageFallback'
 import { scrollToHash } from '@/lib/scroll'
 
 export default function App() {
@@ -21,7 +22,9 @@ export default function App() {
       <ButtonGooFilter />
       <Header />
       <main>
-        <Outlet />
+        <Suspense fallback={<PageFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>

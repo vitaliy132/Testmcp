@@ -16,6 +16,8 @@ export function CareersGallery() {
               key={`${src}-${i}`}
               src={src}
               alt=""
+              loading="lazy"
+              decoding="async"
               className="h-40 w-52 shrink-0 rounded-2xl object-cover sm:h-52 sm:w-72 lg:h-64 lg:w-[22rem] lg:rounded-3xl"
             />
           ))}

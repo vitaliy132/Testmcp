@@ -2,6 +2,7 @@ import { brand } from '@/config/brand'
 import { contactContent } from '@/features/contact/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SocialLinks } from '@/components/ui/SocialLinks'
+import { BrandAddress } from '@/components/ui/BrandAddress'
 
 export function ContactStudio() {
   return (
@@ -18,19 +19,12 @@ export function ContactStudio() {
 
             <div className="mb-8">
               <p className="mb-2 text-sm font-medium text-nd-muted dark:text-white/55">Studio Address</p>
-              <p className="text-base font-light leading-7 text-nd-ink dark:text-white/85">
-                {brand.address.lines.map((line) => (
-                  <span key={line}>
-                    {line}
-                    <br />
-                  </span>
-                ))}
-              </p>
+              <BrandAddress className="text-base font-light leading-7 text-nd-ink dark:text-white/85" />
             </div>
 
             <div className="mb-8">
               <p className="mb-3 text-sm font-medium text-nd-muted dark:text-white/55">Follow us</p>
-              <SocialLinks variant="pills" />
+              <SocialLinks />
             </div>
 
             <a
@@ -47,6 +41,8 @@ export function ContactStudio() {
             <img
               src={contactContent.studioImage}
               alt={`${brand.name} studio`}
+              loading="lazy"
+              decoding="async"
               className="aspect-[16/10] h-full w-full object-cover"
             />
           </div>

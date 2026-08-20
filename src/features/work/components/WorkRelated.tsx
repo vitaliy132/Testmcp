@@ -33,6 +33,7 @@ function RelatedCard({ project }: { project: WorkItem }) {
               src={project.image}
               alt={project.imageAlt}
               loading="lazy"
+              decoding="async"
               className="h-full w-full origin-center scale-105 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               style={{ objectPosition: project.imagePosition }}
             />

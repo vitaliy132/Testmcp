@@ -15,6 +15,8 @@ export function AwardLogos() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="h-16 w-auto object-contain dark:invert xl:h-24"
                 />
               </div>

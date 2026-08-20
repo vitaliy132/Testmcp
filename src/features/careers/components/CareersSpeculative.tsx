@@ -34,6 +34,8 @@ export function CareersSpeculative() {
             <img
               src={andy.image}
               alt={andy.name}
+              loading="lazy"
+              decoding="async"
               className="h-20 w-20 rounded-2xl object-cover lg:h-24 lg:w-24"
             />
             <div>

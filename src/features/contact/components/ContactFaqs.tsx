@@ -26,7 +26,7 @@ export function ContactFaqs() {
           }
         >
           {contactFaqs.map((item) => (
-            <AccordionFaq key={item.question} item={item} dashPlainBullets />
+            <AccordionFaq key={item.id ?? item.question} item={item} dashPlainBullets />
           ))}
         </FaqSectionLayout>
       </PageContainer>

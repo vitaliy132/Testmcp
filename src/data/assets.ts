@@ -14,8 +14,6 @@ export const IMG = {
   seo: '/expertise/seo.webp',
   craft: '/expertise/craft.webp',
   shopify: '/expertise/shopify.webp',
-  googleBadgeWhite:
-    'https://made-byshape.transforms.svdcdn.com/production/uploads/images/Google-Review-Badge-White.png?w=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1730706461&s=e43683f309f37723bac836d7b338a1e3',
   studio1: '/images/studio/hr-204.webp',
   studio2: '/images/studio/hr-202.webp',
   studio3: '/images/studio/hr-189.webp',

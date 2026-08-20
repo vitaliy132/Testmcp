@@ -4,6 +4,7 @@ export type FaqBullet = {
 }
 
 export type FaqItem = {
+  id?: string
   question: string
   answer: string
   bullets?: FaqBullet[]

@@ -27,11 +27,15 @@ export function ReviewsCarousel() {
                 <img
                   src={aboutGoogleBadge.light}
                   alt="Google reviews"
+                  loading="lazy"
+                  decoding="async"
                   className="h-auto w-full dark:hidden"
                 />
                 <img
                   src={aboutGoogleBadge.dark}
                   alt="Google reviews"
+                  loading="lazy"
+                  decoding="async"
                   className="hidden h-auto w-full dark:block"
                 />
               </div>

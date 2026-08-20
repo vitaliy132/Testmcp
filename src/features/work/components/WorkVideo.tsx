@@ -37,6 +37,7 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
           return
         }
         if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+          el.preload = 'auto'
           void el.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
         } else {
           el.pause()
@@ -68,7 +69,13 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
         <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] lg:rounded-3xl">
           <div className="relative aspect-[4/3] w-full lg:aspect-video">
             {reduceMotion ? (
-              <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={poster}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : (
               <video
                 key={video}
@@ -79,7 +86,7 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
               />
             )}
           </div>

@@ -13,7 +13,13 @@ export function WorkStills({ project }: { project: WorkCaseStudyItem }) {
         <div className="flex flex-col gap-3 lg:gap-4">
           <div className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
             <div className="aspect-[4/3] w-full overflow-hidden lg:aspect-[16/9]">
-              <img src={first.src} alt={first.alt} className="h-full w-full object-cover" loading="lazy" />
+              <img
+                src={first.src}
+                alt={first.alt}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 
@@ -25,7 +31,13 @@ export function WorkStills({ project }: { project: WorkCaseStudyItem }) {
                   className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]"
                 >
                   <div className="aspect-[4/3] w-full overflow-hidden">
-                    <img src={still.src} alt={still.alt} className="h-full w-full object-cover" loading="lazy" />
+                    <img
+                      src={still.src}
+                      alt={still.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 </div>
               ))}

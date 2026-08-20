@@ -1,16 +1,34 @@
+import { lazy } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import App from '@/app/App'
 import { HomePage } from '@/pages/HomePage'
-import { AboutPage } from '@/pages/AboutPage'
-import { ContactPage } from '@/pages/ContactPage'
-import { FaqsPage } from '@/pages/FaqsPage'
-import { PlannerPage } from '@/pages/PlannerPage'
-import { PrivacyPage } from '@/pages/PrivacyPage'
-import { CareersPage } from '@/pages/CareersPage'
-import { ServicePage } from '@/pages/ServicePage'
-import { WorkPage } from '@/pages/WorkPage'
 import { routes } from '@/config/routes'
-import { serviceList } from '@/features/service'
+import { serviceList } from '@/features/service/data/registry'
+
+const AboutPage = lazy(() =>
+  import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage })),
+)
+const ContactPage = lazy(() =>
+  import('@/pages/ContactPage').then((m) => ({ default: m.ContactPage })),
+)
+const CareersPage = lazy(() =>
+  import('@/pages/CareersPage').then((m) => ({ default: m.CareersPage })),
+)
+const PrivacyPage = lazy(() =>
+  import('@/pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })),
+)
+const PlannerPage = lazy(() =>
+  import('@/pages/PlannerPage').then((m) => ({ default: m.PlannerPage })),
+)
+const FaqsPage = lazy(() =>
+  import('@/pages/FaqsPage').then((m) => ({ default: m.FaqsPage })),
+)
+const WorkPage = lazy(() =>
+  import('@/pages/WorkPage').then((m) => ({ default: m.WorkPage })),
+)
+const ServicePage = lazy(() =>
+  import('@/pages/ServicePage').then((m) => ({ default: m.ServicePage })),
+)
 
 export function AppRoutes() {
   return (

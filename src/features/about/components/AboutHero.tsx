@@ -45,6 +45,8 @@ export function AboutHero() {
     let spinAnim: Animation | null = null
     let recycleTimer: number | null = null
     let resizeTimer: number | null = null
+    let period = 0
+    let wantPlaying = true
 
     const placeSpokes = (multiply: number, offset: number) => {
       Array.from(inner.children).forEach((node, index) => {
@@ -59,11 +61,26 @@ export function AboutHero() {
       const first = inner.firstElementChild as HTMLElement | null
       const last = inner.lastElementChild as HTMLElement | null
       if (!first || !last) return
-      // Append to the right of the fan — next photo always enters from the right
       const nextIndex = Number(last.dataset.index ?? '0') + 1
       first.dataset.index = String(nextIndex)
       first.style.transform = spokeAngle(nextIndex, multiply, offset)
       inner.appendChild(first)
+    }
+
+    const applyPlaying = () => {
+      if (reduceMotion || !spinAnim) return
+      if (wantPlaying) {
+        spinAnim.play()
+        if (recycleTimer == null && period) {
+          recycleTimer = window.setInterval(recycle, period)
+        }
+      } else {
+        spinAnim.pause()
+        if (recycleTimer != null) {
+          window.clearInterval(recycleTimer)
+          recycleTimer = null
+        }
+      }
     }
 
     const boot = () => {
@@ -74,6 +91,7 @@ export function AboutHero() {
 
       spinAnim?.cancel()
       if (recycleTimer != null) window.clearInterval(recycleTimer)
+      recycleTimer = null
 
       if (reduceMotion) {
         wheel.style.transform = 'rotate(0deg)'
@@ -81,20 +99,16 @@ export function AboutHero() {
         return
       }
 
-      // Infinite spin — never finishes (WAAPI iterations: Infinity)
       spinAnim = wheel.animate(
         [{ transform: 'rotate(0deg)' }, { transform: 'rotate(-360deg)' }],
         { duration: duration * 1000, iterations: Infinity, easing: 'linear' },
       )
 
-      // Recycle in lockstep with one slot of rotation so the right edge
-      // always has the next photo queued before the left one leaves.
-      const period = slotMs(duration, multiply)
-      recycleTimer = window.setInterval(recycle, period)
+      period = slotMs(duration, multiply)
       clip.style.opacity = '1'
+      applyPlaying()
     }
 
-    // Shape waits ~300ms before revealing the arc
     const readyTimer = window.setTimeout(boot, 300)
 
     const onResize = () => {
@@ -107,12 +121,22 @@ export function AboutHero() {
       }, 150)
     }
 
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        wantPlaying = Boolean(entry?.isIntersecting)
+        applyPlaying()
+      },
+      { threshold: 0.08 },
+    )
+    io.observe(clip)
+
     window.addEventListener('resize', onResize)
     return () => {
       cancelled = true
       window.clearTimeout(readyTimer)
       if (resizeTimer != null) window.clearTimeout(resizeTimer)
       window.removeEventListener('resize', onResize)
+      io.disconnect()
       spinAnim?.cancel()
       if (recycleTimer != null) window.clearInterval(recycleTimer)
     }
@@ -142,7 +166,13 @@ export function AboutHero() {
             {aboutArcPhotos.map((src, i) => (
               <div key={`${src}-${i}`} className="about-arc-spoke" data-index={String(i)}>
                 <div className="about-arc-spoke-media">
-                  <img src={src} alt="" draggable={false} />
+                  <img
+                    src={src}
+                    alt=""
+                    draggable={false}
+                    decoding="async"
+                    loading={i < 4 ? 'eager' : 'lazy'}
+                  />
                 </div>
               </div>
             ))}

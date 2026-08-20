@@ -57,7 +57,13 @@ export function AiSection() {
             transition={{ duration: 0.5, delay: i * 0.06 }}
             className={`absolute overflow-hidden rounded-xl bg-nd-soft shadow-lg lg:rounded-2xl dark:bg-[#1a1a1a] ${img.className}`}
           >
-            <img src={img.src} alt={img.alt} className={`w-full object-cover ${img.aspect}`} />
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              decoding="async"
+              className={`w-full object-cover ${img.aspect}`}
+            />
           </motion.div>
         ))}
       </div>

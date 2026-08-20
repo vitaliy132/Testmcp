@@ -24,7 +24,12 @@ export function Hero() {
             href={anchors.about}
             className="absolute right-4 top-4 z-30 flex max-w-[min(100%,18rem)] items-center gap-3 rounded-full bg-white/95 py-1.5 pl-1.5 pr-5 backdrop-blur transition hover:scale-[1.02] dark:bg-[#1a1a1a]/95 lg:right-8 lg:top-6"
           >
-            <img src={heroCopy.andy.image} alt="Andy" className="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14" />
+            <img
+              src={heroCopy.andy.image}
+              alt="Andy"
+              decoding="async"
+              className="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14"
+            />
             <div className="text-left leading-tight">
               <div className="text-sm font-medium">{heroCopy.andy.title}</div>
               <div className="text-xs text-nd-muted dark:text-white/60">{heroCopy.andy.subtitle}</div>

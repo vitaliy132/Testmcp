@@ -19,15 +19,15 @@ export function About() {
               transition={{ duration: 0.5 }}
               className="max-w-[22ch] text-[clamp(1.6rem,3.2vw,2.7rem)] leading-[1.15] tracking-tight"
             >
-              An independent{' '}
+              {aboutTeaser.before}{' '}
               <a href={anchors.services} className="underline decoration-nd-lime decoration-4 underline-offset-4">
-                web design
+                {aboutTeaser.webDesign}
               </a>{' '}
-              and{' '}
+              {aboutTeaser.and}{' '}
               <a href={anchors.services} className="underline decoration-nd-lime decoration-4 underline-offset-4">
-                branding agency
+                {aboutTeaser.branding}
               </a>{' '}
-              in Leeds set up in 2010 who care, build relationships, have industry experience, and win awards.
+              {aboutTeaser.after}
             </motion.h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to={routes.about} className="btn-lime">

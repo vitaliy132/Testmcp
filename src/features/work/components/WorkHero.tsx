@@ -81,6 +81,7 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
               <img
                 src={project.image}
                 alt={project.imageAlt}
+                decoding="async"
                 className="h-full w-full object-cover"
                 style={{ objectPosition: project.imagePosition }}
               />

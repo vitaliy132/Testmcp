@@ -188,7 +188,7 @@ export const work: WorkItem[] = [
   {
     id: 'forma-studio',
     client: 'FORMA Studio',
-    year: '2025',
+    year: '2024',
     title: 'Premium DTC storefront with product storytelling, wishlist and modern checkout UX.',
     tags: ['Next.js', 'E-Commerce', 'CRO'],
     image:

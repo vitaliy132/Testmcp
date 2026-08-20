@@ -1,4 +1,5 @@
 import { IMG } from '@/data/assets'
+import { brand } from '@/config/brand'
 import { anchors } from '@/config/routes'
 
 export const heroCopy = {
@@ -15,6 +16,11 @@ export const heroCopy = {
 
 export const aboutTeaser = {
   eyebrow: 'Who are we?',
+  before: 'An independent',
+  webDesign: 'web design',
+  and: 'and',
+  branding: 'branding agency',
+  after: `in Leeds set up in ${brand.foundedYear} who care, build relationships, have industry experience, and win awards.`,
 }
 
 export const workCopy = {

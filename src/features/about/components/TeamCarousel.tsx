@@ -86,6 +86,8 @@ function TeamCard({ member, index = 0 }: { member: AboutTeamMember; index?: numb
             <img
               src={activeSrc}
               alt={`${member.name} portrait`}
+              loading="lazy"
+              decoding="async"
               className={`absolute inset-0 h-full w-full object-cover object-center transition duration-300 ${
                 member.isPlaceholder ? 'opacity-80 grayscale' : ''
               } ${hovering && hoverImages.length ? 'opacity-100' : ''}`}

@@ -16,6 +16,8 @@ function AuthorCutout({ src, name }: { src: string; name: string }) {
         alt={name}
         width={48}
         height={48}
+        loading="lazy"
+        decoding="async"
         className="h-10 w-10 rounded-full object-cover lg:h-12 lg:w-12"
       />
     </div>
