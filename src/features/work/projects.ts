@@ -192,8 +192,8 @@ export const work: WorkItem[] = [
       'Architecture studio and concept store — furniture, artisan objects, and a Fethiye boutique in one site.',
     tags: ['Architecture', 'E-Commerce', 'Design'],
     image: '/images/work/emna-studio.jpg',
-    imageAlt: 'Emna Studio TROCTA coffee table — Mudalla geometry in marble and metal',
-    imagePosition: '50% 50%',
+    imageAlt: 'Emna Studio architecture — Mediterranean terrace, pool, and mountain view',
+    imagePosition: '50% 42%',
     href: workItem('emna-studio'),
     liveUrl: workSites.emnaStudio,
     caseStudy: {
