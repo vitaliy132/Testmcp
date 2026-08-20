@@ -1,6 +1,13 @@
 import { CDN } from '@/features/about/data/media'
 
-export const aboutReviews = [
+export type AboutReview = {
+  quote: string
+  name: string
+  company: string
+  initial: string
+}
+
+export const aboutReviews: AboutReview[] = [
   {
     quote:
       'I’ve been working with Andy and the team for around 12 months now. They’ve been nothing shy of perfect. The team completely designed and rebuilt my website using CraftCMS which has been such a positive change against my old website in WordPress. Can’t recommend Northern Digital enough',

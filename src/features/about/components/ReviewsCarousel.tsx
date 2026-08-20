@@ -4,7 +4,7 @@ import {
   aboutReviewsCopy,
   aboutReviewsLink,
 } from '@/features/about/data'
-import { useSnapScroller } from '@/components/ui/useSnapScroller'
+import { useSnapScroller } from '@/hooks/useSnapScroller'
 
 function StarIcon({ className }: { className?: string }) {
   return (

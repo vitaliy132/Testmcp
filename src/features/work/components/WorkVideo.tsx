@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import type { WorkCaseStudyItem } from '@/data/work'
+import type { WorkCaseStudyItem } from '@/features/work/projects'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
-import { useInViewVideo } from '@/components/ui/useInViewVideo'
+import { useInViewVideo } from '@/hooks/useInViewVideo'
 
 export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
   const reduceMotion = useReducedMotion() ?? false

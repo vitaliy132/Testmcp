@@ -1,7 +1,5 @@
 import type { FaqItem, FaqSection } from '@/types/faq'
 
-export type { FaqItem, FaqSection }
-
 export const faqHero = {
   title: 'Frequently Asked Questions',
   subtitle: 'The answers to your questions.',

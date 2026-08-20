@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
-import { aboutStats } from '@/features/about/data'
+import { aboutStats, type AboutStat } from '@/features/about/data'
 import { PageContainer } from '@/components/ui/PageContainer'
-import { useSnapScroller } from '@/components/ui/useSnapScroller'
+import { useSnapScroller } from '@/hooks/useSnapScroller'
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
   const [value, setValue] = useState(0)
@@ -22,33 +22,19 @@ function useCountUp(target: number, active: boolean, duration = 1400) {
   return value
 }
 
-function StatCard({
-  label,
-  value,
-  suffix,
-  display,
-  description,
-  active,
-}: {
-  label: string
-  value?: number
-  suffix?: string
-  display?: string
-  description: string
-  active: boolean
-}) {
-  const count = useCountUp(value ?? 0, active && value != null)
+function StatCard({ active, ...stat }: AboutStat & { active: boolean }) {
+  const count = useCountUp('value' in stat ? stat.value : 0, active && 'value' in stat)
 
   return (
     <div className="about-stat-slide shrink-0 snap-start px-2 lg:px-3 xl:px-4">
       <h3 className="w-full border-b border-solid border-black/10 pb-5 text-lg tracking-tight text-nd-muted md:text-xl dark:border-white/15 dark:text-white/85">
-        {label}
+        {stat.label}
       </h3>
       <p className="mt-5 text-[clamp(3.5rem,8vw,5.5rem)] font-medium leading-none tracking-tight tabular-nums text-nd-muted dark:text-white/85">
-        {display ?? `${count}${suffix ?? ''}`}
+        {'display' in stat ? stat.display : `${count}${stat.suffix}`}
       </p>
       <p className="mt-5 max-w-[34ch] text-sm leading-relaxed text-nd-muted dark:text-white/60">
-        {description}
+        {stat.description}
       </p>
     </div>
   )

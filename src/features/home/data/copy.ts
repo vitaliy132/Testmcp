@@ -1,4 +1,4 @@
-import { IMG } from '@/data/assets'
+import { IMG } from '@/config/assets'
 import { brand } from '@/config/brand'
 import { anchors } from '@/config/routes'
 

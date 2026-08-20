@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import type { WorkItem } from '@/data/work'
+import type { WorkItem } from '@/features/work/projects'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { SmartLink } from '@/components/ui/SmartLink'
 

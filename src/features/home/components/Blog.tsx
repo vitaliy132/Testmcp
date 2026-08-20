@@ -4,7 +4,7 @@ import { blogCopy } from '@/features/home/data/copy'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 import { CornerFillet } from '@/components/ui/CornerFillet'
-import { useSnapScroller } from '@/components/ui/useSnapScroller'
+import { useSnapScroller } from '@/hooks/useSnapScroller'
 
 function AuthorCutout({ src, name }: { src: string; name: string }) {
   return (

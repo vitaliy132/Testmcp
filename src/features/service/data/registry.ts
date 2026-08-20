@@ -1,8 +1,8 @@
-import { IMG } from '@/data/assets'
+import { IMG } from '@/config/assets'
 import type { ServiceKey } from '@/types/service'
 import { servicePages, type ServicePageContent } from '@/features/service/data/pages'
 
-export type ServiceNavMeta = {
+type ServiceNavMeta = {
   navLabel: string
   navDescription: string
   navOrder: number
@@ -54,7 +54,7 @@ const navMeta: Record<ServiceKey, ServiceNavMeta> = {
   },
 }
 
-export type ServiceRecord = ServiceNavMeta & {
+type ServiceRecord = ServiceNavMeta & {
   key: ServiceKey
   path: string
   page: ServicePageContent
@@ -76,4 +76,3 @@ export const homeServices = [...serviceList]
   }))
 
 export { servicePages }
-export type { ServiceKey, ServicePageContent }

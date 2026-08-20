@@ -1,6 +1,15 @@
-import { IMG } from '@/data/assets'
+import { IMG } from '@/config/assets'
 
-export const blog = [
+export type BlogPost = {
+  title: string
+  excerpt: string
+  readTime: string
+  cover: string
+  authorImage: string
+  author: string
+}
+
+export const blog: BlogPost[] = [
   {
     title: 'Why did Rise at Seven choose Northern Digital?',
     excerpt:

@@ -2,8 +2,6 @@ import { routes } from '@/config/routes'
 import { faqsByIds } from '@/features/faqs/data'
 import type { FaqItem } from '@/types/faq'
 
-export type ContactFaq = FaqItem
-
 export type ContactFormData = {
   name: string
   email: string

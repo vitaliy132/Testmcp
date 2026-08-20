@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { aiLinks } from '@/config/external'
 import { aiCopy } from '@/features/home/data/copy'
-import { IMG } from '@/data/assets'
+import { IMG } from '@/config/assets'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
 /** Positions and crops match the MadeByShape homepage AI block. */

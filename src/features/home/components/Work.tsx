@@ -1,4 +1,4 @@
-import { work } from '@/data/work'
+import { work } from '@/features/work/projects'
 import { routes } from '@/config/routes'
 import { workCopy } from '@/features/home/data/copy'
 import { WorkCard } from '@/features/work/components/WorkCard'

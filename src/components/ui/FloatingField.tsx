@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react'
 
-export const floatingControlClass =
+const floatingControlClass =
   'peer w-full appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-6 pb-2.5 text-base text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10'
 
 const floatingLabelClass =

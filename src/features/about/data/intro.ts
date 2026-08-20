@@ -1,7 +1,37 @@
 import { brand } from '@/config/brand'
 import { routes } from '@/config/routes'
 
-export const aboutIntro = {
+type IntroLink = {
+  label: string
+  href: string
+}
+
+export type AboutIntroParagraph =
+  | string
+  | {
+      before: string
+      link: IntroLink
+      after: string
+    }
+
+export type AboutIntro = {
+  eyebrow: string
+  heading: string
+  lead: {
+    before: string
+    branding: IntroLink
+    mid: string
+    webDesign: IntroLink
+    mid2: string
+    ecommerce: IntroLink
+    mid3: string
+    seo: IntroLink
+    after: string
+  }
+  paragraphs: AboutIntroParagraph[]
+}
+
+export const aboutIntro: AboutIntro = {
   eyebrow: 'About us',
   heading:
     'Expert web designers and web developers trained in the digital industry who offer a bespoke, professional and trustworthy service.',

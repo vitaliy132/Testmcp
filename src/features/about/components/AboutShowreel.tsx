@@ -3,7 +3,7 @@ import { useReducedMotion } from 'framer-motion'
 import { aboutShowreel } from '@/features/about/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
-import { useInViewVideo } from '@/components/ui/useInViewVideo'
+import { useInViewVideo } from '@/hooks/useInViewVideo'
 
 export function AboutShowreel() {
   const reduceMotion = useReducedMotion() ?? false

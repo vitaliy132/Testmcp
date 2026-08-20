@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import { brand } from '@/config/brand'
 import { anchors, homeHash } from '@/config/routes'
-import { getWorkCaseStudy } from '@/data/work'
+import { getWorkCaseStudy } from '@/features/work/projects'
 import { PageFallback } from '@/components/ui/PageFallback'
 import {
   WorkChapter,

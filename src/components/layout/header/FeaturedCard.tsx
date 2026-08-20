@@ -1,4 +1,4 @@
-import { ArrowIcon } from '@/components/layout/header/icons'
+import { ArrowIcon } from '@/components/ui/ArrowIcon'
 import { SmartLink } from '@/components/ui/SmartLink'
 
 export function FeaturedCard({

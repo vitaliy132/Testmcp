@@ -1,6 +1,6 @@
 # Northern Digital
 
-A Vite + React + TypeScript SPA for Northern Digital, an award-winning web design agency site. Visual system and imagery originated from a MadeByShape homepage scrape (Firecrawl); remote CDN URLs are kept for demo fidelity.
+A Vite + React + TypeScript SPA for Northern Digital, a web design agency site.
 
 ## Stack
 
@@ -16,6 +16,20 @@ npm install
 npm run dev
 ```
 
+Form submissions need `VITE_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.example`).
+
+## Layout
+
+- `src/app` — shell and routes
+- `src/pages` — route composers
+- `src/features` — page sections and domain data
+- `src/components` — shared UI and layout
+- `src/hooks` — shared hooks
+- `src/config` — brand, routes, nav, assets
+- `src/lib` — theme, links, forms
+- `src/types` — shared types
+- `projects/` — live client demos, served at `/projects/<id>/`
+
 Work cards open live client sites. Source for each demo lives in `projects/`:
 
 | Project | Folder | Local URL |
@@ -29,4 +43,4 @@ Work cards open live client sites. Source for each demo lives in `projects/`:
 
 - Lime accent (`#D0FF71`), pill CTAs, large grotesque type, and section rhythm.
 - Typography uses Space Grotesk as a free stand-in for commercial Oldschool Grotesk.
-- Most photography still loads from the MadeByShape CDN; this is a local demo/recreation, not an official site.
+- This is a local demo/recreation, not an official site.

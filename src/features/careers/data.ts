@@ -1,9 +1,9 @@
 import { brand } from '@/config/brand'
 import { anchors, routes } from '@/config/routes'
-import { IMG } from '@/data/assets'
+import { IMG } from '@/config/assets'
 import { aboutHeroImages } from '@/features/about/data/media'
 
-export type CareerRole = {
+type CareerRole = {
   title: string
   type: 'Full Time' | 'Part Time'
   href: string

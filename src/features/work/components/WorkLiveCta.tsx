@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { WorkCaseStudyItem } from '@/data/work'
+import type { WorkCaseStudyItem } from '@/features/work/projects'
 import { workPageCopy } from '@/features/work/data'
 import { GooeyLink } from '@/components/ui/GooeyButton'
 import { isInternalHref } from '@/lib/links'

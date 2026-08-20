@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import type { WorkCaseStudyItem } from '@/data/work'
+import type { WorkCaseStudyItem } from '@/features/work/projects'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { PageContainer } from '@/components/ui/PageContainer'
 

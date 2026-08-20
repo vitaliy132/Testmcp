@@ -1,4 +1,4 @@
-import { getRelatedWork, type WorkCaseStudyItem } from '@/data/work'
+import { getRelatedWork, type WorkCaseStudyItem } from '@/features/work/projects'
 import { workPageCopy } from '@/features/work/data'
 import { WorkCard } from '@/features/work/components/WorkCard'
 import { anchors, homeHash } from '@/config/routes'

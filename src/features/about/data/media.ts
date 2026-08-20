@@ -11,7 +11,7 @@ export const award = (file: string, dm: string, s: string) =>
   `${CDN}/Awards/${file}?w=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=${dm}&s=${s}`
 
 /* Order matches source arched carousel data-index 0…8 */
-export const aboutHeroImages = [
+export const aboutHeroImages: string[] = [
   `${CDN}/India-2022/Empty-Studio/Shape-April-2022-HR-201.jpg?w=400&h=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1651142747&s=ac2c8013dee87f79b22c4e0c0aae7dab`,
   `${CDN}/India-2022/Empty-Studio/Shape-April-2022-HR-200.jpg?w=400&h=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1651142745&s=babedcc3fa45f9af1a08b9a9062682f7`,
   `${CDN}/India-2022/Chillout-Area/Shape-April-2022-HR-163.jpg?w=400&h=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1651142276&s=623a91582904eeaaa558600540e49349`,
@@ -23,7 +23,12 @@ export const aboutHeroImages = [
   `${CDN}/India-2022/People-in-Studio/Shape-April-2022-HR-215.jpg?w=400&h=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1651143498&s=2b69f2b4d69766ef9557bfde462cb117`,
 ]
 
-export const aboutShowreel = {
+export type AboutShowreel = {
+  src: string
+  poster: string
+}
+
+export const aboutShowreel: AboutShowreel = {
   src: 'https://servd-made-byshape.b-cdn.net/production/uploads/videos/shape-showreel-2024_looping-v3.mp4',
   poster: '/images/studio/hr-204.webp',
 }

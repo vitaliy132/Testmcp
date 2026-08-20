@@ -373,22 +373,6 @@ html.dark .btn-soft {
   transform: scale(1.03);
 }
 
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: inherit;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-}
-
 @keyframes hero-reel-grain {
   0%,
   100% {

@@ -1,11 +1,7 @@
-# HyperFrames authoring projects and generated artifacts — keep off GitHub
+# Local video authoring workspaces (not part of the SPA)
 /hyperframes-showreel/
 /videos/
 /assets/sfx/
-**/.hyperframes/
-**/hyperframes.json
-**/.hyperframesignore
-**/.playwright/
 
 # Logs
 logs

@@ -1,6 +1,5 @@
 export const brand = {
   name: 'Northern Digital',
-  shortName: 'ND',
   legalName: 'Northern Digital Ltd',
   foundedYear: 2024,
   email: 'hello@northlinedigital.agency',

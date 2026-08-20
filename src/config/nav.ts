@@ -1,10 +1,8 @@
-import { IMG } from '@/data/assets'
-import { work } from '@/data/work'
+import { IMG } from '@/config/assets'
+import { work } from '@/features/work/projects'
 import { anchors, homeHash, routes } from '@/config/routes'
 import { serviceList } from '@/features/service/data/registry'
 import type { MenuLink } from '@/types/nav'
-
-export type { MenuLink }
 
 export const servicesLinks: MenuLink[] = [...serviceList]
   .sort((a, b) => a.navOrder - b.navOrder)

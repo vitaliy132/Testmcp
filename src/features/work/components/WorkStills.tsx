@@ -1,4 +1,4 @@
-import type { WorkCaseStudyItem } from '@/data/work'
+import type { WorkCaseStudyItem } from '@/features/work/projects'
 import { PageContainer } from '@/components/ui/PageContainer'
 
 export function WorkStills({ project }: { project: WorkCaseStudyItem }) {

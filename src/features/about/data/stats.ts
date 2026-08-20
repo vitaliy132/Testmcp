@@ -1,6 +1,19 @@
 import { brand } from '@/config/brand'
 
-export const aboutStats = [
+export type AboutStat =
+  | {
+      label: string
+      description: string
+      value: number
+      suffix: string
+    }
+  | {
+      label: string
+      description: string
+      display: string
+    }
+
+export const aboutStats: AboutStat[] = [
   {
     label: 'Clients',
     value: 250,

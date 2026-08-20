@@ -1,6 +1,11 @@
 import { award } from '@/features/about/data/media'
 
-export const aboutAwardLogos = [
+export type AwardLogo = {
+  src: string
+  alt: string
+}
+
+export const aboutAwardLogos: AwardLogo[] = [
   { src: '/awards/logo-0.svg', alt: 'Industry award' },
   { src: '/awards/logo-1.svg', alt: 'Industry award' },
   { src: '/awards/logo-2.svg', alt: 'Industry award' },

@@ -2,10 +2,6 @@ import { routes } from '@/config/routes'
 import type { FaqItem } from '@/types/faq'
 import type { ServiceCapability, ServiceKey } from '@/types/service'
 
-export type { FaqItem, ServiceCapability, ServiceKey }
-
-export type ServiceFaq = FaqItem
-
 export type ServicePageContent = {
   key: ServiceKey
   path: string

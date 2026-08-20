@@ -6,8 +6,6 @@ import { anchors, homeHash, routes } from '@/config/routes'
 import { SmartLink } from '@/components/ui/SmartLink'
 import type { OpenMenu } from '@/types/nav'
 
-export type { OpenMenu }
-
 type DesktopNavProps = {
   openMenu: OpenMenu
   open: (menu: OpenMenu) => void
