@@ -3,6 +3,7 @@ import { Suspense, useEffect } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ButtonGooFilter } from '@/components/ui/GooeyButton'
+import { CustomCursor } from '@/components/ui/CustomCursor'
 import { PageFallback } from '@/components/ui/PageFallback'
 import { scrollToHash } from '@/lib/scroll'
 
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-nd-ink transition-colors duration-300 dark:bg-[#121212] dark:text-white">
       <ButtonGooFilter />
+      <CustomCursor />
       <Header />
       <main>
         <Suspense fallback={<PageFallback />}>

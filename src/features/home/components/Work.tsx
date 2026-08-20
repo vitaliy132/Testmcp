@@ -43,7 +43,11 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
       transition={{ duration: 0.45, delay: (index % 2) * 0.06 }}
       className={`mb-16 w-full px-2 md:mb-28 md:w-1/2 lg:px-3 xl:px-4 ${stagger ? 'md:mt-20' : ''}`}
     >
-      <SmartLink href={project.href} className="group relative flex w-full flex-col items-start">
+      <SmartLink
+        href={project.href}
+        data-cursor="arrow-up-right"
+        className="group relative flex w-full flex-col items-start"
+      >
         <div className="relative mb-6 w-full overflow-hidden">
           {/* Top-right cutout: tags + fillets; hidden until hover on xl+ */}
           <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px transition-transform duration-300 xl:-translate-y-full xl:group-hover:translate-y-0 dark:bg-[#121212]">

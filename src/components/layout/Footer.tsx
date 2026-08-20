@@ -13,12 +13,16 @@ export function Footer() {
 
   return (
     <footer id="contact" className="bg-nd-darker text-white pb-[env(safe-area-inset-bottom)]">
-      <div className="overflow-hidden border-b border-white/10 py-6">
+      <Link
+        to={routes.contact}
+        data-cursor="arrow-up-right"
+        className="block overflow-hidden border-b border-white/10 py-6 text-inherit no-underline"
+      >
         <Marquee className="gap-10 whitespace-nowrap text-[clamp(2.5rem,8vw,6rem)] font-medium tracking-tight text-white/90">
           <span>Let’s work together ·</span>
           <span>Let’s work together ·</span>
         </Marquee>
-      </div>
+      </Link>
 
       <PageContainer className="py-16 lg:py-20">
         <div className="mb-16 flex flex-wrap items-end justify-between gap-8">
