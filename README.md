@@ -21,7 +21,7 @@ Work cards open live client sites. Source for each demo lives in `projects/`:
 | Project | Folder | Local URL |
 | --- | --- | --- |
 | Anovair | `projects/anovair/` | `/projects/anovair/` |
-| FORMA Studio | `projects/forma-studio/` | `/projects/forma-studio/` |
+| Emna Studio | `projects/emna-studio/` | `/projects/emna-studio/` |
 | Aqua | `projects/aqua/` | `/projects/aqua/` |
 | Proud Mary Coffee | `projects/proud-mary/` | `/projects/proud-mary/` |
 

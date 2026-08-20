@@ -5,10 +5,6 @@ import { partnerBrands, type PartnerBrand, type PartnerLockup } from '@/features
 const partnerNames = partnerBrands.map((brand) => brand.name).join(', ')
 
 function Lockup({ type }: { type: PartnerLockup }) {
-  if (type === 'forma') {
-    return <span className="whitespace-nowrap text-[20px] font-semibold leading-none tracking-[0.28em]">FORMA</span>
-  }
-
   if (type === 'noramble') {
     return (
       <span className="flex items-center gap-1.5 whitespace-nowrap text-[20px] font-medium leading-none tracking-[0.04em]">

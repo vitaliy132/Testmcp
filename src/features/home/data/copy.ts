@@ -52,10 +52,3 @@ export const aiCopy = {
   eyebrow: 'Don’t believe the hype?',
   heading: ['See what AI has', 'to say about us'] as const,
 }
-
-export const heroReelChips = [
-  { label: 'Web', x: '58%', y: '28%', delay: 0 },
-  { label: 'Brand', x: '74%', y: '42%', delay: 0.4 },
-  { label: 'SEO', x: '52%', y: '68%', delay: 0.8 },
-  { label: 'Craft', x: '78%', y: '72%', delay: 1.2 },
-] as const

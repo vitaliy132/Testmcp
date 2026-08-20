@@ -29,7 +29,7 @@ export function workItem(slug: string) {
 /** Live demo client sites — source lives in /projects/<id>/ */
 export const workSites = {
   anovair: '/projects/anovair/',
-  formaStudio: '/projects/forma-studio/',
+  emnaStudio: '/projects/emna-studio/',
   aqua: '/projects/aqua/',
   proudMary: '/projects/proud-mary/',
 } as const

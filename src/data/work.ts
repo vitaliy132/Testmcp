@@ -186,17 +186,18 @@ export const work: WorkItem[] = [
     },
   },
   {
-    id: 'forma-studio',
-    client: 'FORMA Studio',
-    year: '2024',
-    title: 'Premium DTC storefront with product storytelling, wishlist and modern checkout UX.',
-    tags: ['Next.js', 'E-Commerce', 'CRO'],
+    id: 'emna-studio',
+    client: 'Emna Studio',
+    year: '2026',
+    title:
+      'Architecture studio and concept store — furniture, artisan objects, and a Fethiye boutique in one site.',
+    tags: ['Architecture', 'E-Commerce', 'Design'],
     image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
-    imageAlt: 'FORMA Studio lookbook — considered home at dusk',
+      'https://static.wixstatic.com/media/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a22769_548ec3092ea24c679e985b4851eb2af9~mv2_d_6354_3000_s_4_2.jpg',
+    imageAlt: 'Emna Studio TROCTA coffee table — Mudalla geometry in marble and metal',
     imagePosition: '50% 50%',
-    href: workSites.formaStudio,
-    liveUrl: workSites.formaStudio,
+    href: workSites.emnaStudio,
+    liveUrl: workSites.emnaStudio,
   },
 ]
 
