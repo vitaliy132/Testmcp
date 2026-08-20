@@ -83,7 +83,7 @@ export function Blog() {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             className="blog-slide w-[85%] shrink-0 snap-start px-2 sm:w-[55%] lg:w-[42%] xl:w-[38%] xl:px-3"
           >
-            <div className="group flex flex-col items-start" data-cursor="arrow-up-right">
+            <div className="group flex flex-col items-start">
               <div className="relative mb-5 w-full">
                 <div className="aspect-[16/9] overflow-hidden rounded-2xl rounded-bl-xl bg-nd-soft lg:rounded-3xl lg:rounded-bl-2xl dark:bg-[#1a1a1a]">
                   <img

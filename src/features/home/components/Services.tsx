@@ -55,7 +55,6 @@ export function Services() {
               return (
                 <div
                   key={service.name}
-                  data-cursor="arrow-up-right"
                   className={`w-full border-b border-solid border-white/35 transition-opacity duration-300 ${
                     dimmed ? 'lg:opacity-30' : 'opacity-100'
                   }`}

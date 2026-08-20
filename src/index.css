@@ -37,11 +37,6 @@ html.dark body {
   color: #f5f5f5;
 }
 
-body.no-cursor,
-body.no-cursor * {
-  cursor: none !important;
-}
-
 @keyframes wave {
   0%,
   100% {

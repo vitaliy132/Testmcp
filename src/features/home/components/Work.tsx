@@ -45,7 +45,6 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
     >
       <SmartLink
         href={project.href}
-        data-cursor="arrow-up-right"
         className="group relative flex w-full flex-col items-start"
       >
         <div className="relative mb-6 w-full overflow-hidden">
