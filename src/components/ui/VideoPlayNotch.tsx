@@ -30,11 +30,11 @@ export function VideoPlayNotch({
       <button
         type="button"
         onClick={onToggle}
-        className="relative z-10 inline-flex items-center overflow-hidden rounded-full bg-nd-ink text-white dark:bg-white/15 dark:text-white"
+        className="relative z-10 inline-flex h-11 items-center overflow-hidden rounded-full bg-nd-ink pr-1 text-white dark:bg-white/15 dark:text-white"
         aria-label={label}
       >
-        <span className="px-4 py-2 text-sm leading-tight">{playing ? 'Pause' : 'Play'}</span>
-        <span className="grid h-9 w-9 place-items-center">
+        <span className="px-5 text-sm leading-none">{playing ? 'Pause' : 'Play'}</span>
+        <span className="grid h-9 w-9 place-items-center rounded-full">
           <PlayPauseIcon playing={playing} />
         </span>
       </button>

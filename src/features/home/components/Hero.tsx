@@ -54,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.04, ease: blobEase }}
             className="px-2 lg:px-3 xl:px-4"
           >
-            <div className="hero-reel-frame relative z-0 isolate aspect-[4/5] w-full overflow-hidden bg-[#1a1a1a] md:aspect-[16/10] lg:aspect-video">
+            <div className="hero-reel-frame relative z-0 aspect-[4/5] w-full overflow-hidden bg-white md:aspect-[16/10] lg:aspect-video dark:bg-nd-dark">
               <HeroReel
                 videoRef={videoRef}
                 showPoster={showPoster}
@@ -88,79 +88,59 @@ export function Hero() {
                   label={playing ? 'Pause showreel' : 'Play showreel'}
                 />
               )}
-            </div>
-          </motion.div>
 
-          <div className="pointer-events-none absolute top-0 left-0 z-20 flex w-auto max-w-[calc(100%-7rem)] flex-col items-start px-2 pb-8 sm:max-w-[min(100%,42rem)] lg:px-3 xl:px-4">
-            <div className="pointer-events-auto relative flex w-auto flex-col items-start">
-              <div className="absolute top-0 left-5 z-10 h-40 w-20 -translate-x-full bg-white lg:w-44 dark:bg-nd-dark" />
-              {/* Experiment: fillets off
-              <CornerFillet className={`${filletClass} top-40 left-3 -mt-px -translate-x-full`} />
-              <CornerFillet
-                fill="top-left"
-                className={`${filletClass} top-40 -left-16 -mt-px xl:-left-36`}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-1 -left-1 z-[15] h-14 w-14 rounded-tl-[1.5rem] bg-white lg:h-16 lg:w-16 lg:rounded-tl-[2rem] dark:bg-nd-dark"
               />
-              */}
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: blobEase }}
-                className="relative flex w-auto flex-col items-start"
-              >
-                <div className="relative mb-3 w-full bg-white dark:bg-nd-dark">
-                  <div className="relative z-20 mt-px inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
-                    <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
-                    <span>{heroCopy.eyebrow}</span>
-                    <span className="animate-wave text-2xl lg:text-3xl" aria-hidden>
-                      👋
-                    </span>
-                  </div>
-                </div>
-
-                <div className="relative -mt-[1.125rem] w-auto">
-                  {/* Experiment: fillets off
-                  <CornerFillet
-                    fill="top-left"
-                    className={`${filletClass} top-0.5 right-px h-9 w-9 -translate-y-10 translate-x-full lg:h-10 lg:w-10`}
-                  />
-                  */}
+              <div className="pointer-events-none absolute -top-1 -left-1 right-0 bottom-0 z-20 flex w-auto max-w-[calc(100%-7rem)] flex-col items-start sm:max-w-[min(100%,42rem)]">
+                <div className="pointer-events-auto relative flex w-auto flex-col items-start">
                   <div className="hero-gooey-wrap relative w-auto">
-                    <h1
-                      className="hero-gooey bg-white py-2 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:py-3 xl:text-6xl 2xl:text-7xl dark:bg-nd-dark dark:text-white"
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.7, delay: 0.1, ease: blobEase }}
+                      className="hero-gooey-cluster relative flex w-auto flex-col items-start"
                       style={{ filter: 'url(#heroGoo)' }}
                     >
-                      {heroCopy.headline.map((line, i) => (
-                        <span
-                          key={line}
-                          className="relative inline shrink-0 truncate pl-3 lg:pl-5"
-                          style={{ zIndex: heroCopy.headline.length - 1 - i }}
-                        >
-                          {line}
-                          {'\u00a0\u00a0'}
-                          <br />
-                        </span>
-                      ))}
-                    </h1>
+                      <div className="hero-gooey-chip relative mb-3 w-full bg-white dark:bg-nd-dark">
+                        <div className="relative z-20 inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
+                          <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
+                          <span>{heroCopy.eyebrow}</span>
+                          <span className="animate-wave text-2xl lg:text-3xl" aria-hidden>
+                            👋
+                          </span>
+                        </div>
+                      </div>
+
+                      <h1 className="hero-gooey hero-gooey-chip relative -mt-[1.125rem] bg-white py-2 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:py-3 xl:text-6xl 2xl:text-7xl dark:bg-nd-dark dark:text-white">
+                        {heroCopy.headline.map((line, i) => (
+                          <span
+                            key={line}
+                            className="relative inline shrink-0 truncate pl-3 lg:pl-5"
+                            style={{ zIndex: heroCopy.headline.length - 1 - i }}
+                          >
+                            {line}
+                            {'\u00a0\u00a0'}
+                            <br />
+                          </span>
+                        ))}
+                      </h1>
+
+                      <div className="hero-gooey-chip relative -mt-2 inline-flex rounded-b-[1.5rem] bg-white px-3 pt-1 pb-5 lg:rounded-b-[2rem] lg:px-5 lg:pt-3 lg:pr-8 lg:pb-7 dark:bg-nd-dark">
+                        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-7">
+                          <GooeyLink href={anchors.work} label={heroCopy.workCta} tone="ink" />
+                          <MeetTheTeamLink />
+                        </div>
+                      </div>
+                    </motion.div>
                     <HeroGooFilter />
                   </div>
                 </div>
-
-                <div className="relative mt-2.5 inline-flex rounded-b-xl bg-white px-3 pt-1 pb-3 lg:mt-0 lg:rounded-b-2xl lg:px-5 lg:pt-3 lg:pr-8 lg:pb-5 dark:bg-nd-dark">
-                  {/* Experiment: fillets off
-                  <CornerFillet
-                    fill="top-left"
-                    className={`${filletClass} top-1 right-px translate-x-full lg:top-4`}
-                  />
-                  */}
-                  <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-7">
-                    <GooeyLink href={anchors.work} label={heroCopy.workCta} tone="ink" />
-                    <MeetTheTeamLink />
-                  </div>
-                </div>
-              </motion.div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </PageContainer>
     </section>
