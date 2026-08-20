@@ -18,7 +18,7 @@ export default function App() {
     <div className="min-h-screen bg-white text-nd-ink transition-colors duration-300 dark:bg-nd-dark dark:text-white">
       <ButtonGooFilter />
       <Header />
-      <main>
+      <main className="relative z-0 isolate">
         <Suspense fallback={<PageFallback />}>
           <Outlet />
         </Suspense>

@@ -14,18 +14,18 @@ export function HeroReel({
   onError: () => void
 }) {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#010202]" aria-hidden>
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[#010202]" aria-hidden>
       {showPoster ? (
         <img
           src={poster}
           alt=""
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
       ) : (
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
           src={src}
           poster={poster}
           muted

@@ -60,7 +60,7 @@ export function Header() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-2 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] lg:pb-3 lg:pt-[max(0.75rem,env(safe-area-inset-top))]"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[100] isolate flex transform-gpu justify-center px-2 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] lg:pb-3 lg:pt-[max(0.75rem,env(safe-area-inset-top))]"
     >
       <div
         className={`pointer-events-auto w-full transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${

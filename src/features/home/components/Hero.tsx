@@ -47,16 +47,16 @@ export function Hero() {
   })
 
   return (
-    <section className="relative pt-3 pb-16 lg:pt-4 lg:pb-24">
+    <section className="relative pt-20 pb-16 lg:pt-24 lg:pb-24">
       <PageContainer>
         <div className="relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0.985 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.04, ease: blobEase }}
             className="px-2 lg:px-3 xl:px-4"
           >
-            <div className="hero-reel-frame relative aspect-[4/5] w-full overflow-hidden bg-[#1a1a1a] md:aspect-[16/10] lg:aspect-video">
+            <div className="hero-reel-frame relative z-0 isolate aspect-[4/5] w-full overflow-hidden bg-[#1a1a1a] md:aspect-[16/10] lg:aspect-video">
               <HeroReel
                 videoRef={videoRef}
                 showPoster={showPoster}
