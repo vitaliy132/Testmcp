@@ -4,16 +4,16 @@
  * kept for visual fidelity — not owned by Northern Digital.
  */
 export const IMG = {
-  andy: '/expertise/andy.webp',
+  andy: '/images/profiles/andy.webp',
   andyProfile: '/images/profiles/andy.webp',
   natasia: '/images/profiles/natasia.webp',
   ella: '/images/profiles/ella.webp',
   sketch: '/images/studio/sketch.webp',
-  brand: '/expertise/brand.webp',
-  websites: '/expertise/websites.webp',
-  seo: '/expertise/seo.webp',
-  craft: '/expertise/craft.webp',
-  shopify: '/expertise/shopify.webp',
+  brand: '/images/work/emna-studio.jpg',
+  websites: '/images/work/aqua.jpg',
+  seo: '/images/blog/rise.webp',
+  craft: '/images/studio/sketch.webp',
+  shopify: '/images/work/anovair-hero.jpg',
   studio1: '/images/studio/hr-204.webp',
   studio2: '/images/studio/hr-202.webp',
   studio3: '/images/studio/hr-189.webp',
@@ -26,5 +26,5 @@ export const IMG = {
   printer: '/images/blog/studio.webp',
   cards: '/images/blog/small-agency.webp',
   natasiaDesk: '/images/blog/clients.webp',
-  servicesDropdown: '/expertise/services-dropdown.webp',
+  servicesDropdown: '/images/work/proud-mary.jpg',
 } as const

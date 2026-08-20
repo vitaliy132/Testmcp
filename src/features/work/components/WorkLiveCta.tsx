@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { WorkCaseStudyItem } from '@/features/work/projects'
+import type { WorkCaseStudyItem } from '@/features/work/types'
 import { workPageCopy } from '@/features/work/data'
 import { GooeyLink } from '@/components/ui/GooeyButton'
 import { isInternalHref } from '@/lib/links'
@@ -12,7 +12,10 @@ export function WorkLiveCta({ project }: { project: WorkCaseStudyItem }) {
     if (!footer) return
 
     const io = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
+      ([entry]) => {
+        if (!entry) return
+        setVisible(!entry.isIntersecting)
+      },
       { rootMargin: '0px 0px 400px 0px', threshold: 0 },
     )
 

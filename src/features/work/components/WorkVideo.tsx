@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import type { WorkCaseStudyItem } from '@/features/work/projects'
+import type { WorkCaseStudyItem } from '@/features/work/types'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
 import { useInViewVideo } from '@/hooks/useInViewVideo'

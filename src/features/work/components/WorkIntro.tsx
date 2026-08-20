@@ -1,4 +1,4 @@
-import type { WorkCaseStudyItem } from '@/features/work/projects'
+import type { WorkCaseStudyItem } from '@/features/work/types'
 import { workPageCopy } from '@/features/work/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 

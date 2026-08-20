@@ -28,7 +28,7 @@ Form submissions need `VITE_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.exa
 - `src/config` — brand, routes, nav, assets
 - `src/lib` — theme, links, forms
 - `src/types` — shared types
-- `projects/` — live client demos, served at `/projects/<id>/`
+- `projects/` — live client demos (`shared/` TypeScript helpers + per-site HTML/CSS/`app.ts`), served at `/projects/<id>/`
 
 Work cards open live client sites. Source for each demo lives in `projects/`:
 
@@ -38,6 +38,14 @@ Work cards open live client sites. Source for each demo lives in `projects/`:
 | Emna Studio | `projects/emna-studio/` | `/projects/emna-studio/` |
 | Aqua | `projects/aqua/` | `/projects/aqua/` |
 | Proud Mary Coffee | `projects/proud-mary/` | `/projects/proud-mary/` |
+
+Demos are static HTML/CSS with TypeScript entries. Shared helpers live in `projects/shared/`. Each site loads one module:
+
+```html
+<script type="module" src="./app.ts"></script>
+```
+
+Vite compiles those entries in dev and bundles `app.js` into `dist/projects` on build.
 
 ## Notes
 

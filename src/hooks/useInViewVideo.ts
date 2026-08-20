@@ -25,7 +25,7 @@ export function useInViewVideo(
     let alive = true
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (!alive) return
+        if (!alive || !entry) return
         if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
           el.preload = 'auto'
           void el

@@ -5,14 +5,6 @@ export type AwardLogo = {
   alt: string
 }
 
-export const aboutAwardLogos: AwardLogo[] = [
-  { src: '/awards/logo-0.svg', alt: 'Industry award' },
-  { src: '/awards/logo-1.svg', alt: 'Industry award' },
-  { src: '/awards/logo-2.svg', alt: 'Industry award' },
-  { src: '/awards/logo-3.svg', alt: 'Industry award' },
-  { src: '/awards/logo-4.svg', alt: 'Industry award' },
-]
-
 export const aboutAwards = [
   award('certificate-area-hm.png', '1664875085', '3d7e0ce8728f377cd37450bb7acae920'),
   award('certificate-iet-mobile_excellence.png', '1628684934', '0fa24a4fef47aff3f90763d5e53d1b4e'),
@@ -61,6 +53,11 @@ export const aboutAwards = [
   ),
   award('certificate-madebyshape-hm.png', '1628684942', 'b192f1e2e3c47210f1ae4ff34c0dc5d3'),
 ]
+
+export const aboutAwardLogos: AwardLogo[] = aboutAwards.slice(0, 5).map((src) => ({
+  src,
+  alt: 'Industry award',
+}))
 
 export const aboutAwardsCopy = {
   eyebrow: 'We don’t pay for awards',

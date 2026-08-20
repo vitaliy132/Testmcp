@@ -1,4 +1,4 @@
-import type { WorkCaseStudyItem } from '@/features/work/projects'
+import type { WorkCaseStudyItem } from '@/features/work/types'
 import { PageContainer } from '@/components/ui/PageContainer'
 
 export function WorkStills({ project }: { project: WorkCaseStudyItem }) {
@@ -6,6 +6,7 @@ export function WorkStills({ project }: { project: WorkCaseStudyItem }) {
   if (stills.length === 0) return null
 
   const [first, ...rest] = stills
+  if (!first) return null
 
   return (
     <section className="pb-16 lg:pb-24">

@@ -1,4 +1,4 @@
-import type { WorkChapter as WorkChapterType } from '@/features/work/projects'
+import type { WorkChapter as WorkChapterType } from '@/features/work/types'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 

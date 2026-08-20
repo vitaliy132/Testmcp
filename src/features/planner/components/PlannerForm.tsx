@@ -35,6 +35,7 @@ export function PlannerForm() {
   const formId = useId()
 
   const meta = plannerSteps[step - 1]
+  if (!meta) return null
 
   const patch = (partial: Partial<PlannerFormData>) => {
     setData((prev) => ({ ...prev, ...partial }))

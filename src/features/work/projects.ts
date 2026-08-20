@@ -1,43 +1,7 @@
 import { workItem, workSites } from '@/config/routes'
+import { isWorkCaseStudyItem, type WorkCaseStudyItem, type WorkItem } from '@/features/work/types'
 
-export type WorkStill = {
-  src: string
-  alt: string
-}
-
-export type WorkChapter = {
-  eyebrow: string
-  heading: string
-  body: string
-}
-
-export type WorkCaseStudy = {
-  headline: string
-  dek: string
-  body: string
-  industry: string
-  duration: string
-  video: string
-  poster: string
-  stills: WorkStill[]
-  chapters: WorkChapter[]
-}
-
-export type WorkItem = {
-  id: string
-  client: string
-  year: string
-  title: string
-  tags: string[]
-  image: string
-  imageAlt: string
-  imagePosition: string
-  href: string
-  liveUrl: string
-  caseStudy?: WorkCaseStudy
-}
-
-export type WorkCaseStudyItem = WorkItem & { caseStudy: WorkCaseStudy }
+export type { WorkCaseStudy, WorkCaseStudyItem, WorkChapter, WorkItem, WorkStill } from '@/features/work/types'
 
 export const work: WorkItem[] = [
   {
@@ -236,8 +200,8 @@ export const work: WorkItem[] = [
 
 export function getWorkCaseStudy(slug: string | undefined): WorkCaseStudyItem | undefined {
   const item = work.find((project) => project.id === slug)
-  if (!item?.caseStudy) return undefined
-  return item as WorkCaseStudyItem
+  if (!item || !isWorkCaseStudyItem(item)) return undefined
+  return item
 }
 
 export function getRelatedWork(id: string): WorkItem[] {
