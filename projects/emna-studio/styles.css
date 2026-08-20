@@ -13,6 +13,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 body {
   background: var(--bg);
   color: var(--ink);
@@ -379,8 +382,12 @@ h1, h2, h3, h4 {
 }
 .masonry img {
   width: 100%;
+  height: auto;
   margin-bottom: 10px;
   break-inside: avoid;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--soft);
 }
 
 .filters {

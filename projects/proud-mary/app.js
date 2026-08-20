@@ -517,6 +517,14 @@ function bindChrome() {
   })
 }
 
+function debounce(fn, ms) {
+  let t
+  return () => {
+    clearTimeout(t)
+    t = setTimeout(fn, ms)
+  }
+}
+
 function visibleCount() {
   if (window.innerWidth < 640) return 2
   if (window.innerWidth < 1024) return 3
@@ -556,7 +564,7 @@ function bindRails() {
       if (index > maxIndex()) index = 0
       paint()
     })
-    window.addEventListener('resize', paint)
+    window.addEventListener('resize', debounce(paint, 150))
     requestAnimationFrame(() => {
       paint()
       setTimeout(() => wrap.classList.add('ready'), 400)

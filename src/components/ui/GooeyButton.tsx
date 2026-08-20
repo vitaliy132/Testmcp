@@ -139,15 +139,16 @@ export function ButtonGooFilter() {
           <feComposite in="SourceGraphic" in2="buttonFilter" operator="atop" />
           <feBlend in="SourceGraphic" in2="buttonFilter" />
         </filter>
-        <filter id="heroGoo" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+        <filter id="heroGoo" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
           <feColorMatrix
             in="blur"
             mode="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
             result="goo"
           />
-          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" result="atop" />
+          <feBlend in="SourceGraphic" in2="goo" />
         </filter>
       </defs>
     </svg>

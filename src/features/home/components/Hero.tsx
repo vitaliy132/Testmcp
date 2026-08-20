@@ -7,7 +7,7 @@ import { PageContainer } from '@/components/ui/PageContainer'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { ArrowIcon, GooeyLink } from '@/components/ui/GooeyButton'
 
-const pageFill = 'text-white dark:text-[#121212]'
+const pageFill = 'text-white dark:text-nd-dark'
 const filletClass = `pointer-events-none absolute z-30 h-10 w-10 ${pageFill}`
 const blobEase = [0.16, 1, 0.3, 1] as const
 
@@ -66,7 +66,7 @@ export function Hero() {
 
           <div className="pointer-events-none absolute top-0 left-0 z-20 flex w-auto max-w-[calc(100%-7rem)] flex-col items-start px-2 pb-8 sm:max-w-[min(100%,42rem)] lg:left-8 lg:px-3 xl:left-16 xl:px-4">
             <div className="pointer-events-auto relative flex w-auto flex-col items-start">
-              <div className="absolute top-0 left-5 z-10 h-40 w-20 -translate-x-full bg-white lg:w-44 dark:bg-[#121212]" />
+              <div className="absolute top-0 left-5 z-10 h-40 w-20 -translate-x-full bg-white lg:w-44 dark:bg-nd-dark" />
               <CornerFillet className={`${filletClass} top-40 left-3 -mt-px -translate-x-full`} />
               <CornerFillet
                 fill="top-left"
@@ -79,7 +79,7 @@ export function Hero() {
                 transition={{ duration: 0.7, delay: 0.1, ease: blobEase }}
                 className="relative flex w-auto flex-col items-start"
               >
-                <div className="relative w-full bg-white dark:bg-[#121212]">
+                <div className="relative w-full bg-white dark:bg-nd-dark">
                   <div className="relative z-20 mt-px mb-3 inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
                     <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
                     <span>{heroCopy.eyebrow}</span>
@@ -96,13 +96,13 @@ export function Hero() {
                   />
                   <div className="hero-gooey-wrap relative w-auto">
                     <h1
-                      className="hero-gooey bg-white pt-16 pb-3 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl xl:text-6xl 2xl:text-7xl dark:bg-[#121212] dark:text-white"
+                      className="hero-gooey bg-white pt-16 pb-4 pl-3 pr-5 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:pl-5 lg:pr-8 xl:text-6xl 2xl:text-7xl dark:bg-nd-dark dark:text-white"
                       style={{ filter: 'url(#heroGoo)' }}
                     >
                       {heroCopy.headline.map((line, i) => (
                         <span
                           key={line}
-                          className="relative inline shrink-0 truncate pl-3 lg:pl-5"
+                          className="relative"
                           style={{ zIndex: heroCopy.headline.length - 1 - i }}
                         >
                           {line}
@@ -114,7 +114,7 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="relative mt-2.5 inline-flex rounded-b-xl bg-white px-3 pt-1 pb-3 lg:mt-0 lg:rounded-b-2xl lg:px-5 lg:pt-3 lg:pr-8 lg:pb-5 dark:bg-[#121212]">
+                <div className="relative mt-2.5 inline-flex rounded-b-xl bg-white px-3 pt-1 pb-3 lg:mt-0 lg:rounded-b-2xl lg:px-5 lg:pt-3 lg:pr-8 lg:pb-5 dark:bg-nd-dark">
                   <CornerFillet
                     fill="top-left"
                     className={`${filletClass} top-1 right-px translate-x-full lg:top-4`}

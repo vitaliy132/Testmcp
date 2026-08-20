@@ -250,6 +250,14 @@ function bindChrome() {
   })
 }
 
+function debounce(fn, ms) {
+  let t
+  return () => {
+    clearTimeout(t)
+    t = setTimeout(fn, ms)
+  }
+}
+
 function visibleCount() {
   if (window.innerWidth < 700) return 1
   if (window.innerWidth < 1100) return 2
@@ -287,7 +295,7 @@ function bindRails() {
       if (index > max) index = 0
       paint()
     })
-    window.addEventListener('resize', paint)
+    window.addEventListener('resize', debounce(paint, 150))
     requestAnimationFrame(paint)
   })
 }
@@ -420,7 +428,12 @@ function mountGallery(key) {
   const el = $('[data-gallery]')
   if (!el) return
   const images = E[key] || []
-  el.innerHTML = images.map((src) => `<img src="${src}" alt="" loading="lazy" />`).join('')
+  el.innerHTML = images
+    .map(
+      (src) =>
+        `<img src="${src}" alt="" loading="lazy" decoding="async" width="1200" height="1500" />`,
+    )
+    .join('')
 }
 
 function mountJournal() {
@@ -429,7 +442,7 @@ function mountJournal() {
   el.innerHTML = E.journal
     .map(
       (j) => `<article class="journal-card">
-        <img src="${j.image}" alt="${escapeAttr(j.title)}" />
+        <img src="${j.image}" alt="${escapeAttr(j.title)}" loading="lazy" decoding="async" width="1200" height="800" />
         <h3>${escapeHtml(j.title)}</h3>
         <p>${escapeHtml(j.dek)}</p>
       </article>`

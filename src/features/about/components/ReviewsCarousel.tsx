@@ -81,7 +81,7 @@ export function ReviewsCarousel() {
           </div>
 
           <div className="relative w-full lg:w-3/4">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-20 bg-gradient-to-r from-white dark:from-[#121212] lg:block" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden w-20 bg-gradient-to-r from-white dark:from-nd-dark lg:block" />
             <div
               ref={scrollerRef}
               className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none"

@@ -8,9 +8,9 @@ import { useSnapScroller } from '@/components/ui/useSnapScroller'
 
 function AuthorCutout({ src, name }: { src: string; name: string }) {
   return (
-    <div className="absolute bottom-0 left-0 z-20 rounded-tr-2xl bg-white pb-0 pr-2 pt-2 dark:bg-[#121212] lg:rounded-tr-3xl lg:pr-3 lg:pt-3">
-      <CornerFillet className="absolute top-0 left-px h-5 w-5 -translate-y-full text-white dark:text-[#121212] lg:h-6 lg:w-6" />
-      <CornerFillet className="absolute right-0 bottom-px h-5 w-5 translate-x-full text-white dark:text-[#121212] lg:h-6 lg:w-6" />
+    <div className="absolute bottom-0 left-0 z-20 rounded-tr-2xl bg-white pb-0 pr-2 pt-2 dark:bg-nd-dark lg:rounded-tr-3xl lg:pr-3 lg:pt-3">
+      <CornerFillet className="absolute top-0 left-px h-5 w-5 -translate-y-full text-white dark:text-nd-dark lg:h-6 lg:w-6" />
+      <CornerFillet className="absolute right-0 bottom-px h-5 w-5 translate-x-full text-white dark:text-nd-dark lg:h-6 lg:w-6" />
       <img
         src={src}
         alt={name}

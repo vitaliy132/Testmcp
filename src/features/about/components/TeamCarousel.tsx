@@ -97,9 +97,9 @@ function TeamCard({ member, index = 0 }: { member: AboutTeamMember; index?: numb
 
         {/* Name / role cutout — bottom-left overlay (MadeByShape pattern) */}
         <div className="pointer-events-none absolute bottom-0 left-0 z-20 pr-14">
-          <div className="relative inline-flex flex-wrap rounded-tr-2xl bg-white pt-3 pr-5 lg:rounded-tr-3xl lg:pr-8 dark:bg-[#121212]">
-            <CornerFillet className="absolute right-px -bottom-px h-10 w-10 translate-x-full rotate-180 text-white lg:h-12 lg:w-12 dark:text-[#121212]" />
-            <CornerFillet className="absolute top-px left-0 h-10 w-10 -translate-y-full rotate-180 text-white lg:h-12 lg:w-12 dark:text-[#121212]" />
+          <div className="relative inline-flex flex-wrap rounded-tr-2xl bg-white pt-3 pr-5 lg:rounded-tr-3xl lg:pr-8 dark:bg-nd-dark">
+            <CornerFillet className="absolute right-px -bottom-px h-10 w-10 translate-x-full rotate-180 text-white lg:h-12 lg:w-12 dark:text-nd-dark" />
+            <CornerFillet className="absolute top-px left-0 h-10 w-10 -translate-y-full rotate-180 text-white lg:h-12 lg:w-12 dark:text-nd-dark" />
             <div>
               <div className="leading-tight tracking-tight dark:text-white">{member.name}</div>
               <div className="text-sm font-light leading-tight text-nd-muted dark:text-white/55">

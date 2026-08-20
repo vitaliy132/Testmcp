@@ -77,7 +77,7 @@ function imgTag(p, i, attrs = {}) {
   const fallback = remote && remote !== src ? remote : local && local !== src ? local : ''
   const cls = attrs.class ? ` class="${attrs.class}"` : ''
   const alt = attrs.alt != null ? attrs.alt : p.title
-  const loading = attrs.class === 'b' ? 'lazy' : 'eager'
+  const loading = attrs.loading || 'lazy'
   const onerr = fallback ? ` onerror="this.onerror=null;this.src='${escapeAttr(fallback)}'"` : ''
   return `<img${cls} src="${escapeAttr(src)}" alt="${escapeAttr(alt)}" loading="${loading}" referrerpolicy="no-referrer"${onerr} />`
 }
@@ -404,7 +404,7 @@ function mountProduct() {
   const gallery = $('[data-gallery]')
   if (gallery) {
     const shots = (p.images && p.images.length ? p.images : p.files || []).map((_, i) => i)
-    gallery.innerHTML = shots.map((i) => imgTag(p, i)).join('')
+    gallery.innerHTML = shots.map((i, n) => imgTag(p, i, n === 0 ? { loading: 'eager' } : {})).join('')
   }
   $('[data-p-title]') && ($('[data-p-title]').textContent = p.title)
   const price = $('[data-p-price]')

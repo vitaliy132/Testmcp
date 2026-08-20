@@ -3,41 +3,6 @@ import type { WorkItem } from '@/data/work'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { SmartLink } from '@/components/ui/SmartLink'
 
-function TagPills({
-  tags,
-  extra,
-  compact,
-}: {
-  tags: string[]
-  extra: number
-  compact?: boolean
-}) {
-  return (
-    <div className="relative z-10 -mb-2 -mr-2 flex max-w-[min(100%,16rem)] flex-wrap items-center sm:max-w-none">
-      {tags.map((tag) => (
-        <span
-          key={tag}
-          className={`mb-2 mr-2 inline-flex max-w-[9rem] truncate rounded-full bg-nd-soft px-3 text-sm leading-tight text-nd-ink sm:max-w-none dark:bg-[#2a2a2a] dark:text-white ${
-            compact ? 'py-1' : 'py-1.5 sm:px-4 lg:mb-3 lg:mr-3'
-          }`}
-        >
-          {tag}
-        </span>
-      ))}
-      {extra > 0 ? (
-        <span className="mb-2 mr-2 inline-flex pr-6 text-sm text-nd-muted lg:hidden dark:text-white/55">
-          + {extra}
-        </span>
-      ) : null}
-      {compact
-        ? null
-        : tags.length
-          ? null
-          : null}
-    </div>
-  )
-}
-
 function WorkCardTags({
   project,
   variant,
@@ -48,25 +13,16 @@ function WorkCardTags({
   const visibleTags = project.tags.slice(0, 2)
   const extraTags = project.tags.length - visibleTags.length
   const related = variant === 'related'
+  const fillet = related ? 'h-8 w-8' : 'h-10 w-10'
 
   return (
     <div
       className={`absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px dark:bg-nd-dark ${
-        related
-          ? ''
-          : 'transition-transform duration-300 xl:-translate-y-full xl:group-hover:translate-y-0'
+        related ? '' : 'transition-transform duration-300 xl:-translate-y-full xl:group-hover:translate-y-0'
       }`}
     >
-      <CornerFillet
-        className={`absolute top-0 left-px -translate-x-full text-white dark:text-nd-dark ${
-          related ? 'h-8 w-8' : 'h-10 w-10'
-        }`}
-      />
-      <CornerFillet
-        className={`absolute right-0 bottom-px translate-y-full text-white dark:text-nd-dark ${
-          related ? 'h-8 w-8' : 'h-10 w-10'
-        }`}
-      />
+      <CornerFillet className={`absolute top-0 left-px -translate-x-full text-white dark:text-nd-dark ${fillet}`} />
+      <CornerFillet className={`absolute right-0 bottom-px translate-y-full text-white dark:text-nd-dark ${fillet}`} />
       <div className="relative z-10 -mb-2 -mr-2 flex max-w-[min(100%,16rem)] flex-wrap items-center sm:max-w-none">
         {visibleTags.map((tag) => (
           <span
@@ -122,7 +78,11 @@ function WorkCardBody({
               alt={project.imageAlt}
               width={1200}
               height={900}
-              sizes={related ? '(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 768px) 50vw, 100vw'}
+              sizes={
+                related
+                  ? '(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw'
+                  : '(min-width: 768px) 50vw, 100vw'
+              }
               loading="lazy"
               decoding="async"
               className={`h-full w-full origin-center scale-105 object-cover transition-transform duration-500 ease-out ${

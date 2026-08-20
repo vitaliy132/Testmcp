@@ -35,9 +35,9 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
           </motion.div>
 
           <div className="w-full lg:w-[62.5%]">
-            <div className="relative rounded-bl-2xl bg-white lg:rounded-bl-3xl lg:px-10 lg:pb-5 dark:bg-[#121212]">
-              <CornerFillet className="absolute bottom-2 left-0 z-30 hidden h-10 w-10 -translate-x-full text-white lg:block lg:h-12 lg:w-12 dark:text-[#121212]" />
-              <CornerFillet className="absolute right-0 bottom-0 z-30 hidden h-10 w-10 translate-y-full text-white lg:block lg:h-12 lg:w-12 dark:text-[#121212]" />
+            <div className="relative rounded-bl-2xl bg-white lg:rounded-bl-3xl lg:px-10 lg:pb-5 dark:bg-nd-dark">
+              <CornerFillet className="absolute bottom-2 left-0 z-30 hidden h-10 w-10 -translate-x-full text-white lg:block lg:h-12 lg:w-12 dark:text-nd-dark" />
+              <CornerFillet className="absolute right-0 bottom-0 z-30 hidden h-10 w-10 translate-y-full text-white lg:block lg:h-12 lg:w-12 dark:text-nd-dark" />
 
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -68,9 +68,9 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
           transition={{ duration: 0.55, delay: 0.1 }}
           className="relative lg:-mt-6"
         >
-          <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px lg:hidden dark:bg-[#121212]">
-            <CornerFillet className="absolute top-0 left-px h-10 w-10 -translate-x-full text-white dark:text-[#121212]" />
-            <CornerFillet className="absolute right-0 bottom-px h-10 w-10 translate-y-full text-white dark:text-[#121212]" />
+          <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px lg:hidden dark:bg-nd-dark">
+            <CornerFillet className="absolute top-0 left-px h-10 w-10 -translate-x-full text-white dark:text-nd-dark" />
+            <CornerFillet className="absolute right-0 bottom-px h-10 w-10 translate-y-full text-white dark:text-nd-dark" />
             <div className="relative z-10 -mb-2 -mr-2 flex max-w-[min(100%,16rem)] flex-wrap items-center sm:max-w-none">
               <TagPills tags={visibleTags} />
             </div>

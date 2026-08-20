@@ -5,7 +5,7 @@ import { SmartLink } from '@/components/ui/SmartLink'
 
 export function CareersTeam() {
   return (
-    <section className="bg-white pb-20 lg:pb-24 dark:bg-[#121212]">
+    <section className="bg-white pb-20 lg:pb-24 dark:bg-nd-dark">
       <div className="mb-0 flex w-full flex-wrap justify-center px-2 sm:px-6 xl:px-12 2xl:px-20">
         <div className="flex w-full flex-col items-center space-y-3 text-center lg:space-y-5">
           <SectionEyebrow tone="muted">{careersContent.teamEyebrow}</SectionEyebrow>

@@ -436,15 +436,21 @@ html.dark .btn-soft {
 }
 
 /*
-  MadeByShape .gooey-content: the h1 is inline with cloned
-  line-box backgrounds, then an SVG goo filter melts the
-  different-width lines into one liquid shape.
+  MadeByShape .gooey-content: each line is its own padded
+  fragment; goo fills the inner steps so they don't stay sharp.
 */
 .hero-gooey {
   display: inline;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   filter: url(#heroGoo);
+}
+
+.hero-gooey span {
+  display: inline;
+  white-space: nowrap;
 }
 
 @supports (-moz-appearance: none) {
@@ -462,7 +468,7 @@ html.dark .btn-soft {
 
   .hero-gooey-wrap {
     overflow: hidden;
-    border-bottom-right-radius: 1rem;
+    border-bottom-right-radius: 1.5rem;
   }
 }
 
@@ -470,10 +476,6 @@ html.dark .btn-soft {
   @supports (-moz-appearance: none) {
     .hero-gooey {
       padding-top: 1rem;
-    }
-
-    .hero-gooey-wrap {
-      border-bottom-right-radius: 1.5rem;
     }
   }
 }
