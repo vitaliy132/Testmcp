@@ -9,7 +9,7 @@ function TagPills({ tags }: { tags: string[] }) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="mb-2 mr-2 inline-flex rounded-full bg-nd-soft px-4 py-1.5 text-sm leading-tight text-nd-ink lg:mb-3 lg:mr-3 lg:text-base dark:bg-[#2a2a2a] dark:text-white"
+          className="mb-2 mr-2 inline-flex max-w-[9rem] truncate rounded-full bg-nd-soft px-3 py-1.5 text-sm leading-tight text-nd-ink sm:max-w-none sm:px-4 lg:mb-3 lg:mr-3 lg:text-base dark:bg-[#2a2a2a] dark:text-white"
         >
           {tag}
         </span>
@@ -71,7 +71,7 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
           <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px lg:hidden dark:bg-[#121212]">
             <CornerFillet className="absolute top-0 left-px h-10 w-10 -translate-x-full text-white dark:text-[#121212]" />
             <CornerFillet className="absolute right-0 bottom-px h-10 w-10 translate-y-full text-white dark:text-[#121212]" />
-            <div className="relative z-10 -mb-2 -mr-2 flex flex-wrap items-center">
+            <div className="relative z-10 -mb-2 -mr-2 flex max-w-[min(100%,16rem)] flex-wrap items-center sm:max-w-none">
               <TagPills tags={visibleTags} />
             </div>
           </div>

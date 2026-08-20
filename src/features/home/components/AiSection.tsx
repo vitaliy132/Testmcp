@@ -9,13 +9,13 @@ const floatImgs = [
   {
     src: IMG.studio1,
     alt: 'Studio session',
-    className: 'top-[62%] -left-10 w-24 md:w-40 xl:w-56',
+    className: 'top-[62%] -left-10 hidden w-24 md:block md:w-40 xl:w-56',
     aspect: 'aspect-[3/2]',
   },
   {
     src: IMG.studio2,
     alt: 'Designers collaborating',
-    className: 'left-4 top-10 w-20 md:w-52 lg:left-20 lg:top-20 xl:w-72',
+    className: 'left-3 top-8 w-16 sm:left-4 sm:top-10 sm:w-20 md:w-52 lg:left-20 lg:top-20 xl:w-72',
     aspect: 'aspect-[3/2]',
   },
   {
@@ -27,19 +27,19 @@ const floatImgs = [
   {
     src: IMG.studio4,
     alt: 'Studio portrait',
-    className: 'right-1/3 bottom-10 w-28 md:w-40 lg:top-0 lg:right-40 lg:bottom-auto xl:w-56',
+    className: 'right-1/3 bottom-10 hidden w-28 md:block md:w-40 lg:top-0 lg:right-40 lg:bottom-auto xl:w-56',
     aspect: 'aspect-[3/2]',
   },
   {
     src: IMG.studio5,
     alt: 'Team in the studio',
-    className: 'right-4 bottom-0 w-20 md:w-40 lg:right-10 xl:w-52',
+    className: 'right-3 bottom-0 w-16 sm:right-4 sm:w-20 md:w-40 lg:right-10 xl:w-52',
     aspect: 'aspect-[3/2]',
   },
   {
     src: IMG.studio6,
     alt: 'Meeting room',
-    className: 'right-4 -top-8 w-20 md:w-28 lg:top-auto lg:right-56 lg:bottom-20 xl:w-36',
+    className: 'right-4 -top-8 hidden w-20 md:block md:w-28 lg:top-auto lg:right-56 lg:bottom-20 xl:w-36',
     aspect: 'aspect-[2/3]',
   },
 ] as const

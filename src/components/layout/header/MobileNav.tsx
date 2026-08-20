@@ -22,7 +22,7 @@ export function MobileNav({
   if (!menuOpen) return null
 
   return (
-    <div className="w-full border-t border-black/5 px-3 py-5 md:hidden dark:border-white/10">
+    <div className="max-h-[min(70dvh,calc(100dvh-6rem))] w-full overflow-y-auto overscroll-contain border-t border-black/5 px-3 py-5 lg:hidden dark:border-white/10">
       <div className="flex flex-col gap-2">
         <button
           type="button"

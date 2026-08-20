@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react'
 
 export const floatingControlClass =
-  'peer w-full appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-6 pb-2.5 text-sm text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10'
+  'peer w-full appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-6 pb-2.5 text-base text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10'
 
 const floatingLabelClass =
   'pointer-events-none absolute top-4 left-5 origin-bottom-left text-nd-muted transition-transform duration-300 peer-focus:-translate-y-2.5 peer-focus:scale-75 peer-[:not(:placeholder-shown)]:-translate-y-2.5 peer-[:not(:placeholder-shown)]:scale-75 dark:text-white/55'
@@ -100,7 +100,7 @@ export function FloatingTextarea({
         required={required}
         rows={rows}
         placeholder=" "
-        className="peer w-full resize-y appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-7 pb-3 text-sm text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10"
+        className="peer w-full resize-y appearance-none rounded-xl border border-black/15 bg-transparent px-5 pt-7 pb-3 text-base text-nd-ink outline-none transition focus:border-black/30 focus:ring-4 focus:ring-black/10 dark:border-white/20 dark:bg-[#1a1a1a] dark:text-white dark:focus:border-white/40 dark:focus:ring-white/10"
       />
       <label htmlFor={id} className={floatingLabelClass}>
         {label}

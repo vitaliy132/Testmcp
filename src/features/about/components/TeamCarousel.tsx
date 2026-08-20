@@ -119,7 +119,7 @@ export function InfiniteTeamCarousel() {
 
   if (reduceMotion) {
     return (
-      <div className="flex items-start overflow-x-auto pb-6 scrollbar-none">
+      <div className="about-team-viewport flex items-start overflow-x-auto pb-6 scrollbar-none">
         {aboutTeam.map((member, i) => (
           <TeamCard key={`${member.name}-${member.role}`} member={member} index={i} />
         ))}
@@ -128,7 +128,7 @@ export function InfiniteTeamCarousel() {
   }
 
   return (
-    <div className="w-full overflow-hidden pb-6">
+    <div className="about-team-viewport w-full overflow-hidden pb-6">
       <div className="animate-about-team-marquee flex items-start">
         {items.map((member, i) => (
           <TeamCard key={`${member.name}-${member.role}-${i}`} member={member} index={i} />

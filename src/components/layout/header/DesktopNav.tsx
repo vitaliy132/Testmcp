@@ -17,7 +17,7 @@ type DesktopNavProps = {
 
 export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopNavProps) {
   return (
-    <nav className="relative z-10 hidden items-center gap-0.5 md:flex lg:gap-1">
+    <nav className="relative z-10 hidden items-center gap-0.5 lg:flex lg:gap-1">
       <div className="relative" onMouseEnter={() => open('services')}>
         <SmartLink
           href={homeHash(anchors.services)}

@@ -15,6 +15,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  overflow-x: clip;
 }
 
 html.dark {
@@ -27,6 +28,7 @@ body {
   background: #fff;
   color: var(--color-nd-ink);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -228,44 +230,49 @@ html.dark body {
   Team carousel scale — MadeByShape entriesProfiles Swiper:
   slidesPerView: 1.6 / 640:2 / 768:2.5 / 1024:3.5 / 1280:4 / 2100:5
   speed: 10000 (mobile) / 20000 (tablet+)
+  Widths use cqw of .about-team-viewport so they don't include scrollbar (100vw).
 */
+.about-team-viewport {
+  container-type: inline-size;
+}
+
 .about-team-slide {
-  flex: 0 0 calc(100vw / 1.6);
-  max-width: calc(100vw / 1.6);
+  flex: 0 0 calc(100cqw / 1.6);
+  max-width: calc(100cqw / 1.6);
 }
 
 @media (min-width: 640px) {
   .about-team-slide {
-    flex-basis: calc(100vw / 2);
-    max-width: calc(100vw / 2);
+    flex-basis: calc(100cqw / 2);
+    max-width: calc(100cqw / 2);
   }
 }
 
 @media (min-width: 768px) {
   .about-team-slide {
-    flex-basis: calc(100vw / 2.5);
-    max-width: calc(100vw / 2.5);
+    flex-basis: calc(100cqw / 2.5);
+    max-width: calc(100cqw / 2.5);
   }
 }
 
 @media (min-width: 1024px) {
   .about-team-slide {
-    flex-basis: calc(100vw / 3.5);
-    max-width: calc(100vw / 3.5);
+    flex-basis: calc(100cqw / 3.5);
+    max-width: calc(100cqw / 3.5);
   }
 }
 
 @media (min-width: 1280px) {
   .about-team-slide {
-    flex-basis: calc(100vw / 4);
-    max-width: calc(100vw / 4);
+    flex-basis: calc(100cqw / 4);
+    max-width: calc(100cqw / 4);
   }
 }
 
 @media (min-width: 2100px) {
   .about-team-slide {
-    flex-basis: calc(100vw / 5);
-    max-width: calc(100vw / 5);
+    flex-basis: calc(100cqw / 5);
+    max-width: calc(100cqw / 5);
   }
 }
 

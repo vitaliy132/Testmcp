@@ -18,7 +18,7 @@ export function PlannerStepMedia({ meta }: { meta: PlannerStep }) {
   const scene = SCENES[meta.id as keyof typeof SCENES] ?? SCENES[1]
 
   return (
-    <div className="order-2 w-full px-2 md:order-1 md:w-[37.5%] lg:w-[31.25%] lg:px-4">
+    <div className="order-2 hidden w-full px-2 md:order-1 md:block md:w-[37.5%] lg:w-[31.25%] lg:px-4">
         <div className="relative aspect-[9/14] w-full overflow-hidden rounded-2xl bg-[#010202] lg:rounded-3xl">
         <div className="absolute inset-0" aria-hidden>
           <GlowField reduceMotion={!!reduceMotion} />

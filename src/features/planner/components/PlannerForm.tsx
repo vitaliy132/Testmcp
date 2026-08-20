@@ -154,11 +154,11 @@ export function PlannerForm() {
 
   return (
     <section className="w-full pt-20 pb-10 lg:pt-32 lg:pb-16 xl:pt-40">
-      <div className="px-2 sm:px-6 xl:px-12 2xl:px-20">
+      <div className="px-4 sm:px-6 xl:px-12 2xl:px-20">
         <form onSubmit={onSubmit} className="relative flex w-full flex-wrap" noValidate>
           <PlannerStepMedia meta={meta} />
 
-          <div className="order-1 mb-5 flex w-full flex-wrap px-2 md:order-2 md:mb-0 md:w-[62.5%] lg:ml-[6.25%] lg:w-[56.25%] lg:px-4 xl:w-1/2 2xl:ml-[12.5%] 2xl:w-[43.75%]">
+          <div className="order-1 mb-5 flex w-full flex-wrap px-1 md:order-2 md:mb-0 md:w-[62.5%] lg:ml-[6.25%] lg:w-[56.25%] lg:px-4 xl:w-1/2 2xl:ml-[12.5%] 2xl:w-[43.75%]">
             <div className="relative flex w-full flex-wrap items-center rounded-2xl border border-black/10 px-5 pt-20 pb-2 lg:rounded-none lg:border-none lg:p-0 lg:pt-20 xl:py-28 dark:border-white/15">
               <div className="absolute top-5 left-0 w-full px-5 lg:top-10 lg:px-2">
                 <div className="h-2 w-full rounded-full bg-nd-soft dark:bg-white/10">

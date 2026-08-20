@@ -22,15 +22,25 @@ function PlayPauseIcon({ playing }: { playing: boolean }) {
 export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
   const reduceMotion = useReducedMotion() ?? false
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(!reduceMotion)
+  const [playing, setPlaying] = useState(false)
+  const [failed, setFailed] = useState(false)
   const { video, poster } = project.caseStudy
+  const showPoster = reduceMotion || failed
+
+  useEffect(() => {
+    setFailed(false)
+    setPlaying(false)
+  }, [video])
 
   useEffect(() => {
     const el = videoRef.current
-    if (!el) return
+    if (!el || reduceMotion || failed) return
+
+    let alive = true
 
     const io = new IntersectionObserver(
       ([entry]) => {
+        if (!alive) return
         if (reduceMotion) {
           el.pause()
           setPlaying(false)
@@ -38,25 +48,38 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
         }
         if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
           el.preload = 'auto'
-          void el.play().then(() => setPlaying(true)).catch(() => setPlaying(false))
+          void el
+            .play()
+            .then(() => {
+              if (alive) setPlaying(true)
+            })
+            .catch(() => {
+              if (alive) setPlaying(false)
+            })
         } else {
           el.pause()
-          setPlaying(false)
+          if (alive) setPlaying(false)
         }
       },
       { threshold: [0, 0.45, 1] },
     )
 
     io.observe(el)
-    return () => io.disconnect()
-  }, [reduceMotion, video])
+    return () => {
+      alive = false
+      io.disconnect()
+    }
+  }, [reduceMotion, video, failed])
 
   const togglePlay = () => {
     const el = videoRef.current
     if (!el) return
     if (el.paused) {
-      void el.play()
-      setPlaying(true)
+      el.preload = 'auto'
+      void el
+        .play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false))
     } else {
       el.pause()
       setPlaying(false)
@@ -68,7 +91,7 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
       <PageContainer variant="about">
         <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] lg:rounded-3xl">
           <div className="relative aspect-[4/3] w-full lg:aspect-video">
-            {reduceMotion ? (
+            {showPoster ? (
               <img
                 src={poster}
                 alt=""
@@ -86,12 +109,16 @@ export function WorkVideo({ project }: { project: WorkCaseStudyItem }) {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
+                onError={() => {
+                  setFailed(true)
+                  setPlaying(false)
+                }}
               />
             )}
           </div>
 
-          {reduceMotion ? null : (
+          {showPoster ? null : (
             <div className="absolute right-0 bottom-0 z-20 inline-flex rounded-tl-2xl bg-white pl-3 pt-3 lg:rounded-tl-3xl lg:pl-4 lg:pt-4 dark:bg-[#121212]">
               <BottomRightNotchFillets />
               <button

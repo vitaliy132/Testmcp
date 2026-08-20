@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router-dom'
 import { brand } from '@/config/brand'
 import { anchors, homeHash } from '@/config/routes'
 import { getWorkCaseStudy } from '@/data/work'
+import { PageFallback } from '@/components/ui/PageFallback'
 import {
   WorkChapter,
   WorkHero,
@@ -25,6 +26,10 @@ export function WorkPage() {
       document.title = previous
     }
   }, [project])
+
+  if (!slug) {
+    return <PageFallback />
+  }
 
   if (!project) {
     return <Navigate to={homeHash(anchors.work)} replace />

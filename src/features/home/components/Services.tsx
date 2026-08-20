@@ -11,7 +11,7 @@ export function Services() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section id="services" className="px-3 py-8 sm:px-5 lg:px-8 lg:py-12">
+    <section id="services" className="px-4 py-8 sm:px-5 lg:px-8 lg:py-12">
       <div className="mx-auto max-w-[1600px] overflow-hidden rounded-2xl bg-[#1f1f1f] py-16 text-white lg:rounded-3xl lg:py-24 xl:py-28 dark:bg-[#171717]">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 xl:px-12 2xl:px-16">
           <div className="mb-10 flex flex-wrap justify-between lg:mb-20">
@@ -61,15 +61,15 @@ export function Services() {
                 >
                   <Link
                     to={service.url}
-                    className="group relative flex w-full items-center py-4 lg:py-6"
+                    className="group relative flex w-full min-w-0 items-center py-4 lg:py-6"
                     onMouseEnter={() => setActive(i)}
                     onMouseLeave={() => setActive(null)}
                   >
                     <div
                       className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/10 transition-all duration-700 ease-out md:rounded-2xl ${
                         isActive
-                          ? 'mr-4 h-16 w-20 md:mr-5 md:h-28 md:w-36'
-                          : 'mr-4 h-16 w-20 md:mr-5 md:h-28 md:w-36 lg:mr-0 lg:w-0'
+                          ? 'mr-3 h-14 w-[4.5rem] sm:mr-4 sm:h-16 sm:w-20 md:mr-5 md:h-28 md:w-36'
+                          : 'mr-3 h-14 w-[4.5rem] sm:mr-4 sm:h-16 sm:w-20 md:mr-5 md:h-28 md:w-36 lg:mr-0 lg:w-0'
                       }`}
                     >
                       <img
@@ -84,11 +84,11 @@ export function Services() {
                     </div>
 
                     <div
-                      className={`relative inline-flex transition-transform duration-300 ease-out ${
-                        isActive ? 'translate-x-6 delay-0' : 'translate-x-6 delay-100 lg:translate-x-0'
+                      className={`relative min-w-0 flex-1 transition-transform duration-300 ease-out ${
+                        isActive ? 'translate-x-0 delay-0 md:translate-x-6' : 'translate-x-0 delay-100 lg:translate-x-0'
                       }`}
                     >
-                      <span className="text-[8vw] leading-[0.92] tracking-tight text-balance lg:text-[7vw] xl:text-[6.5vw]">
+                      <span className="block text-[clamp(1.75rem,7.5vw,3.25rem)] leading-[0.92] tracking-tight text-balance lg:text-[7vw] xl:text-[6.5vw]">
                         {service.name}
                       </span>
                     </div>

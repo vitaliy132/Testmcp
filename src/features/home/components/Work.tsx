@@ -48,11 +48,11 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
           {/* Top-right cutout: tags + fillets; hidden until hover on xl+ */}
           <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px transition-transform duration-300 xl:-translate-y-full xl:group-hover:translate-y-0 dark:bg-[#121212]">
             <CornerFillets />
-            <div className="relative z-10 -mb-2 -mr-2 flex flex-wrap items-center">
+            <div className="relative z-10 -mb-2 -mr-2 flex max-w-[min(100%,16rem)] flex-wrap items-center sm:max-w-none">
               {visibleTags.map((tag) => (
                 <span
                   key={tag}
-                  className="mb-2 mr-2 inline-flex rounded-full bg-nd-soft px-4 py-1.5 text-sm leading-tight text-nd-ink dark:bg-[#2a2a2a] dark:text-white lg:mb-3 lg:mr-3"
+                  className="mb-2 mr-2 inline-flex max-w-[9rem] truncate rounded-full bg-nd-soft px-3 py-1.5 text-sm leading-tight text-nd-ink sm:max-w-none sm:px-4 dark:bg-[#2a2a2a] dark:text-white lg:mb-3 lg:mr-3"
                 >
                   {tag}
                 </span>

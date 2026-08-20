@@ -19,11 +19,11 @@ export function ReviewsCarousel() {
 
   return (
     <section id="testimonials" className="scroll-mt-28 pb-20 lg:pb-24 2xl:pb-32">
-      <div className="w-full pl-2 sm:pl-6 xl:pl-12 2xl:pl-20">
+      <div className="w-full pl-4 sm:pl-6 xl:pl-12 2xl:pl-20">
         <div className="flex w-full flex-wrap">
-          <div className="mb-10 flex w-full flex-row items-end justify-between px-2 md:pr-6 lg:mb-0 lg:w-1/4 lg:flex-col lg:items-start lg:justify-between lg:px-3 xl:px-4">
-            <div className="w-full">
-              <div className="mb-3 w-56 lg:mb-5">
+          <div className="mb-10 flex w-full flex-col items-start gap-6 pr-4 sm:px-2 md:pr-6 lg:mb-0 lg:w-1/4 lg:justify-between lg:gap-0 lg:px-3 xl:px-4">
+            <div className="w-full min-w-0">
+              <div className="mb-3 w-44 max-w-full sm:w-56 lg:mb-5">
                 <img
                   src={aboutGoogleBadge.light}
                   alt="Google reviews"
@@ -54,7 +54,7 @@ export function ReviewsCarousel() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 lg:mt-10">
+            <div className="flex shrink-0 items-center gap-2 lg:mt-10">
               <button
                 type="button"
                 aria-label="Previous reviews"

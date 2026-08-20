@@ -12,7 +12,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="bg-nd-darker text-white">
+    <footer id="contact" className="bg-nd-darker text-white pb-[env(safe-area-inset-bottom)]">
       <div className="overflow-hidden border-b border-white/10 py-6">
         <Marquee className="gap-10 whitespace-nowrap text-[clamp(2.5rem,8vw,6rem)] font-medium tracking-tight text-white/90">
           <span>Let’s work together ·</span>

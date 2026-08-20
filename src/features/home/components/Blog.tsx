@@ -72,7 +72,7 @@ export function Blog() {
 
       <div
         ref={ref}
-        className="flex snap-x snap-mandatory overflow-x-auto px-3 pb-2 scrollbar-none sm:px-5 lg:px-8"
+        className="flex snap-x snap-mandatory overflow-x-auto px-4 pb-2 scrollbar-none sm:px-5 lg:px-8"
       >
         {blog.map((post, i) => (
           <motion.article

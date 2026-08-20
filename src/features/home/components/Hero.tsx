@@ -13,7 +13,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          className="hero-reel-frame relative w-full overflow-hidden bg-[#1a1a1a] aspect-[9/16] sm:aspect-square lg:aspect-video"
+          className="hero-reel-frame relative aspect-[4/5] w-full overflow-hidden bg-[#1a1a1a] sm:aspect-square lg:aspect-video"
         >
           <HeroReel />
 
@@ -22,17 +22,19 @@ export function Hero() {
 
           <a
             href={anchors.about}
-            className="absolute right-4 top-4 z-30 flex max-w-[min(100%,18rem)] items-center gap-3 rounded-full bg-white/95 py-1.5 pl-1.5 pr-5 backdrop-blur transition hover:scale-[1.02] dark:bg-[#1a1a1a]/95 lg:right-8 lg:top-6"
+            className="absolute top-8 right-8 z-30 flex max-w-[min(calc(100%-4rem),16rem)] items-center gap-2 rounded-full bg-white/95 py-1.5 pl-1.5 pr-3 backdrop-blur transition hover:scale-[1.02] dark:bg-[#1a1a1a]/95 sm:top-6 sm:right-6 sm:max-w-[min(calc(100%-3rem),18rem)] sm:gap-3 sm:pr-5 lg:top-8 lg:right-10"
           >
             <img
               src={heroCopy.andy.image}
               alt="Andy"
               decoding="async"
-              className="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14"
+              className="h-10 w-10 shrink-0 rounded-full object-cover sm:h-12 sm:w-12 lg:h-14 lg:w-14"
             />
-            <div className="text-left leading-tight">
+            <div className="min-w-0 text-left leading-tight">
               <div className="text-sm font-medium">{heroCopy.andy.title}</div>
-              <div className="text-xs text-nd-muted dark:text-white/60">{heroCopy.andy.subtitle}</div>
+              <div className="mt-0.5 hidden text-pretty text-xs text-nd-muted sm:block dark:text-white/60">
+                {heroCopy.andy.subtitle}
+              </div>
             </div>
           </a>
 
