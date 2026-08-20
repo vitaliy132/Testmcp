@@ -74,16 +74,16 @@ export const work: WorkItem[] = [
       poster: '/videos/posters/aqua.jpg',
       stills: [
         {
-          src: 'https://www.investwithaqua.com/assets/advisor-office-CB0Zu6Q6.jpg',
-          alt: 'Advisor using the Aqua TAIP platform',
+          src: '/images/work/aqua-live.jpg',
+          alt: 'Aqua homepage on investwithaqua.com — TAIP lockup and platform UI',
         },
         {
           src: 'https://www.investwithaqua.com/assets/solution-diagram-CixPP6in.png',
           alt: 'Aqua solution architecture diagram',
         },
         {
-          src: 'https://www.investwithaqua.com/assets/image_1770902955444-BmoCSt31.png',
-          alt: 'AIX by Aqua',
+          src: '/images/work/aqua-products.jpg',
+          alt: 'Aqua product lines on investwithaqua.com — AIX and modular solutions',
         },
       ],
       chapters: [
