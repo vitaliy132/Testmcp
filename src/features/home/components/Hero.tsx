@@ -47,7 +47,7 @@ export function Hero() {
   })
 
   return (
-    <section className="relative pt-20 pb-16 lg:pt-24 lg:pb-24">
+    <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 xl:pt-40">
       <PageContainer>
         <div className="relative">
           <motion.div
