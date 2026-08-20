@@ -420,14 +420,6 @@ html.dark .btn-soft {
   animation: none;
 }
 
-.hero-reel-vignette {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.45) 100%);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-reel-grain {
     animation: none;
@@ -436,21 +428,15 @@ html.dark .btn-soft {
 }
 
 /*
-  MadeByShape .gooey-content: each line is its own padded
-  fragment; goo fills the inner steps so they don't stay sharp.
+  MadeByShape gooey-content: inline + box-decoration-break:clone
+  so each line is a background fragment. Modest cloned py lets
+  fragments overlap; the SVG goo melts them into one blob.
+  Chrome has no radius; Firefox/Safari fall back to rounded boxes.
 */
 .hero-gooey {
   display: inline;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-  filter: url(#heroGoo);
-}
-
-.hero-gooey span {
-  display: inline;
-  white-space: nowrap;
 }
 
 @supports (-moz-appearance: none) {
@@ -458,8 +444,9 @@ html.dark .btn-soft {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 0;
     filter: none !important;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
   }
 
   .hero-gooey br {
@@ -469,14 +456,6 @@ html.dark .btn-soft {
   .hero-gooey-wrap {
     overflow: hidden;
     border-bottom-right-radius: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  @supports (-moz-appearance: none) {
-    .hero-gooey {
-      padding-top: 1rem;
-    }
   }
 }
 

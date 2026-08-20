@@ -1,11 +1,17 @@
-import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { anchors } from '@/config/routes'
 import { heroCopy } from '@/features/home/data/copy'
 import { HeroReel } from '@/features/home/components/HeroReel'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { CornerFillet } from '@/components/ui/CornerFillet'
-import { ArrowIcon, GooeyLink } from '@/components/ui/GooeyButton'
+import { ArrowIcon, GooeyLink, HeroGooFilter } from '@/components/ui/GooeyButton'
+import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
+import { useInViewVideo } from '@/components/ui/useInViewVideo'
+
+const HERO_REEL_SRC = '/videos/hero-reel.mp4'
+const HERO_REEL_POSTER = '/videos/posters/hero-reel.jpg'
 
 const pageFill = 'text-white dark:text-nd-dark'
 const filletClass = `pointer-events-none absolute z-30 h-10 w-10 ${pageFill}`
@@ -31,8 +37,17 @@ function MeetTheTeamLink() {
 }
 
 export function Hero() {
+  const reduceMotion = useReducedMotion() ?? false
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [failed, setFailed] = useState(false)
+  const showPoster = reduceMotion || failed
+  const { playing, togglePlay } = useInViewVideo(videoRef, {
+    enabled: !showPoster,
+    src: HERO_REEL_SRC,
+  })
+
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
+    <section className="relative pt-3 pb-16 lg:pt-4 lg:pb-24">
       <PageContainer>
         <div className="relative">
           <motion.div
@@ -42,7 +57,13 @@ export function Hero() {
             className="px-2 lg:px-3 xl:px-4"
           >
             <div className="hero-reel-frame relative aspect-[4/5] w-full overflow-hidden bg-[#1a1a1a] md:aspect-[16/10] lg:aspect-video">
-              <HeroReel />
+              <HeroReel
+                videoRef={videoRef}
+                showPoster={showPoster}
+                src={HERO_REEL_SRC}
+                poster={HERO_REEL_POSTER}
+                onError={() => setFailed(true)}
+              />
 
               <a
                 href={anchors.about}
@@ -61,10 +82,18 @@ export function Hero() {
                   </div>
                 </div>
               </a>
+
+              {showPoster ? null : (
+                <VideoPlayNotch
+                  playing={playing}
+                  onToggle={togglePlay}
+                  label={playing ? 'Pause showreel' : 'Play showreel'}
+                />
+              )}
             </div>
           </motion.div>
 
-          <div className="pointer-events-none absolute top-0 left-0 z-20 flex w-auto max-w-[calc(100%-7rem)] flex-col items-start px-2 pb-8 sm:max-w-[min(100%,42rem)] lg:left-8 lg:px-3 xl:left-16 xl:px-4">
+          <div className="pointer-events-none absolute top-0 left-0 z-20 flex w-auto max-w-[calc(100%-7rem)] flex-col items-start px-2 pb-8 sm:max-w-[min(100%,42rem)] lg:px-3 xl:px-4">
             <div className="pointer-events-auto relative flex w-auto flex-col items-start">
               <div className="absolute top-0 left-5 z-10 h-40 w-20 -translate-x-full bg-white lg:w-44 dark:bg-nd-dark" />
               <CornerFillet className={`${filletClass} top-40 left-3 -mt-px -translate-x-full`} />
@@ -80,7 +109,7 @@ export function Hero() {
                 className="relative flex w-auto flex-col items-start"
               >
                 <div className="relative w-full bg-white dark:bg-nd-dark">
-                  <div className="relative z-20 mt-px mb-3 inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
+                  <div className="relative z-20 mt-px inline-flex items-center gap-2 px-3 text-sm font-light text-nd-muted lg:px-6 lg:text-base dark:text-white/80">
                     <span className="h-1.5 w-1.5 rounded-full bg-nd-muted dark:bg-white/50" aria-hidden />
                     <span>{heroCopy.eyebrow}</span>
                     <span className="animate-wave text-2xl lg:text-3xl" aria-hidden>
@@ -89,20 +118,20 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="relative w-auto">
+                <div className="relative -mt-[1.125rem] w-auto">
                   <CornerFillet
                     fill="top-left"
                     className={`${filletClass} top-0.5 right-px h-9 w-9 -translate-y-10 translate-x-full lg:h-10 lg:w-10`}
                   />
                   <div className="hero-gooey-wrap relative w-auto">
                     <h1
-                      className="hero-gooey bg-white pt-16 pb-4 pl-3 pr-5 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:pl-5 lg:pr-8 xl:text-6xl 2xl:text-7xl dark:bg-nd-dark dark:text-white"
+                      className="hero-gooey bg-white py-2 text-4xl leading-none tracking-tight text-nd-ink md:text-5xl lg:py-3 xl:text-6xl 2xl:text-7xl dark:bg-nd-dark dark:text-white"
                       style={{ filter: 'url(#heroGoo)' }}
                     >
                       {heroCopy.headline.map((line, i) => (
                         <span
                           key={line}
-                          className="relative"
+                          className="relative inline shrink-0 truncate pl-3 lg:pl-5"
                           style={{ zIndex: heroCopy.headline.length - 1 - i }}
                         >
                           {line}
@@ -111,6 +140,7 @@ export function Hero() {
                         </span>
                       ))}
                     </h1>
+                    <HeroGooFilter />
                   </div>
                 </div>
 

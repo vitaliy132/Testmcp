@@ -1,36 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
-import { useInView, useReducedMotion } from 'framer-motion'
+import type { RefObject } from 'react'
 
-const HERO_REEL_SRC = '/videos/hero-reel.mp4'
-const HERO_REEL_POSTER = '/videos/posters/hero-reel.jpg'
-
-export function HeroReel() {
-  const reduceMotion = useReducedMotion() ?? false
-  const rootRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const inView = useInView(rootRef, { amount: 0.1 })
-  const [failed, setFailed] = useState(false)
-  const showPoster = reduceMotion || failed
-  const grainPaused = showPoster || !inView
-
-  useEffect(() => {
-    const el = videoRef.current
-    if (!el || showPoster) return
-
-    if (inView) {
-      el.preload = 'auto'
-      void el.play().catch(() => {})
-      return
-    }
-
-    el.pause()
-  }, [inView, showPoster])
-
+export function HeroReel({
+  videoRef,
+  showPoster,
+  src,
+  poster,
+  onError,
+}: {
+  videoRef: RefObject<HTMLVideoElement | null>
+  showPoster: boolean
+  src: string
+  poster: string
+  onError: () => void
+}) {
   return (
-    <div ref={rootRef} className="absolute inset-0 overflow-hidden bg-[#010202]" aria-hidden>
+    <div className="absolute inset-0 overflow-hidden bg-[#010202]" aria-hidden>
       {showPoster ? (
         <img
-          src={HERO_REEL_POSTER}
+          src={poster}
           alt=""
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
@@ -39,17 +26,15 @@ export function HeroReel() {
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
-          src={HERO_REEL_SRC}
-          poster={HERO_REEL_POSTER}
+          src={src}
+          poster={poster}
           muted
           loop
           playsInline
           preload="metadata"
-          onError={() => setFailed(true)}
+          onError={onError}
         />
       )}
-      <div className={`hero-reel-grain${grainPaused ? ' is-paused' : ''}`} />
-      <div className="hero-reel-vignette" />
     </div>
   )
 }
