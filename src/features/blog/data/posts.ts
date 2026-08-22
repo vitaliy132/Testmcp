@@ -3,7 +3,7 @@ import { brand } from '@/config/brand'
 import type { BlogHeading, BlogPost } from '@/features/blog/data/types'
 
 const andy = {
-  author: 'Andy',
+  author: 'Vitalii',
   authorImage: IMG.andy,
   authorRole: 'Co-Founder',
   authorBio: `Co-Founder of ${brand.name}. Most of my posts are about how we run the studio — not just how we design websites.`,
