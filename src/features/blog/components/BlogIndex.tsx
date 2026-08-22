@@ -1,5 +1,4 @@
-import { blog } from '@/features/blog/posts'
-import { blogPageCopy } from '@/features/blog/copy'
+import { blog, blogPageCopy } from '@/features/blog/data'
 import { BlogCard } from '@/features/blog/components/BlogCard'
 import { PageHero } from '@/components/ui/PageHero'
 import { PageContainer } from '@/components/ui/PageContainer'

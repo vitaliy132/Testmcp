@@ -1,7 +1,6 @@
-import { IMG } from '@/config/assets'
+import { BLOG_IMG, IMG } from '@/config/assets'
 import { brand } from '@/config/brand'
-import { BLOG_IMG } from '@/features/blog/media'
-import type { BlogHeading, BlogPost } from '@/features/blog/types'
+import type { BlogHeading, BlogPost } from '@/features/blog/data/types'
 
 const andy = {
   author: 'Andy',
@@ -27,7 +26,7 @@ const ella = {
 export const blog: BlogPost[] = [
   {
     slug: 'rise-at-seven',
-    title: 'Why did Rise at Seven choose Northern Digital?',
+    title: `Why did Rise at Seven choose ${brand.name}?`,
     excerpt:
       'It always has a feel good factor when another agency instructs us to totally rebrand their business, create a new digital environment and ...',
     readTime: '2 min read',

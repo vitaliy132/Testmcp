@@ -1,5 +1,4 @@
-import { blogPageCopy } from '@/features/blog/copy'
-import { getRelatedPosts } from '@/features/blog/posts'
+import { blogPageCopy, getRelatedPosts } from '@/features/blog/data'
 import { BlogCard } from '@/features/blog/components/BlogCard'
 import { routes } from '@/config/routes'
 import { PageContainer } from '@/components/ui/PageContainer'

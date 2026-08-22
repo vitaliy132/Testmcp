@@ -3,13 +3,13 @@ import { brand } from '@/config/brand'
 import { anchors } from '@/config/routes'
 
 export const heroCopy = {
-  eyebrow: 'Hiya, we’re Northern Digital',
+  eyebrow: `Hiya, we’re ${brand.name}`,
   headline: ['A web design and', 'branding agency', 'in Leeds'] as const,
   workCta: 'View our work',
   teamCta: 'Meet the team',
   andy: {
     title: 'Hear from Vitalii',
-    subtitle: 'Co-Founder of Northern Digital',
+    subtitle: `Co-Founder of ${brand.name}`,
     image: IMG.andy,
   },
 }
@@ -37,7 +37,7 @@ export const servicesCopy = {
   cta: 'See all services',
   andy: {
     title: 'Hear from Vitalii',
-    subtitle: 'Co-founder of Northern Digital',
+    subtitle: `Co-founder of ${brand.name}`,
     href: anchors.about,
   },
 }

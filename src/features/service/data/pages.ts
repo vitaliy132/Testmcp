@@ -1,3 +1,4 @@
+import { brand } from '@/config/brand'
 import { routes } from '@/config/routes'
 import type { FaqItem } from '@/types/faq'
 import type { ServiceCapability, ServiceKey } from '@/types/service'
@@ -65,12 +66,12 @@ export const servicePages: Record<ServiceKey, ServicePageContent> = {
     faqsTitle: 'Frequently asked branding questions',
     faqs: [
       {
-        question: 'Why use Northern Digital for my branding project?',
+        question: `Why use ${brand.name} for my branding project?`,
         answer:
           "We create a brand that you're proud of and want to shout about. Branding isn't just about a logo — it's about creating a story with the right visual impact, speaking with one voice across all platforms, and designing for every application.",
       },
       {
-        question: 'What separates Northern Digital from other design agencies?',
+        question: `What separates ${brand.name} from other design agencies?`,
         answer:
           'We dig deep to understand who you are, what you offer and who your audience is. We define problems and create effective solutions with the correct tone of voice and visual impact across online and offline advertising.',
       },
@@ -374,7 +375,7 @@ export const servicePages: Record<ServiceKey, ServicePageContent> = {
           'Shopify is a commerce platform that lets anyone set up an online store and sell products — with hosting, payments and tools included.',
       },
       {
-        question: 'Is Northern Digital the right Shopify agency for me?',
+        question: `Is ${brand.name} the right Shopify agency for me?`,
         answer:
           'If you want a custom store with built-in features and the option to integrate third-party apps, we can help from design through launch.',
       },

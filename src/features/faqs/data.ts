@@ -1,3 +1,4 @@
+import { brand } from '@/config/brand'
 import type { FaqItem, FaqSection } from '@/types/faq'
 
 export const faqHero = {
@@ -58,7 +59,7 @@ export const faqSections: FaqSection[] = [
     ],
   },
   {
-    title: 'Working with Northern Digital',
+    title: `Working with ${brand.name}`,
     items: [
       {
         id: 'meetings',
@@ -92,7 +93,7 @@ export const faqSections: FaqSection[] = [
         id: 'services',
         question: 'What services do you offer?',
         answer:
-          'We offer a full Branding service in-house here at Northern Digital. We win awards for our websites, and in particular specialise in building websites in Craft CMS and Shopify. We also offer SEO, Hosting and Support to look after your site once live.',
+          `We offer a full Branding service in-house here at ${brand.name}. We win awards for our websites, and in particular specialise in building websites in Craft CMS and Shopify. We also offer SEO, Hosting and Support to look after your site once live.`,
       },
       {
         id: 'where-based',

@@ -2,11 +2,12 @@ export const brand = {
   name: 'Northern Digital',
   legalName: 'Northern Digital Ltd',
   foundedYear: 2024,
-  email: 'hello@northlinedigital.agency',
+  email: 'hello@northerndigital.agency',
+  url: 'northerndigital.agency',
   phone: '7732 510 318',
   phoneHref: 'tel:+447732510318',
   themeKey: 'nd-theme',
-  title: 'Web Design Leeds | Web Design Agency | Northern Digital',
+  title: 'Northern Digital | Web Design Agency Leeds',
   description:
     'An award-winning Web Design Agency in Leeds, UK who specialise in Branding, Web Design, Craft CMS, eCommerce and Organic SEO.',
   address: {

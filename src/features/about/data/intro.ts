@@ -50,7 +50,7 @@ export const aboutIntro: AboutIntro = {
     after: '.',
   },
   paragraphs: [
-    `Founded in ${brand.foundedYear}, Northern Digital is an energetic, fresh and vibrant team offering creative talent, industry knowledge and extremely high standards.`,
+    `Founded in ${brand.foundedYear}, ${brand.name} is an energetic, fresh and vibrant team offering creative talent, industry knowledge and extremely high standards.`,
     {
       before:
         "We work with ambitious start-up businesses through to large global organisations such as Blackberry, NHS and L'Occitane so we can tailor our services to suit your needs. Our preferred content management system of choice is ",

@@ -19,7 +19,7 @@ export const aboutStats: AboutStat[] = [
     value: 250,
     suffix: '+',
     description:
-      `Founded in ${brand.foundedYear}, Northern Digital is an energetic, fresh and vibrant team offering creative talent and industry knowledge.`,
+      `Founded in ${brand.foundedYear}, ${brand.name} is an energetic, fresh and vibrant team offering creative talent and industry knowledge.`,
   },
   {
     label: 'Referrals',
@@ -32,7 +32,7 @@ export const aboutStats: AboutStat[] = [
     label: 'Male:Female ratio',
     display: '1:1',
     description:
-      'In a male-dominated industry, we are proud to say we’re striving for equal gender roles at Northern Digital.',
+      `In a male-dominated industry, we are proud to say we’re striving for equal gender roles at ${brand.name}.`,
   },
   {
     label: 'Burritos consumed',

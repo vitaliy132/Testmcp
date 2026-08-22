@@ -1,3 +1,4 @@
+import { brand } from '@/config/brand'
 import { CDN } from '@/features/about/data/media'
 
 export type AboutReview = {
@@ -80,8 +81,7 @@ export const aboutReviews: AboutReview[] = [
   },
 ]
 
-export const aboutReviewsLink =
-  'https://www.google.com/maps/place/MadeByShape/@53.5302612,-2.5068987,17z/data=!3m1!4b1!4m10!1m2!2m1!1sgoogle+madebyshape!3m6!1s0x487b07e652b96f39:0x5975dd3da8b8b001!8m2!3d53.530258!4d-2.50471!9m1!1b1'
+export const aboutReviewsLink = `https://www.google.com/search?q=${encodeURIComponent(`${brand.name} Leeds reviews`)}`
 
 export const aboutGoogleBadge = {
   light: `${CDN}/Google-Review-Badge-Alt-Black.png?w=400&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1730706291&s=ae6f561a5930b62e50456bae8387eb0b`,

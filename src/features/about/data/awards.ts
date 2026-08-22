@@ -5,7 +5,7 @@ export type AwardLogo = {
   alt: string
 }
 
-export const aboutAwards = [
+const awardSources = [
   award('certificate-area-hm.png', '1664875085', '3d7e0ce8728f377cd37450bb7acae920'),
   award('certificate-iet-mobile_excellence.png', '1628684934', '0fa24a4fef47aff3f90763d5e53d1b4e'),
   award('certificate-MadeByShape-jury.png', '1628684945', 'f660d5c267fcc0e06e23447477e0e8a4'),
@@ -53,6 +53,10 @@ export const aboutAwards = [
   ),
   award('certificate-madebyshape-hm.png', '1628684942', 'b192f1e2e3c47210f1ae4ff34c0dc5d3'),
 ]
+
+export const aboutAwards = awardSources.filter(
+  (src) => !/madebyshape|made-by-shape/i.test(src),
+)
 
 export const aboutAwardLogos: AwardLogo[] = aboutAwards.slice(0, 5).map((src) => ({
   src,

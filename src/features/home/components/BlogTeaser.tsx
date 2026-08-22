@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { blog, BlogCard } from '@/features/blog'
 import { blogCopy } from '@/features/home/data/copy'
-import { routes } from '@/config/routes'
+import { anchors, routes } from '@/config/routes'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 import { SmartLink } from '@/components/ui/SmartLink'
@@ -14,7 +14,7 @@ export function BlogTeaser() {
   })
 
   return (
-    <section id="blog" className="scroll-mt-28 py-16 lg:py-24">
+    <section id={anchors.blog.slice(1)} className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 lg:mb-12">
           <div>

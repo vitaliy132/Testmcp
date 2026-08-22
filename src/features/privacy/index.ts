@@ -1,1 +1,1 @@
-export { privacyContent } from '@/features/privacy/data'
+export { PrivacyContent } from '@/features/privacy/components/PrivacyContent'

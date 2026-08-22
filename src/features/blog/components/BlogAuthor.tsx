@@ -1,6 +1,5 @@
 import { anchors } from '@/config/routes'
-import { blogPageCopy } from '@/features/blog/copy'
-import type { BlogPost } from '@/features/blog/types'
+import { blogPageCopy, type BlogPost } from '@/features/blog/data'
 import { SmartLink } from '@/components/ui/SmartLink'
 
 export function BlogAuthor({

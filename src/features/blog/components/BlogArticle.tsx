@@ -1,7 +1,6 @@
 import { BlogAuthor } from '@/features/blog/components/BlogAuthor'
 import { BlogRelated } from '@/features/blog/components/BlogRelated'
-import { getPostHeadings } from '@/features/blog/posts'
-import type { BlogBlock, BlogPost } from '@/features/blog/types'
+import { getPostHeadings, type BlogBlock, type BlogPost } from '@/features/blog/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { Reveal } from '@/components/ui/Reveal'
 

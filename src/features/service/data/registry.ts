@@ -74,5 +74,3 @@ export const homeServices = [...serviceList]
     image: service.homeImage,
     url: service.path,
   }))
-
-export { servicePages }

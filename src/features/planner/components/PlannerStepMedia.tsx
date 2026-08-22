@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { brand } from '@/config/brand'
 import type { PlannerStep } from '@/features/planner/data'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -110,7 +111,7 @@ function Lockup({
           transition={{ duration: 0.45, ease: EASE, delay: 0.12 }}
           aria-hidden
         />
-        <span>Northern Digital</span>
+        <span>{brand.name}</span>
       </div>
     </div>
   )

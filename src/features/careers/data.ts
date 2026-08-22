@@ -14,17 +14,17 @@ export const openRoles: CareerRole[] = []
 
 export const careersContent = {
   eyebrow: 'Careers',
-  headline: 'Embrace life at Northern Digital.',
+  headline: `Embrace life at ${brand.name}.`,
   intro:
     'Want to work in a vibrant, friendly, award-winning digital agency in Leeds? We’re a tight-knit studio — and when the right role opens, you’ll see it here first.',
   cta: 'View open positions',
   positionsAnchor: '#open-positions',
 
-  lifeEyebrow: 'Life at Northern Digital',
+  lifeEyebrow: `Life at ${brand.name}`,
   lifeHeading: 'A home away from home, a place where you can be who you want to be',
   lifeParagraphs: [
     'We want everyone here to feel comfortable with the people they work with, the studio they walk into, and the clients we take on. You’re trusted to do the work — and given the space to be creative.',
-    'Northern Digital is a small family of talented, honest people. We give straight advice to clients, and honest feedback to each other, so the work keeps getting better.',
+    `${brand.name} is a small family of talented, honest people. We give straight advice to clients, and honest feedback to each other, so the work keeps getting better.`,
   ],
 
   rolesEyebrow: 'Open Positions',

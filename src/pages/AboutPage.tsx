@@ -1,3 +1,4 @@
+import { brand } from '@/config/brand'
 import {
   AboutHero,
   AboutIntro,
@@ -8,8 +9,11 @@ import {
   StatsCarousel,
   TeamSection,
 } from '@/features/about'
+import { usePageTitle } from '@/hooks/usePageTitle'
 
 export function AboutPage() {
+  usePageTitle(`About | ${brand.name}`)
+
   return (
     <>
       <AboutHero />

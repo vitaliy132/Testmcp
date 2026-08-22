@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import App from '@/app/App'
 import { HomePage } from '@/pages/HomePage'
 import { routes } from '@/config/routes'
-import { serviceList } from '@/features/service/data/registry'
+import { serviceList } from '@/features/service'
 
 const AboutPage = lazy(() =>
   import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage })),

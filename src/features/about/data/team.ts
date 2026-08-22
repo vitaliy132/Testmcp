@@ -1,4 +1,5 @@
 import { routes } from '@/config/routes'
+import { brand } from '@/config/brand'
 import { IMG } from '@/config/assets'
 import { CDN, hover, portrait } from '@/features/about/data/media'
 
@@ -239,7 +240,7 @@ export const aboutTeam: AboutTeamMember[] = [
   },
   {
     name: 'You',
-    role: 'Want to work at Northern Digital?',
+    role: `Want to work at ${brand.name}?`,
     image: `${CDN}/Male-Profile-Placeholder.jpg?w=400&h=533&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1706004348&s=347928037c7bcb7846e8fd704a321982`,
     profileHref: routes.careers,
     isPlaceholder: true,

@@ -1,8 +1,6 @@
 import { workItem, workSites } from '@/config/routes'
 import { isWorkCaseStudyItem, type WorkCaseStudyItem, type WorkItem } from '@/features/work/types'
 
-export type { WorkCaseStudy, WorkCaseStudyItem, WorkChapter, WorkItem, WorkStill } from '@/features/work/types'
-
 export const work: WorkItem[] = [
   {
     id: 'anovair',

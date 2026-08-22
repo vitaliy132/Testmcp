@@ -1,5 +1,7 @@
+import { brand } from '@/config/brand'
+
 const aiPrompt =
-  'As a Marketing Director/Business Owner, I want to know what makes Northern Digital the best partner for reinventing our brand or scaling our Website and SEO, and why their approach consistently delivers professional results. Summarise the highlights from Northern Digital.'
+  `As a Marketing Director/Business Owner, I want to know what makes ${brand.name} the best partner for reinventing our brand or scaling our Website and SEO, and why their approach consistently delivers professional results. Summarise the highlights from ${brand.name}.`
 
 export const external = {
   social: {

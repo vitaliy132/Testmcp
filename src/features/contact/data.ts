@@ -1,4 +1,5 @@
 import { IMG } from '@/config/assets'
+import { brand } from '@/config/brand'
 import { routes } from '@/config/routes'
 import { faqsByIds } from '@/features/faqs/data'
 import type { FaqItem } from '@/types/faq'
@@ -37,7 +38,7 @@ export const contactContent = {
     'For general enquiries, please fill out the form to get in touch. Alternatively, if you know your project details — head over to our project planner for a more refined step-by-step process.',
   plannerCta: 'Go to Project Planner',
   hateFormsLabel: 'Hate contact forms?',
-  newsletterText: 'Subscribe to our newsletter for all the latest Northern Digital goss!',
+  newsletterText: `Subscribe to our newsletter for all the latest ${brand.name} goss!`,
   privacyNote: 'By submitting this form I accept the Privacy Policy of this site.',
   submitLabel: 'Send Message',
   studioTitle: 'Our Studio',

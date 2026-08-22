@@ -1,7 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom'
 import { brand } from '@/config/brand'
 import { anchors, homeHash } from '@/config/routes'
-import { getWorkCaseStudy } from '@/features/work/projects'
 import { PageFallback } from '@/components/ui/PageFallback'
 import { usePageTitle } from '@/hooks/usePageTitle'
 import {
@@ -12,6 +11,7 @@ import {
   WorkRelated,
   WorkStills,
   WorkVideo,
+  getWorkCaseStudy,
 } from '@/features/work'
 
 export function WorkPage() {

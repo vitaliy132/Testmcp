@@ -1,3 +1,5 @@
+import { brand } from '@/config/brand'
+
 export const PLANNER_SERVICE_OPTIONS = [
   'Website',
   'eCommerce',
@@ -50,7 +52,7 @@ export const plannerSteps: PlannerStep[] = [
   {
     id: 1,
     heading: 'Let’s start at the very beginning',
-    mediaCaption: 'A quick intro from Northern Digital',
+    mediaCaption: `A quick intro from ${brand.name}`,
     progress: 25,
   },
   {

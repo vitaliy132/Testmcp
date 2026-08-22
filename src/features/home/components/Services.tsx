@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { homeServices } from '@/features/service/data/registry'
+import { homeServices } from '@/features/service'
 import { servicesCopy } from '@/features/home/data/copy'
 import { IMG } from '@/config/assets'
 import { anchors } from '@/config/routes'

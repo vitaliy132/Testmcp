@@ -1,5 +1,5 @@
 import { blogPost } from '@/config/routes'
-import type { BlogPost } from '@/features/blog/types'
+import type { BlogPost } from '@/features/blog/data'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { SmartLink } from '@/components/ui/SmartLink'
 

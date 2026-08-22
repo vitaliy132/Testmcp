@@ -1,4 +1,5 @@
 import type { ChangeEvent, RefObject } from 'react'
+import { brand } from '@/config/brand'
 import {
   PLANNER_SERVICE_OPTIONS,
   type PlannerFormData,
@@ -161,7 +162,7 @@ export function PlannerStepFields({
           onChange={(e) => patch({ newsletter: e.target.checked })}
           className="mt-1 h-4 w-4 rounded border-black/25 accent-nd-lime"
         />
-        <span>Subscribe to our newsletter for all the latest Northern Digital goss!</span>
+        <span>Subscribe to our newsletter for all the latest {brand.name} goss!</span>
       </label>
     </div>
   )

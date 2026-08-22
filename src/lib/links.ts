@@ -1,4 +1,4 @@
-export function isProjectSiteHref(href: string) {
+function isProjectSiteHref(href: string) {
   return href === '/projects' || href.startsWith('/projects/')
 }
 
