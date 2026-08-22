@@ -26,3 +26,22 @@ export function CornerFillet({
   )
 }
 
+const notchFilletClass =
+  'pointer-events-none absolute h-8 w-8 text-white dark:text-nd-dark'
+
+/** Concave scoops for a bottom-right page-color notch (play/pause). */
+export function BottomRightNotchFillets() {
+  return (
+    <>
+      <CornerFillet
+        fill="top-left"
+        className={`${notchFilletClass} bottom-0 left-px -translate-x-full rotate-180`}
+      />
+      <CornerFillet
+        fill="top-left"
+        className={`${notchFilletClass} top-px right-0 -translate-y-full rotate-180`}
+      />
+    </>
+  )
+}
+
