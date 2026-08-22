@@ -79,7 +79,7 @@ export function MobileNav({
           </div>
         )}
 
-        <SmartLink href={homeHash(anchors.blog)} className="py-2 text-lg font-medium" onClick={closeAll}>
+        <SmartLink href={routes.blog} className="py-2 text-lg font-medium" onClick={closeAll}>
           Blog
         </SmartLink>
         <Link to={routes.contact} className="py-2 text-lg font-medium" onClick={closeAll}>

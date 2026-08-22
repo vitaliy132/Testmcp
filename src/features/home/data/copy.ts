@@ -8,7 +8,7 @@ export const heroCopy = {
   workCta: 'View our work',
   teamCta: 'Meet the team',
   andy: {
-    title: 'Hear from Andy',
+    title: 'Hear from Vitalii',
     subtitle: 'Co-Founder of Northern Digital',
     image: IMG.andy,
   },
@@ -36,7 +36,7 @@ export const servicesCopy = {
   body: 'We are a digital marketing agency with expertise, and we’re on a mission to help you take the next step in your business.',
   cta: 'See all services',
   andy: {
-    title: 'Hear from Andy',
+    title: 'Hear from Vitalii',
     subtitle: 'Co-founder of Northern Digital',
     href: anchors.about,
   },

@@ -42,7 +42,7 @@ export const footerCols = {
     { label: 'Testimonials', href: anchors.testimonials },
     { label: 'Processes', href: routes.processes },
     { label: 'FAQs', href: routes.faqs },
-    { label: 'Blog', href: homeHash(anchors.blog) },
+    { label: 'Blog', href: routes.blog },
   ],
   Explore: [
     { label: 'Home', href: routes.home },

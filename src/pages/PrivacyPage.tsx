@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { privacyContent } from '@/features/privacy/data'
+import { privacyContent } from '@/features/privacy'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
 export function PrivacyPage() {

@@ -44,7 +44,7 @@ export const careersContent = {
   andy: {
     name: 'Andy',
     role: 'Co-Founder',
-    image: IMG.andyProfile,
+    image: IMG.andy,
   },
 
   perksEyebrow: 'Benefits',

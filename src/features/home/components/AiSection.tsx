@@ -1,44 +1,44 @@
 import { motion } from 'framer-motion'
 import { aiLinks } from '@/config/external'
 import { aiCopy } from '@/features/home/data/copy'
-import { IMG } from '@/config/assets'
+import { BLOG_IMG } from '@/features/blog/media'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 
-/** Positions and crops match the MadeByShape homepage AI block. */
+/** Positions and crops match the homepage AI block; photos are the studio set dropped for the blog. */
 const floatImgs = [
   {
-    src: IMG.studio1,
+    src: BLOG_IMG.collabCafe,
     alt: 'Studio session',
     className: 'top-[62%] -left-10 hidden w-24 md:block md:w-40 xl:w-56',
     aspect: 'aspect-[3/2]',
   },
   {
-    src: IMG.studio2,
+    src: BLOG_IMG.openOffice,
     alt: 'Designers collaborating',
     className: 'left-3 top-8 hidden w-16 md:block md:w-52 lg:left-20 lg:top-20 xl:w-72',
     aspect: 'aspect-[3/2]',
   },
   {
-    src: IMG.studio3,
+    src: BLOG_IMG.laptopReview,
     alt: 'Creative review',
     className: 'bottom-0 left-1/3 hidden w-24 lg:block xl:w-40',
     aspect: 'aspect-[3/2]',
   },
   {
-    src: IMG.studio4,
-    alt: 'Studio portrait',
+    src: BLOG_IMG.smallTeam,
+    alt: 'Small team around a laptop',
     className: 'right-1/3 bottom-10 hidden w-28 md:block md:w-40 lg:top-0 lg:right-40 lg:bottom-auto xl:w-56',
     aspect: 'aspect-[3/2]',
   },
   {
-    src: IMG.studio5,
+    src: BLOG_IMG.conference,
     alt: 'Team in the studio',
     className: 'right-3 bottom-0 hidden w-16 md:block md:w-40 lg:right-10 xl:w-52',
     aspect: 'aspect-[3/2]',
   },
   {
-    src: IMG.studio6,
-    alt: 'Meeting room',
+    src: BLOG_IMG.workshop,
+    alt: 'Workshop around the table',
     className: 'right-4 -top-8 hidden w-20 md:block md:w-28 lg:top-auto lg:right-56 lg:bottom-20 xl:w-36',
     aspect: 'aspect-[2/3]',
   },

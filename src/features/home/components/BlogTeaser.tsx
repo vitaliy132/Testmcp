@@ -1,30 +1,13 @@
 import { motion } from 'framer-motion'
-import { blog } from '@/features/home/data/blog'
+import { blog, BlogCard } from '@/features/blog'
 import { blogCopy } from '@/features/home/data/copy'
+import { routes } from '@/config/routes'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
-import { CornerFillet } from '@/components/ui/CornerFillet'
+import { SmartLink } from '@/components/ui/SmartLink'
 import { useSnapScroller } from '@/hooks/useSnapScroller'
 
-function AuthorCutout({ src, name }: { src: string; name: string }) {
-  return (
-    <div className="absolute bottom-0 left-0 z-20 rounded-tr-2xl bg-white pb-0 pr-2 pt-2 dark:bg-nd-dark lg:rounded-tr-3xl lg:pr-3 lg:pt-3">
-      <CornerFillet className="absolute top-0 left-px h-5 w-5 -translate-y-full text-white dark:text-nd-dark lg:h-6 lg:w-6" />
-      <CornerFillet className="absolute right-0 bottom-px h-5 w-5 translate-x-full text-white dark:text-nd-dark lg:h-6 lg:w-6" />
-      <img
-        src={src}
-        alt={name}
-        width={48}
-        height={48}
-        loading="lazy"
-        decoding="async"
-        className="h-10 w-10 rounded-full object-cover lg:h-12 lg:w-12"
-      />
-    </div>
-  )
-}
-
-export function Blog() {
+export function BlogTeaser() {
   const { ref, atStart, atEnd, scrollBy } = useSnapScroller((el) => {
     const slide = el.querySelector<HTMLElement>('.blog-slide')
     return slide?.offsetWidth ?? el.clientWidth * 0.8
@@ -41,9 +24,9 @@ export function Blog() {
             </h2>
           </div>
           <div className="flex items-center gap-2">
-            <a href="#blog" className="btn-soft">
+            <SmartLink href={routes.blog} className="btn-soft">
               {blogCopy.cta}
-            </a>
+            </SmartLink>
             <button
               type="button"
               aria-label="Previous posts"
@@ -76,32 +59,14 @@ export function Blog() {
       >
         {blog.map((post, i) => (
           <motion.article
-            key={post.title}
+            key={post.slug}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
             className="blog-slide w-[85%] shrink-0 snap-start px-2 sm:w-[55%] lg:w-[42%] xl:w-[38%] xl:px-3"
           >
-            <div className="group flex flex-col items-start">
-              <div className="relative mb-5 w-full">
-                <div className="aspect-[16/9] overflow-hidden rounded-2xl rounded-bl-xl bg-nd-soft lg:rounded-3xl lg:rounded-bl-2xl dark:bg-[#1a1a1a]">
-                  <img
-                    src={post.cover}
-                    alt={post.title}
-                    width={800}
-                    height={450}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <AuthorCutout src={post.authorImage} name={post.author} />
-              </div>
-              <div className="text-xs font-medium text-nd-muted dark:text-white/50">{post.readTime}</div>
-              <h3 className="mt-1 text-lg font-medium tracking-tight lg:text-xl">{post.title}</h3>
-              <p className="mt-2 line-clamp-2 text-sm text-nd-muted dark:text-white/55">{post.excerpt}</p>
-            </div>
+            <BlogCard post={post} />
           </motion.article>
         ))}
       </div>

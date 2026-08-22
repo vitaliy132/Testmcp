@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import { brand } from '@/config/brand'
 import { anchors, homeHash } from '@/config/routes'
 import { getWorkCaseStudy } from '@/features/work/projects'
 import { PageFallback } from '@/components/ui/PageFallback'
+import { usePageTitle } from '@/hooks/usePageTitle'
 import {
   WorkChapter,
   WorkHero,
@@ -18,14 +18,7 @@ export function WorkPage() {
   const { slug } = useParams()
   const project = getWorkCaseStudy(slug)
 
-  useEffect(() => {
-    if (!project) return
-    const previous = document.title
-    document.title = `${project.client} | ${brand.name}`
-    return () => {
-      document.title = previous
-    }
-  }, [project])
+  usePageTitle(project ? `${project.client} | ${brand.name}` : undefined)
 
   if (!slug) {
     return <PageFallback />

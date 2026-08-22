@@ -1,4 +1,5 @@
 import { routes } from '@/config/routes'
+import { IMG } from '@/config/assets'
 import { CDN, hover, portrait } from '@/features/about/data/media'
 
 export type AboutTeamMember = {
@@ -15,28 +16,8 @@ export const aboutTeam: AboutTeamMember[] = [
   {
     name: 'Andy',
     role: 'Co-Founder',
-    image: portrait('Group-461.jpg', '1705050203', 'f4eb0ba70df536ec5c5cc81977e0dca3'),
+    image: IMG.andy,
     linkedin: 'https://www.linkedin.com/in/andygolpys',
-    hoverImages: [
-      hover('profile-images-2024/hover-images/andy/andy-4.png', '1704887804', '0ab1706115fb5536f8bec13610b3e50c', 100),
-      hover('profile-images-2024/hover-images/andy/andy-5.png', '1704887803', '542f8cc87631ad1bd8a52811ca00fcea', 100),
-      hover('profile-images-2024/hover-images/andy/andy-6.png', '1704887804', '024f2fcdf008ed0fb36f5a2bef141a88', 100),
-      hover(
-        'profile-images-2024/hover-images/andy/230279f1-e731-4003-a514-38732dba0ea1.JPG',
-        '1704887804',
-        '9b227955cbfcc5acc36ad1a8dce92787',
-      ),
-      hover(
-        'profile-images-2024/hover-images/andy/king-eric-cantona.jpeg',
-        '1704887805',
-        '7789a34c952596993035354870add0a2',
-      ),
-      hover(
-        'profile-images-2024/hover-images/andy/juicy-fat-steak.jpeg',
-        '1704887806',
-        'd4beb18c4d880ab24c746309fa341a39',
-      ),
-    ],
   },
   {
     name: 'Jason',

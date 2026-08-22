@@ -25,7 +25,7 @@ const navMeta: Record<ServiceKey, ServiceNavMeta> = {
     navDescription: 'The most reliable way to build a website',
     navOrder: 1,
     homeName: 'Craft CMS',
-    homeImage: IMG.craft,
+    homeImage: IMG.sketch,
     homeOrder: 3,
   },
   branding: {

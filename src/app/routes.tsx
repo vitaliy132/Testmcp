@@ -29,6 +29,12 @@ const WorkPage = lazy(() =>
 const ServicePage = lazy(() =>
   import('@/pages/ServicePage').then((m) => ({ default: m.ServicePage })),
 )
+const BlogPage = lazy(() =>
+  import('@/pages/BlogPage').then((m) => ({ default: m.BlogPage })),
+)
+const BlogPostPage = lazy(() =>
+  import('@/pages/BlogPostPage').then((m) => ({ default: m.BlogPostPage })),
+)
 
 export function AppRoutes() {
   return (
@@ -43,6 +49,8 @@ export function AppRoutes() {
         <Route path={routes.faqs} element={<FaqsPage />} />
         <Route path={routes.faqsAlias} element={<Navigate to={routes.faqs} replace />} />
         <Route path={routes.workPattern} element={<WorkPage />} />
+        <Route path={routes.blog} element={<BlogPage />} />
+        <Route path={routes.blogPattern} element={<BlogPostPage />} />
         {serviceList.map((service) => (
           <Route
             key={service.key}

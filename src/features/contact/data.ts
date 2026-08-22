@@ -43,7 +43,7 @@ export const contactContent = {
   studioTitle: 'Our Studio',
   studioDescription:
     'Just a short drive from the city centre, our Studio is in a very convenient location, near two train stations, a motorway, and the east Lancashire road.',
-  studioImage: IMG.studio1,
+  studioImage: IMG.studio,
   directionsHref: 'https://maps.app.goo.gl/2rmk5J3Fh5z1YLFPA',
   faqsEyebrow: 'Anything else?',
   faqsTitle: 'The answers to your questions.',

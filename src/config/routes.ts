@@ -18,12 +18,19 @@ export const routes = {
   ecommerce: '/shopify',
   /** No standalone processes page yet — FAQs cover how we work. */
   processes: '/frequently-asked-questions',
+  blog: '/blog',
+  blogPattern: '/blog/:slug',
   workPattern: '/work/:slug',
 } as const
 
 /** Case-study page for a home-grid project, e.g. `/work/anovair`. */
 export function workItem(slug: string) {
   return `/work/${slug}`
+}
+
+/** Article page for a studio post, e.g. `/blog/leeds-studio`. */
+export function blogPost(slug: string) {
+  return `/blog/${slug}`
 }
 
 /** Live demo client sites — source lives in /projects/<id>/ */

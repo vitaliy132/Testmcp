@@ -105,7 +105,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
       </div>
 
       <SmartLink
-        href={homeHash(anchors.blog)}
+        href={routes.blog}
         className="rounded-full px-3 py-2 text-sm font-medium text-nd-ink/80 transition hover:bg-black/[0.04] hover:text-nd-ink dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
         onMouseEnter={scheduleClose}
       >
