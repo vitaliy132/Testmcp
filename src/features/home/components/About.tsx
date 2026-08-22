@@ -33,9 +33,6 @@ export function About() {
               <Link to={routes.about} className="btn-lime">
                 About {brand.name}
               </Link>
-              <Link to={anchors.team} className="btn-soft">
-                Meet the Team
-              </Link>
             </div>
           </div>
         </div>

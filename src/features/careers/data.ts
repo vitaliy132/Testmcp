@@ -1,5 +1,5 @@
 import { brand } from '@/config/brand'
-import { anchors, routes } from '@/config/routes'
+import { routes } from '@/config/routes'
 import { IMG } from '@/config/assets'
 import { aboutHeroImages } from '@/features/about/data/media'
 
@@ -39,10 +39,8 @@ export const careersContent = {
     'If you think you’d be a fit — designer, developer, or otherwise — drop us a line with a bit about you and some work. We’ll be in touch when something opens.',
   speculativeCta: 'Send us a note',
   speculativeEmailHref: `mailto:${brand.email}?subject=${encodeURIComponent('Careers — speculative application')}`,
-  meetTeamCta: 'Meet the team',
-  meetTeamHref: anchors.team,
   andy: {
-    name: 'Andy',
+    name: 'Vitalii',
     role: 'Co-Founder',
     image: IMG.andy,
   },
@@ -75,10 +73,6 @@ export const careersContent = {
       body: 'Award-winning brands and websites, with a small team that still gives a damn.',
     },
   ],
-
-  teamEyebrow: 'Our Team',
-  teamHeading: ['Meet your future', 'mates (colleagues)'] as const,
-  teamCta: 'Meet the whole Team',
 
   ctaHeadline: 'Like what you see?',
   ctaLabel: 'Get in touch',

@@ -1,4 +1,4 @@
-import { anchors } from '@/config/routes'
+import { routes } from '@/config/routes'
 import { blogPageCopy, type BlogPost } from '@/features/blog/data'
 import { SmartLink } from '@/components/ui/SmartLink'
 
@@ -13,7 +13,7 @@ export function BlogAuthor({
 
   return (
     <SmartLink
-      href={anchors.team}
+      href={routes.about}
       className={`group flex gap-3 ${footer ? 'items-start sm:items-center' : 'items-center'}`}
     >
       <img

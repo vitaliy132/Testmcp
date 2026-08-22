@@ -15,7 +15,6 @@ export const servicesLinks: MenuLink[] = [...serviceList]
 
 export const aboutLinks: MenuLink[] = [
   { label: 'About us', description: 'An award winning agency in Leeds', href: routes.about },
-  { label: 'Meet the Team', description: 'Putting faces to names', href: anchors.team },
   { label: 'Testimonials', description: 'What our clients say about us', href: anchors.testimonials },
   { label: 'Careers', description: `Want to work at ${brand.name}?`, href: routes.careers },
 ]

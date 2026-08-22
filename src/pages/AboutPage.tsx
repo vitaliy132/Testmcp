@@ -7,7 +7,6 @@ import {
   AwardsMarquee,
   ReviewsCarousel,
   StatsCarousel,
-  TeamSection,
 } from '@/features/about'
 import { usePageTitle } from '@/hooks/usePageTitle'
 
@@ -20,7 +19,6 @@ export function AboutPage() {
       <AboutIntro />
       <AwardLogos />
       <AboutShowreel />
-      <TeamSection />
       <StatsCarousel />
       <ReviewsCarousel />
       <AwardsMarquee />

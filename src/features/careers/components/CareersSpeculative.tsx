@@ -1,7 +1,6 @@
 import { careersContent } from '@/features/careers/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
-import { SmartLink } from '@/components/ui/SmartLink'
 
 export function CareersSpeculative() {
   const { andy } = careersContent
@@ -24,9 +23,6 @@ export function CareersSpeculative() {
               <a href={careersContent.speculativeEmailHref} className="btn-lime">
                 {careersContent.speculativeCta}
               </a>
-              <SmartLink href={careersContent.meetTeamHref} className="btn-soft">
-                {careersContent.meetTeamCta}
-              </SmartLink>
             </div>
           </div>
 

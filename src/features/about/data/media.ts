@@ -1,12 +1,6 @@
 /** Demo CDN — MadeByShape imagery kept for visual fidelity. */
 export const CDN = 'https://made-byshape.transforms.svdcdn.com/production/uploads/images'
 
-export const portrait = (file: string, dm: string, s: string) =>
-  `${CDN}/profile-images-2024/portrait/${file}?w=400&h=533&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=${dm}&s=${s}`
-
-export const hover = (path: string, dm: string, s: string, q = 70) =>
-  `${CDN}/${path}?w=600&q=${q}&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=${dm}&s=${s}`
-
 export const award = (file: string, dm: string, s: string) =>
   `${CDN}/Awards/${file}?w=200&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=${dm}&s=${s}`
 

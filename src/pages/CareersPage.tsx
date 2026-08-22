@@ -7,7 +7,6 @@ import {
   CareersPerks,
   CareersRoles,
   CareersSpeculative,
-  CareersTeam,
 } from '@/features/careers'
 import { usePageTitle } from '@/hooks/usePageTitle'
 
@@ -22,7 +21,6 @@ export function CareersPage() {
       <CareersRoles />
       <CareersPerks />
       <CareersSpeculative />
-      <CareersTeam />
       <CareersCta />
     </>
   )

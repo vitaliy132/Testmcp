@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { anchors } from '@/config/routes'
+import { anchors, routes } from '@/config/routes'
 import { heroCopy } from '@/features/home/data/copy'
 import { HeroReel } from '@/features/home/components/HeroReel'
 import { PageContainer } from '@/components/ui/PageContainer'
@@ -15,13 +15,13 @@ import { useInViewVideo } from '@/hooks/useInViewVideo'
 const HERO_REEL_SRC = '/videos/hero-reel.mp4'
 const HERO_REEL_POSTER = '/videos/posters/hero-reel.jpg'
 
-function MeetTheTeamLink() {
+function AboutLink() {
   return (
     <Link
-      to={anchors.team}
+      to={routes.about}
       className="group relative inline-flex items-center py-1 pr-3 text-nd-ink dark:text-white"
     >
-      <span className="relative top-px font-medium leading-tight">{heroCopy.teamCta}</span>
+      <span className="relative top-px font-medium leading-tight">{heroCopy.aboutCta}</span>
       <span className="relative ml-1 h-3 w-3 overflow-hidden">
         <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full group-hover:translate-x-full">
           <ArrowIcon />
@@ -72,7 +72,7 @@ export function Hero() {
 
             <Reveal delay={0.14} className="mt-8 flex flex-wrap items-center gap-4 lg:mt-10 lg:gap-6">
               <GooeyLink href={anchors.work} label={heroCopy.workCta} />
-              <MeetTheTeamLink />
+              <AboutLink />
             </Reveal>
           </div>
 

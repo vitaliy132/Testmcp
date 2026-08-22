@@ -47,7 +47,6 @@ export const anchors = {
   blog: '#blog',
   about: '#about',
   aboutIntro: '#about-intro',
-  team: '/about#team',
   testimonials: '/about#testimonials',
 } as const
 

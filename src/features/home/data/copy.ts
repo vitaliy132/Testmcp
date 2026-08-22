@@ -6,7 +6,7 @@ export const heroCopy = {
   eyebrow: `Hiya, we’re ${brand.name}`,
   headline: ['A web design and', 'branding agency', 'in Leeds'] as const,
   workCta: 'View our work',
-  teamCta: 'Meet the team',
+  aboutCta: 'About us',
   andy: {
     title: 'Hear from Vitalii',
     subtitle: `Co-Founder of ${brand.name}`,
