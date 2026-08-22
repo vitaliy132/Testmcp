@@ -17,6 +17,18 @@ npm run dev
 
 Form submissions need `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.example`).
 
+## Deploy (Vercel)
+
+This is a Next.js app. It builds to `.next`, not Vite’s `dist`.
+
+In the Vercel project: **Settings → Build and Deployment → Framework settings**:
+
+- **Framework Preset:** Next.js
+- **Build Command:** `npm run build` (or leave the default)
+- **Output Directory:** empty — turn **Override** off if it is still set to `dist` from the old Vite project
+
+Redeploy after saving. If Output Directory stays `dist`, Vercel will fail with “No Output Directory named dist found” even though `next build` succeeded.
+
 ## Layout
 
 - `src/app` — App Router routes, metadata, sitemap, robots
