@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { aboutHeroCopy, aboutHeroImages } from '@/features/about/data'

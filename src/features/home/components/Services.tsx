@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { homeServices } from '@/features/service'
 import { servicesCopy } from '@/features/home/data/copy'
 import { IMG } from '@/config/assets'
@@ -60,7 +62,7 @@ export function Services() {
                   }`}
                 >
                   <Link
-                    to={service.url}
+                    href={service.url}
                     className="group relative flex w-full min-w-0 items-center py-4 lg:py-6"
                     onMouseEnter={() => setActive(i)}
                     onMouseLeave={() => setActive(null)}

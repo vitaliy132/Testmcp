@@ -1,3 +1,5 @@
+'use client'
+
 import { useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { aboutShowreel } from '@/features/about/data'

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import type { WorkCaseStudyItem } from '@/features/work/types'
 import { workPageCopy } from '@/features/work/data'

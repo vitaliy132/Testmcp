@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import type { WorkCaseStudyItem } from '@/features/work/types'
 import { CornerFillet } from '@/components/ui/CornerFillet'

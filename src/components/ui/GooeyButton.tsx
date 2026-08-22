@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { isInternalHref } from '@/lib/links'
 import { ArrowIcon } from '@/components/ui/ArrowIcon'
 
@@ -84,7 +84,7 @@ export function GooeyLink({
   }
 
   return (
-    <Link to={href} onClick={onClick} className={classes} style={style}>
+    <Link href={href} onClick={onClick} className={classes} style={style}>
       {visual}
     </Link>
   )

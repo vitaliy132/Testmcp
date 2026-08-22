@@ -1,5 +1,7 @@
+'use client'
+
 import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { brand } from '@/config/brand'
 import { routes } from '@/config/routes'
 import {
@@ -139,7 +141,7 @@ export function ContactForm() {
 
       <p className="text-sm font-light text-nd-muted dark:text-white/55">
         By submitting this form I accept the{' '}
-        <Link to={routes.privacy} className="underline underline-offset-2">
+        <Link href={routes.privacy} className="underline underline-offset-2">
           Privacy Policy
         </Link>{' '}
         of this site.

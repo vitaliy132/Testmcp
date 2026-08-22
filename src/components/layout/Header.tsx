@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { brand } from '@/config/brand'
 import { routes } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
@@ -80,7 +82,7 @@ export function Header() {
         >
           <div className="flex w-full flex-nowrap items-center justify-between gap-2">
             <Link
-              to={routes.home}
+              href={routes.home}
               className="group relative z-10 ml-1 min-w-0 shrink font-medium tracking-tight text-nd-ink transition hover:opacity-80 dark:text-white lg:ml-4"
               aria-label={`${brand.name} home`}
               onClick={closeAll}

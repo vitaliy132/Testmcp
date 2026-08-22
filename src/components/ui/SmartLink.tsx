@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { isInternalHref } from '@/lib/links'
 
 type SmartLinkProps = {
@@ -11,7 +11,7 @@ type SmartLinkProps = {
 export function SmartLink({ href, children, newTab, ...rest }: SmartLinkProps) {
   if (isInternalHref(href)) {
     return (
-      <Link to={href} {...rest}>
+      <Link href={href} {...rest}>
         {children}
       </Link>
     )

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { aboutAwards, aboutAwardsCopy } from '@/features/about/data'
 import { routes } from '@/config/routes'
 import { Marquee } from '@/components/ui/Marquee'
@@ -17,7 +17,7 @@ export function AwardsMarquee() {
               {aboutAwardsCopy.heading}
             </h2>
           </div>
-          <Link to={routes.planner} className="btn-lime">
+          <Link href={routes.planner} className="btn-lime">
             {aboutAwardsCopy.cta}
           </Link>
         </div>

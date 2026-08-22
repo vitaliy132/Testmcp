@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { contactContent, contactFaqs } from '@/features/contact/data'
 import { AccordionFaq } from '@/components/ui/AccordionFaq'
 import { FaqSectionLayout } from '@/components/ui/FaqSectionLayout'
@@ -17,7 +17,7 @@ export function ContactFaqs() {
                 {contactContent.faqsTitle}
               </h2>
               <Link
-                to={contactContent.viewAllFaqsHref}
+                href={contactContent.viewAllFaqsHref}
                 className="text-sm font-medium underline-offset-4 transition hover:underline"
               >
                 {contactContent.viewAllFaqs}

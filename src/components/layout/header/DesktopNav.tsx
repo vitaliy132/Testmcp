@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { DropdownLink } from '@/components/layout/header/DropdownLink'
 import { FeaturedCard } from '@/components/layout/header/FeaturedCard'
 import { aboutLinks, featuredCards, servicesLinks, workCount } from '@/config/nav'
@@ -67,7 +67,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
 
       <div className="relative" onMouseEnter={() => open('about')}>
         <Link
-          to={routes.about}
+          href={routes.about}
           className={`inline-flex items-center rounded-full px-3 py-2 text-sm font-medium transition ${
             openMenu === 'about'
               ? 'bg-black/[0.05] text-nd-ink dark:bg-white/10 dark:text-white'
@@ -112,7 +112,7 @@ export function DesktopNav({ openMenu, open, scheduleClose, closeAll }: DesktopN
         Blog
       </SmartLink>
       <Link
-        to={routes.contact}
+        href={routes.contact}
         className="rounded-full px-3 py-2 text-sm font-medium text-nd-ink/80 transition hover:bg-black/[0.04] hover:text-nd-ink dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
         onMouseEnter={scheduleClose}
         onClick={scheduleClose}

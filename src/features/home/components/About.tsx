@@ -1,5 +1,7 @@
+'use client'
+
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { brand } from '@/config/brand'
 import { anchors, routes } from '@/config/routes'
 import { aboutTeaser } from '@/features/home/data/copy'
@@ -30,7 +32,7 @@ export function About() {
               {aboutTeaser.after}
             </motion.h2>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to={routes.about} className="btn-lime">
+              <Link href={routes.about} className="btn-lime">
                 About {brand.name}
               </Link>
             </div>

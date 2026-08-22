@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { blog, BlogCard } from '@/features/blog'
 import { blogCopy } from '@/features/home/data/copy'

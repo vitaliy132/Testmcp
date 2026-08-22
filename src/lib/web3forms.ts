@@ -14,7 +14,7 @@ type Web3FormsResponse = {
 const ENDPOINT = 'https://api.web3forms.com/submit'
 
 export async function submitWeb3Form(payload: Web3FormPayload): Promise<void> {
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
   if (!accessKey || typeof accessKey !== 'string') {
     throw new Error('Form submissions are not configured. Please email us directly.')
   }

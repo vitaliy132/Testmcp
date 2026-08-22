@@ -1,3 +1,5 @@
+'use client'
+
 import {
   useId,
   useRef,
@@ -5,7 +7,7 @@ import {
   type ChangeEvent,
   type FormEvent,
 } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import {
   PLANNER_SERVICE_OPTIONS,
   PLANNER_TOTAL_STEPS,
@@ -142,7 +144,7 @@ export function PlannerForm() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
-              to={routes.home}
+              href={routes.home}
               className="inline-flex rounded-full bg-nd-lime px-5 py-2.5 text-sm font-medium text-nd-ink"
             >
               Back home

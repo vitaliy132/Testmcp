@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { brand } from '@/config/brand'
 import { footerCols } from '@/config/nav'
 import { routes } from '@/config/routes'
@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-nd-darker text-white pb-[env(safe-area-inset-bottom)]">
       <Link
-        to={routes.contact}
+        href={routes.contact}
         className="block overflow-hidden border-b border-white/10 py-6 text-inherit no-underline"
       >
         <Marquee className="gap-10 whitespace-nowrap text-[clamp(2.5rem,8vw,6rem)] font-medium tracking-tight text-white/90">
@@ -64,7 +64,7 @@ export function Footer() {
           <span>
             © {brand.legalName} {year}
           </span>
-          <Link to={routes.privacy} className="hover:text-white">
+          <Link href={routes.privacy} className="hover:text-white">
             Privacy Policy
           </Link>
         </div>

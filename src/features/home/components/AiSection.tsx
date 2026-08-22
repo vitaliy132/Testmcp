@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { aiLinks } from '@/config/external'
 import { aiCopy } from '@/features/home/data/copy'

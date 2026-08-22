@@ -1,13 +1,12 @@
 # Northern Digital
 
-A Vite + React + TypeScript SPA for Northern Digital, a web design agency site.
+A Next.js App Router site for Northern Digital, a web design agency.
 
 ## Stack
 
-- Vite + React + TypeScript
+- Next.js 16 + React + TypeScript
 - Tailwind CSS v4
 - Framer Motion
-- React Router
 
 ## Run
 
@@ -16,36 +15,30 @@ npm install
 npm run dev
 ```
 
-Form submissions need `VITE_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.example`).
+Form submissions need `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local` (see `.env.example`).
 
 ## Layout
 
-- `src/app` — shell and routes
-- `src/pages` — route composers
+- `src/app` — App Router routes, metadata, sitemap, robots
+- `src/views` — page composers
 - `src/features` — page sections and domain data
 - `src/components` — shared UI and layout
 - `src/hooks` — shared hooks
 - `src/config` — brand, routes, nav, assets
-- `src/lib` — theme, links, forms
+- `src/lib` — SEO, theme, links, forms
 - `src/types` — shared types
-- `projects/` — live client demos (`shared/` TypeScript helpers + per-site HTML/CSS/`app.ts`), served at `/projects/<id>/`
+- `projects/` — live client demos (`shared/` TypeScript helpers + per-site HTML/CSS/`app.ts`), built into `public/projects/<id>/`
 
 Work cards open live client sites. Source for each demo lives in `projects/`:
 
 | Project | Folder | Local URL |
 | --- | --- | --- |
-| Anovair | `projects/anovair/` | `/projects/anovair/` |
-| Emna Studio | `projects/emna-studio/` | `/projects/emna-studio/` |
-| Aqua | `projects/aqua/` | `/projects/aqua/` |
-| Proud Mary Coffee | `projects/proud-mary/` | `/projects/proud-mary/` |
+| Anovair | `projects/anovair/` | `/projects/anovair` |
+| Emna Studio | `projects/emna-studio/` | `/projects/emna-studio` |
+| Aqua | `projects/aqua/` | `/projects/aqua` |
+| Proud Mary Coffee | `projects/proud-mary/` | `/projects/proud-mary` |
 
-Demos are static HTML/CSS with TypeScript entries. Shared helpers live in `projects/shared/`. Each site loads one module:
-
-```html
-<script type="module" src="./app.ts"></script>
-```
-
-Vite compiles those entries in dev and bundles `app.js` into `dist/projects` on build.
+Demos are static HTML/CSS with TypeScript entries. Shared helpers live in `projects/shared/`. `npm run projects` (also run before `dev` and `build`) bundles each `app.ts` to `public/projects/<id>/app.js`.
 
 ## Notes
 

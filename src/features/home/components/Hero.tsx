@@ -1,6 +1,8 @@
+'use client'
+
 import { useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { anchors, routes } from '@/config/routes'
 import { heroCopy } from '@/features/home/data/copy'
 import { HeroReel } from '@/features/home/components/HeroReel'
@@ -18,7 +20,7 @@ const HERO_REEL_POSTER = '/videos/posters/hero-reel.jpg'
 function AboutLink() {
   return (
     <Link
-      to={routes.about}
+      href={routes.about}
       className="group relative inline-flex items-center py-1 pr-3 text-nd-ink dark:text-white"
     >
       <span className="relative top-px font-medium leading-tight">{heroCopy.aboutCta}</span>

@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { privacyContent } from '@/features/privacy/data'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'

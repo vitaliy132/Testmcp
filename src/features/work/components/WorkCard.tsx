@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import type { WorkItem } from '@/features/work/types'
 import { CornerFillet } from '@/components/ui/CornerFillet'

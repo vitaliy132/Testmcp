@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { aboutLinks, servicesLinks, workCount } from '@/config/nav'
 import { anchors, homeHash, routes } from '@/config/routes'
 import { StartProjectButton } from '@/components/ui/StartProjectButton'
@@ -82,7 +82,7 @@ export function MobileNav({
         <SmartLink href={routes.blog} className="py-2 text-lg font-medium" onClick={closeAll}>
           Blog
         </SmartLink>
-        <Link to={routes.contact} className="py-2 text-lg font-medium" onClick={closeAll}>
+        <Link href={routes.contact} className="py-2 text-lg font-medium" onClick={closeAll}>
           Contact
         </Link>
         <StartProjectButton className="mt-3" onClick={closeAll} />
