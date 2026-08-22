@@ -66,10 +66,8 @@ export function Services() {
                     onMouseLeave={() => setActive(null)}
                   >
                     <div
-                      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/10 transition-all duration-700 ease-out md:rounded-2xl ${
-                        isActive
-                          ? 'mr-3 h-14 w-[4.5rem] sm:mr-4 sm:h-16 sm:w-20 md:mr-5 md:h-28 md:w-36'
-                          : 'mr-3 h-14 w-[4.5rem] sm:mr-4 sm:h-16 sm:w-20 md:mr-5 md:h-28 md:w-36 lg:mr-0 lg:w-0'
+                      className={`relative h-14 w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-white/10 transition-[width,margin] duration-700 ease-out sm:h-16 sm:w-20 md:h-28 md:w-36 md:rounded-2xl ${
+                        isActive ? 'mr-3 sm:mr-4 md:mr-5' : 'mr-3 sm:mr-4 md:mr-5 lg:mr-0 lg:w-0'
                       }`}
                     >
                       <img
@@ -77,7 +75,7 @@ export function Services() {
                         alt={service.name}
                         loading="lazy"
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+                        className={`absolute inset-y-0 left-0 h-full w-[4.5rem] max-w-none object-cover transition-opacity duration-300 sm:w-20 md:w-36 ${
                           isActive ? 'opacity-100' : 'opacity-100 lg:opacity-0'
                         }`}
                       />
