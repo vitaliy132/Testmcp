@@ -1,4 +1,5 @@
 import { $, $$ } from '../shared/dom.ts'
+import { mountStudioBack } from '../shared/studio-back.ts'
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -216,3 +217,4 @@ bindNav()
 bindHeroFloat()
 bindMarquee()
 bindEvolutionSlider()
+mountStudioBack('aqua')

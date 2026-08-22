@@ -1,4 +1,5 @@
 import { $, $$, closestElement } from '../shared/dom.ts'
+import { mountStudioBack } from '../shared/studio-back.ts'
 import { chromeHTML, footerHTML } from './chrome.ts'
 import {
   mountAbout,
@@ -80,6 +81,7 @@ function boot() {
   renderCart()
   bindRails()
   bindForms()
+  mountStudioBack('anovair')
 
   const page = document.body.dataset.page
   if (page === 'home') mountHome()

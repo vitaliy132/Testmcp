@@ -1,5 +1,6 @@
 import { $, $$, closestElement } from '../shared/dom.ts'
 import { escapeHtml } from '../shared/escape.ts'
+import { mountStudioBack } from '../shared/studio-back.ts'
 import { toast } from '../shared/toast.ts'
 import { chromeHTML, footerHTML } from './chrome.ts'
 import { bindRails, mountAbout, mountCollection, mountHome, mountPolicies, mountProduct } from './pages.ts'
@@ -164,6 +165,7 @@ function boot() {
   bindChrome()
   renderCart()
   bindForms()
+  mountStudioBack('proud-mary')
 
   const page = document.body.dataset.page
   if (page === 'home') mountHome()

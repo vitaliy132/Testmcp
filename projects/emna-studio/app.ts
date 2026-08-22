@@ -1,4 +1,5 @@
 import { $, $$, closestElement } from '../shared/dom.ts'
+import { mountStudioBack } from '../shared/studio-back.ts'
 import { toast } from '../shared/toast.ts'
 import { chromeHTML, footerHTML } from './chrome.ts'
 import {
@@ -54,6 +55,7 @@ function boot() {
   if (footer) footer.outerHTML = footerHTML()
   bindChrome()
   renderBagCount()
+  mountStudioBack('emna-studio')
 
   const page = document.body.dataset.page
   if (page === 'home') mountHome()
