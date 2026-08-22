@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation'
 import { getWorkCaseStudy, work } from '@/features/work'
 import { isWorkCaseStudyItem } from '@/features/work/types'
 import { WorkPage } from '@/views/WorkPage'
-import { pageMeta } from '@/lib/seo'
-import { workItem } from '@/config/routes'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { breadcrumbJsonLd, pageMeta, workJsonLd } from '@/lib/seo'
+import { routes, workItem } from '@/config/routes'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -19,9 +20,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getWorkCaseStudy(slug)
   if (!project) return {}
   return pageMeta({
-    title: project.client,
+    title: `${project.client} — ${project.caseStudy.dek}`,
     description: project.caseStudy.dek,
     path: workItem(slug),
+    image: project.image,
   })
 }
 
@@ -29,5 +31,16 @@ export default async function Page({ params }: Props) {
   const { slug } = await params
   const project = getWorkCaseStudy(slug)
   if (!project) notFound()
-  return <WorkPage project={project} />
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Home', path: routes.home },
+          { name: project.client, path: workItem(slug) },
+        ])}
+      />
+      <JsonLd data={workJsonLd(project)} />
+      <WorkPage project={project} />
+    </>
+  )
 }

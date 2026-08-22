@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { aiLinks } from '@/config/external'
 import { aiCopy } from '@/features/home/data/copy'
 import { BLOG_IMG } from '@/config/assets'
@@ -47,16 +47,17 @@ const floatImgs = [
 ] as const
 
 export function AiSection() {
+  const reduceMotion = useReducedMotion() ?? false
   return (
     <section className="relative overflow-hidden py-24 lg:py-36">
       <div className="pointer-events-none absolute inset-0">
         {floatImgs.map((img, i) => (
           <motion.div
             key={img.src}
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
+            transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : i * 0.06 }}
             className={`absolute overflow-hidden rounded-xl bg-nd-soft shadow-lg lg:rounded-2xl dark:bg-[#1a1a1a] ${img.className}`}
           >
             <img

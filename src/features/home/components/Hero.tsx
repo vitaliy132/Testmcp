@@ -12,6 +12,7 @@ import { ArrowIcon } from '@/components/ui/ArrowIcon'
 import { VideoPlayNotch } from '@/components/ui/VideoPlayNotch'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 import { Reveal } from '@/components/ui/Reveal'
+import { MediaImage } from '@/components/ui/MediaImage'
 import { useInViewVideo } from '@/hooks/useInViewVideo'
 
 const HERO_REEL_SRC = '/videos/hero-reel.mp4'
@@ -92,10 +93,12 @@ export function Hero() {
                 href={anchors.about}
                 className="absolute top-3 right-3 z-30 flex max-w-[min(calc(100%-3.5rem),16rem)] items-center gap-2 rounded-full bg-white py-1 pl-1 pr-2.5 text-nd-ink shadow-sm transition hover:scale-[1.02] sm:top-5 sm:right-5 sm:max-w-[min(calc(100%-3rem),18rem)] sm:gap-3 sm:py-1.5 sm:pl-1.5 sm:pr-4 lg:top-6 lg:right-6"
               >
-                <img
+                <MediaImage
                   src={heroCopy.andy.image}
                   alt="Andy"
-                  decoding="async"
+                  width={48}
+                  height={48}
+                  sizes="48px"
                   className="h-9 w-9 shrink-0 rounded-full object-cover sm:h-11 sm:w-11 lg:h-12 lg:w-12"
                 />
                 <div className="min-w-0 text-left leading-tight">

@@ -1,9 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import type { WorkCaseStudyItem } from '@/features/work/types'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { PageContainer } from '@/components/ui/PageContainer'
+import { MediaImage } from '@/components/ui/MediaImage'
 
 function TagPills({ tags }: { tags: string[] }) {
   return (
@@ -22,15 +23,22 @@ function TagPills({ tags }: { tags: string[] }) {
 
 export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
   const visibleTags = project.tags.slice(0, 2)
+  const reduceMotion = useReducedMotion() ?? false
+  const fade = (delay = 0, y = 12, duration = 0.45) =>
+    reduceMotion
+      ? { initial: false as const }
+      : {
+          initial: { opacity: 0, y },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration, delay },
+        }
 
   return (
     <section className="relative pt-28 lg:pt-40">
       <PageContainer variant="about">
         <div className="relative z-20 mb-0 flex flex-wrap items-start justify-between">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
+            {...fade()}
             className="mb-2 hidden w-full flex-wrap items-center lg:mb-0 lg:flex lg:w-[37.5%]"
           >
             <TagPills tags={visibleTags} />
@@ -42,9 +50,7 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
               <CornerFillet className="absolute right-0 bottom-0 z-30 hidden h-10 w-10 translate-y-full text-white lg:block lg:h-12 lg:w-12 dark:text-nd-dark" />
 
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
+                {...fade()}
                 className="mb-3 flex items-center gap-3 text-sm text-nd-muted lg:text-base xl:mb-5 dark:text-white/55"
               >
                 <span className="font-light">{project.year}</span>
@@ -53,9 +59,7 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.06 }}
+                {...fade(0.06, 20, 0.55)}
                 className="text-[clamp(1.75rem,4vw,3.75rem)] font-medium leading-none tracking-tight text-balance"
               >
                 {project.caseStudy.headline}
@@ -65,9 +69,7 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
+          {...fade(0.1, 24, 0.55)}
           className="relative lg:-mt-6"
         >
           <div className="absolute -top-px -right-px z-20 rounded-bl-3xl bg-white pb-3 pl-3 pt-px lg:hidden dark:bg-nd-dark">
@@ -79,12 +81,14 @@ export function WorkHero({ project }: { project: WorkCaseStudyItem }) {
           </div>
 
           <div className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
-            <div className="aspect-[4/3] w-full overflow-hidden lg:aspect-[16/9]">
-              <img
+            <div className="relative aspect-[4/3] w-full overflow-hidden lg:aspect-[16/9]">
+              <MediaImage
                 src={project.image}
                 alt={project.imageAlt}
-                decoding="async"
-                className="h-full w-full object-cover"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
                 style={{ objectPosition: project.imagePosition }}
               />
             </div>

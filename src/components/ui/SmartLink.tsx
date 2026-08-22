@@ -11,7 +11,7 @@ type SmartLinkProps = {
 export function SmartLink({ href, children, newTab, ...rest }: SmartLinkProps) {
   if (isInternalHref(href)) {
     return (
-      <Link href={href} {...rest}>
+      <Link href={href} scroll={!href.includes('#')} {...rest}>
         {children}
       </Link>
     )

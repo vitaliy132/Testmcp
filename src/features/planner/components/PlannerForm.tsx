@@ -176,9 +176,9 @@ export function PlannerForm() {
               </div>
 
               <div className="w-full">
-                <div className="mb-4 text-lg leading-tight lg:text-xl xl:text-2xl dark:text-white">
+                <h1 className="mb-4 text-lg leading-tight lg:text-xl xl:text-2xl dark:text-white">
                   {meta.heading}
-                </div>
+                </h1>
 
                 <PlannerStepFields
                   step={step}

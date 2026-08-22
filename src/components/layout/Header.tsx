@@ -65,19 +65,22 @@ export function Header() {
       className="pointer-events-none fixed inset-x-0 top-0 z-[100] isolate flex transform-gpu justify-center px-2 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] lg:pb-3 lg:pt-[max(0.75rem,env(safe-area-inset-top))]"
     >
       <div
-        className={`pointer-events-auto w-full transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`pointer-events-auto w-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           headerHidden ? '-translate-y-20 lg:-translate-y-28' : 'translate-y-0'
         }`}
       >
         <header
           className={`relative mx-auto flex flex-col transition-[width,border-radius,background-color,box-shadow,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            menuOpen ? 'rounded-2xl' : 'rounded-3xl lg:rounded-full'
+            menuOpen ? 'w-full rounded-2xl' : 'w-full rounded-3xl lg:w-[98vw] lg:rounded-full'
           } ${
             pillActive
               ? 'bg-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.08)] backdrop-blur-md dark:bg-[#1a1a1a]/90 dark:shadow-[0_12px_40px_rgba(0,0,0,0.35)]'
               : 'bg-white/70 backdrop-blur-sm dark:bg-[#1a1a1a]/70'
           } ${headerSmall ? 'py-2 pr-2 pl-3 lg:p-2' : 'py-3 pr-3 pl-3 lg:p-4'}`}
-          style={{ width: menuOpen ? '100%' : barWidth, maxWidth: '1400px' }}
+          style={{
+            maxWidth: '1400px',
+            ...(menuOpen ? { width: '100%' } : headerSmall ? { width: barWidth } : {}),
+          }}
           onMouseLeave={scheduleClose}
         >
           <div className="flex w-full flex-nowrap items-center justify-between gap-2">

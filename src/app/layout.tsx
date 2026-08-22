@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   preload('/videos/posters/hero-reel.jpg', { as: 'image', fetchPriority: 'high' })
 
   return (
-    <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
+    <html lang="en-GB" className={spaceGrotesk.variable} suppressHydrationWarning>
       <body className={spaceGrotesk.className}>
         <Script id="nd-theme" strategy="beforeInteractive">
           {themeScript}

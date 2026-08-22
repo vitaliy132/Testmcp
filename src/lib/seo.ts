@@ -1,16 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, MetadataRoute } from 'next'
 import { brand } from '@/config/brand'
-import { socialLinks } from '@/config/external'
-import { routes } from '@/config/routes'
+import { blogPost, routes, workItem } from '@/config/routes'
 import { blog, blogPageCopy } from '@/features/blog/data'
 import { faqSections } from '@/features/faqs/data'
 import { serviceList } from '@/features/service/data/registry'
+import type { ServicePageContent } from '@/features/service/data/pages'
 import { work } from '@/features/work/data'
-import { isWorkCaseStudyItem } from '@/features/work/types'
+import { isWorkCaseStudyItem, type WorkCaseStudyItem } from '@/features/work/types'
 import type { BlogPost } from '@/features/blog/data/types'
 import type { FaqItem } from '@/types/faq'
 
 export const SITE_URL = `https://${brand.url}`
+export const OG_IMAGE_PATH = '/opengraph-image'
+export const BUSINESS_ID = `${SITE_URL}/#business`
 
 export function canonicalUrl(path: string): string {
   if (path === '/') return SITE_URL
@@ -22,15 +24,22 @@ export function pageMeta({
   description,
   path,
   absoluteTitle = false,
+  image,
+  ogType = 'website',
+  publishedTime,
 }: {
   title: string
   description: string
   path: string
   absoluteTitle?: boolean
+  image?: string
+  ogType?: 'website' | 'article'
+  publishedTime?: string
 }): Metadata {
   const url = canonicalUrl(path)
   const fullTitle =
     absoluteTitle || title.includes(brand.name) ? title : `${title} | ${brand.name}`
+  const images = [{ url: image ?? OG_IMAGE_PATH }]
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -41,13 +50,16 @@ export function pageMeta({
       description,
       url,
       siteName: brand.name,
-      type: 'website',
+      type: ogType,
       locale: 'en_GB',
+      images,
+      ...(ogType === 'article' && publishedTime ? { publishedTime } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
+      images: [image ?? OG_IMAGE_PATH],
     },
   }
 }
@@ -76,17 +88,31 @@ export function faqPageJsonLd(items: readonly FaqItem[]) {
   }
 }
 
+export function breadcrumbJsonLd(items: readonly { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: canonicalUrl(item.path),
+    })),
+  }
+}
+
 export function localBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': BUSINESS_ID,
     name: brand.name,
     legalName: brand.legalName,
     url: SITE_URL,
     email: brand.email,
     telephone: '+447732510318',
     description: brand.description,
-    image: `${SITE_URL}/logo.svg`,
+    image: `${SITE_URL}${OG_IMAGE_PATH}`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: brand.address.lines[1],
@@ -94,7 +120,14 @@ export function localBusinessJsonLd() {
       postalCode: brand.address.lines[3],
       addressCountry: 'GB',
     },
-    sameAs: socialLinks.map((link) => link.href),
+    areaServed: {
+      '@type': 'City',
+      name: 'Leeds',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'GB',
+      },
+    },
   }
 }
 
@@ -105,6 +138,8 @@ export function articleJsonLd(post: BlogPost) {
     headline: post.title,
     description: post.excerpt,
     image: `${SITE_URL}${post.cover}`,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     author: {
       '@type': 'Person',
       name: post.author,
@@ -114,8 +149,47 @@ export function articleJsonLd(post: BlogPost) {
       '@type': 'Organization',
       name: brand.name,
       url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.svg`,
+      },
     },
-    mainEntityOfPage: canonicalUrl(routes.blogPattern.replace(':slug', post.slug)),
+    mainEntityOfPage: canonicalUrl(blogPost(post.slug)),
+  }
+}
+
+export function serviceJsonLd(service: ServicePageContent) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.eyebrow,
+    description: service.intro,
+    url: canonicalUrl(service.path),
+    provider: { '@id': BUSINESS_ID },
+    areaServed: {
+      '@type': 'City',
+      name: 'Leeds',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'GB',
+      },
+    },
+  }
+}
+
+export function workJsonLd(project: WorkCaseStudyItem) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.caseStudy.headline,
+    description: project.caseStudy.dek,
+    image: `${SITE_URL}${project.image}`,
+    url: canonicalUrl(workItem(project.id)),
+    about: {
+      '@type': 'Organization',
+      name: project.client,
+    },
+    creator: { '@id': BUSINESS_ID },
   }
 }
 
@@ -184,7 +258,23 @@ export function sitemapPaths(): string[] {
     routes.blog,
   ]
   const services = serviceList.map((service) => service.path)
-  const posts = blog.map((post) => `/blog/${post.slug}`)
-  const cases = work.filter(isWorkCaseStudyItem).map((project) => `/work/${project.id}`)
+  const posts = blog.map((post) => blogPost(post.slug))
+  const cases = work.filter(isWorkCaseStudyItem).map((project) => workItem(project.id))
   return [...staticPaths, ...services, ...posts, ...cases]
+}
+
+export function sitemapEntries(): MetadataRoute.Sitemap {
+  const servicePaths = new Set(serviceList.map((service) => service.path))
+  return sitemapPaths().map((path) => ({
+    url: canonicalUrl(path),
+    changeFrequency: path === '/' ? 'weekly' : 'monthly',
+    priority:
+      path === '/'
+        ? 1
+        : path === routes.privacy
+          ? 0.3
+          : servicePaths.has(path)
+            ? 0.8
+            : 0.7,
+  }))
 }

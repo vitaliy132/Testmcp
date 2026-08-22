@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { blog, BlogCard } from '@/features/blog'
 import { blogCopy } from '@/features/home/data/copy'
 import { anchors, routes } from '@/config/routes'
@@ -10,6 +10,7 @@ import { SmartLink } from '@/components/ui/SmartLink'
 import { useSnapScroller } from '@/hooks/useSnapScroller'
 
 export function BlogTeaser() {
+  const reduceMotion = useReducedMotion() ?? false
   const { ref, atStart, atEnd, scrollBy } = useSnapScroller((el) => {
     const slide = el.querySelector<HTMLElement>('.blog-slide')
     return slide?.offsetWidth ?? el.clientWidth * 0.8
@@ -62,10 +63,10 @@ export function BlogTeaser() {
         {blog.map((post, i) => (
           <motion.article
             key={post.slug}
-            initial={{ opacity: 0, y: 20 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
+            transition={{ duration: reduceMotion ? 0 : 0.4, delay: reduceMotion ? 0 : i * 0.05 }}
             className="blog-slide w-[85%] shrink-0 snap-start px-2 sm:w-[55%] lg:w-[42%] xl:w-[38%] xl:px-3"
           >
             <BlogCard post={post} />

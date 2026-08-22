@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import type { FaqItem } from '@/types/faq'
 
 function FaqArrow() {
@@ -20,6 +20,7 @@ export function AccordionFaq({
   dashPlainBullets?: boolean
 }) {
   const [open, setOpen] = useState(false)
+  const reduceMotion = useReducedMotion() ?? false
 
   return (
     <div className="mb-3 overflow-hidden rounded-2xl bg-[#f5f5f5] lg:mb-4 lg:rounded-3xl dark:bg-[#1a1a1a]">
@@ -43,10 +44,10 @@ export function AccordionFaq({
       <AnimatePresence initial={false}>
         {open ? (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={reduceMotion ? false : { height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            exit={reduceMotion ? undefined : { height: 0, opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
             <div className="px-5 pb-6 sm:px-6 lg:pr-28">

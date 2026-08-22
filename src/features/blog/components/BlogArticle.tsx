@@ -3,6 +3,7 @@ import { BlogRelated } from '@/features/blog/components/BlogRelated'
 import { getPostHeadings, type BlogBlock, type BlogPost } from '@/features/blog/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { Reveal } from '@/components/ui/Reveal'
+import { MediaImage } from '@/components/ui/MediaImage'
 
 function BlogBodyBlock({ block }: { block: BlogBlock }) {
   if (block.type === 'h2') {
@@ -36,16 +37,16 @@ function BlogBodyBlock({ block }: { block: BlogBlock }) {
 
   return (
     <figure className="py-4 lg:py-6">
-      <div className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
-        <img
-          src={block.src}
-          alt={block.alt}
-          width={1200}
-          height={750}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover"
-        />
+      <div className="relative overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <MediaImage
+            src={block.src}
+            alt={block.alt}
+            fill
+            sizes="(min-width: 1024px) 820px, 100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     </figure>
   )
@@ -73,14 +74,14 @@ export function BlogArticle({ post }: { post: BlogPost }) {
 
           <Reveal delay={0.14} y={24} duration={0.55} className="mt-10 lg:mt-14">
             <div className="overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
-              <div className="aspect-[16/9] w-full overflow-hidden">
-                <img
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <MediaImage
                   src={post.cover}
                   alt={post.coverAlt}
-                  width={1400}
-                  height={788}
-                  decoding="async"
-                  className="h-full w-full object-cover"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 1200px, 100vw"
+                  className="object-cover"
                 />
               </div>
             </div>

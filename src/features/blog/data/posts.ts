@@ -32,6 +32,7 @@ export const blog: BlogPost[] = [
     readTime: '2 min read',
     cover: BLOG_IMG.laptopReview,
     coverAlt: 'The team gathered around a laptop in the studio',
+    publishedAt: '2026-07-08',
     ...andy,
     body: [
       {
@@ -91,6 +92,7 @@ export const blog: BlogPost[] = [
     readTime: '6 min read',
     cover: BLOG_IMG.openOffice,
     coverAlt: 'The team working side by side in an open studio',
+    publishedAt: '2026-05-22',
     ...natasia,
     body: [
       {
@@ -179,6 +181,7 @@ export const blog: BlogPost[] = [
     readTime: '10 min read',
     cover: BLOG_IMG.smallTeam,
     coverAlt: 'A small team gathered around one laptop',
+    publishedAt: '2026-04-18',
     ...andy,
     body: [
       {
@@ -290,6 +293,7 @@ export const blog: BlogPost[] = [
     readTime: '4 min read',
     cover: BLOG_IMG.meetingRoom,
     coverAlt: 'A working session in a glass meeting room',
+    publishedAt: '2026-03-05',
     ...andy,
     body: [
       {
@@ -362,6 +366,7 @@ export const blog: BlogPost[] = [
     readTime: '6 min read',
     cover: BLOG_IMG.clientMeeting,
     coverAlt: 'Two people reviewing work together at a studio desk',
+    publishedAt: '2026-02-10',
     ...andy,
     body: [
       {
@@ -438,6 +443,7 @@ export const blog: BlogPost[] = [
     readTime: '4 min read',
     cover: BLOG_IMG.studioTalk,
     coverAlt: 'A one-to-one conversation in a small studio',
+    publishedAt: '2026-01-15',
     ...ella,
     body: [
       {

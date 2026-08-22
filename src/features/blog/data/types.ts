@@ -11,6 +11,7 @@ export type BlogPost = {
   readTime: string
   cover: string
   coverAlt: string
+  publishedAt: string
   author: string
   authorImage: string
   authorRole: string

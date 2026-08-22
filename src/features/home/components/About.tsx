@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import { brand } from '@/config/brand'
 import { anchors, routes } from '@/config/routes'
@@ -8,6 +8,7 @@ import { aboutTeaser } from '@/features/home/data/copy'
 import { PageContainer } from '@/components/ui/PageContainer'
 
 export function About() {
+  const reduceMotion = useReducedMotion() ?? false
   return (
     <section id="about" className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer>
@@ -15,10 +16,10 @@ export function About() {
           <p className="text-sm font-medium text-nd-muted dark:text-white/55">{aboutTeaser.eyebrow}</p>
           <div>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: reduceMotion ? 0 : 0.5 }}
               className="max-w-[22ch] text-[clamp(1.6rem,3.2vw,2.7rem)] leading-[1.15] tracking-tight"
             >
               {aboutTeaser.before}{' '}

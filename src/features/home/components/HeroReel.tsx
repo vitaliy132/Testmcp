@@ -1,4 +1,5 @@
 import type { RefObject } from 'react'
+import { MediaImage } from '@/components/ui/MediaImage'
 
 export function HeroReel({
   videoRef,
@@ -16,11 +17,13 @@ export function HeroReel({
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-[#010202]" aria-hidden>
       {showPoster ? (
-        <img
+        <MediaImage
           src={poster}
           alt=""
-          decoding="async"
-          className="absolute inset-0 z-0 h-full w-full object-cover"
+          fill
+          priority
+          sizes="(min-width: 1024px) 62vw, 100vw"
+          className="object-cover"
         />
       ) : (
         <video

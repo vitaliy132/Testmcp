@@ -1,7 +1,7 @@
 'use client'
 
 import { type ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { aboutIntro } from '@/features/about/data'
 import { PageContainer } from '@/components/ui/PageContainer'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
@@ -19,6 +19,7 @@ function IntroLink({ href, children }: { href: string; children: ReactNode }) {
 }
 
 export function AboutIntro() {
+  const reduceMotion = useReducedMotion() ?? false
   return (
     <section id="about-intro" className="scroll-mt-28 py-16 lg:py-24">
       <PageContainer variant="about">
@@ -31,10 +32,10 @@ export function AboutIntro() {
               {aboutIntro.eyebrow}
             </SectionEyebrow>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: reduceMotion ? 0 : 0.5 }}
               className="relative text-pretty text-2xl leading-none tracking-tight text-nd-ink md:text-3xl xl:indent-48 xl:text-4xl dark:text-white"
             >
               {aboutIntro.heading}

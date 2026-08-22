@@ -84,7 +84,7 @@ export function GooeyLink({
   }
 
   return (
-    <Link href={href} onClick={onClick} className={classes} style={style}>
+    <Link href={href} scroll={!href.includes('#')} onClick={onClick} className={classes} style={style}>
       {visual}
     </Link>
   )

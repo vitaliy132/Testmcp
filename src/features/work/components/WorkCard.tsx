@@ -1,9 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import type { WorkItem } from '@/features/work/types'
 import { CornerFillet } from '@/components/ui/CornerFillet'
 import { SmartLink } from '@/components/ui/SmartLink'
+import { MediaImage } from '@/components/ui/MediaImage'
 
 function WorkCardTags({
   project,
@@ -74,20 +75,17 @@ function WorkCardBody({
       <div className={`relative w-full overflow-hidden ${related ? 'mb-5' : 'mb-6'}`}>
         <WorkCardTags project={project} variant={variant} />
         <div className="relative w-full overflow-hidden rounded-2xl bg-nd-soft lg:rounded-3xl dark:bg-[#1a1a1a]">
-          <div className="aspect-[4/3] w-full overflow-hidden">
-            <img
+          <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <MediaImage
               src={project.image}
               alt={project.imageAlt}
-              width={1200}
-              height={900}
+              fill
               sizes={
                 related
                   ? '(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw'
                   : '(min-width: 768px) 50vw, 100vw'
               }
-              loading="lazy"
-              decoding="async"
-              className={`h-full w-full origin-center scale-105 object-cover transition-transform duration-500 ease-out ${
+              className={`origin-center scale-105 object-cover transition-transform duration-500 ease-out ${
                 related ? 'group-hover:scale-110' : 'xl:group-hover:scale-110'
               }`}
               style={{ objectPosition: project.imagePosition }}
@@ -128,6 +126,7 @@ export function WorkCard({
   variant?: 'home' | 'related'
   index?: number
 }) {
+  const reduceMotion = useReducedMotion() ?? false
   if (variant === 'related') {
     return <WorkCardBody project={project} variant="related" />
   }
@@ -135,10 +134,10 @@ export function WorkCard({
   const stagger = index % 2 === 0
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, delay: (index % 2) * 0.06 }}
+      transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : (index % 2) * 0.06 }}
       className={`mb-16 w-full px-2 md:mb-28 md:w-1/2 lg:px-3 xl:px-4 ${stagger ? 'md:mt-20' : ''}`}
     >
       <WorkCardBody project={project} variant="home" />
