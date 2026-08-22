@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       {
@@ -8,19 +9,22 @@ const nextConfig: NextConfig = {
         destination: '/frequently-asked-questions',
         permanent: true,
       },
+      {
+        source: '/:path((?!projects/).*)/',
+        destination: '/:path',
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
-    return [
-      {
-        source: '/projects/:project',
-        destination: '/projects/:project/index.html',
-      },
-      {
-        source: '/projects/:project/',
-        destination: '/projects/:project/index.html',
-      },
-    ]
+    return {
+      beforeFiles: [
+        {
+          source: '/projects/:project/',
+          destination: '/projects/:project/index.html',
+        },
+      ],
+    }
   },
 }
 

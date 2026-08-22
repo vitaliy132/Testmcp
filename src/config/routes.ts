@@ -35,10 +35,10 @@ export function blogPost(slug: string) {
 
 /** Live demo client sites — source lives in /projects/<id>/ */
 export const workSites = {
-  anovair: '/projects/anovair',
-  emnaStudio: '/projects/emna-studio',
-  aqua: '/projects/aqua',
-  proudMary: '/projects/proud-mary',
+  anovair: '/projects/anovair/',
+  emnaStudio: '/projects/emna-studio/',
+  aqua: '/projects/aqua/',
+  proudMary: '/projects/proud-mary/',
 } as const
 
 export const anchors = {
