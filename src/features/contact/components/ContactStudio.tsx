@@ -8,8 +8,8 @@ export function ContactStudio() {
   return (
     <section className="border-t border-black/5 py-16 lg:py-24 dark:border-white/10">
       <PageContainer>
-        <div className="flex flex-wrap justify-between gap-10 lg:gap-16">
-          <div className="w-full lg:w-[42%]">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-16">
+          <div className="w-full lg:w-[42%] lg:shrink-0">
             <h2 className="mb-5 text-[clamp(1.75rem,3.5vw,2.75rem)] leading-none tracking-tight">
               {contactContent.studioTitle}
             </h2>
@@ -37,7 +37,7 @@ export function ContactStudio() {
             </a>
           </div>
 
-          <div className="w-full overflow-hidden rounded-2xl lg:w-[50%] lg:rounded-3xl">
+          <div className="w-full min-w-0 overflow-hidden rounded-2xl lg:flex-1 lg:rounded-3xl">
             <img
               src={contactContent.studioImage}
               alt={`${brand.name} studio`}

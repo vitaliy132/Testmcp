@@ -14,7 +14,7 @@ export function HeroReel({
   onError: () => void
 }) {
   return (
-    <div className="hero-reel-media absolute inset-0 z-0 overflow-hidden bg-white dark:bg-nd-dark" aria-hidden>
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[#010202]" aria-hidden>
       {showPoster ? (
         <img
           src={poster}

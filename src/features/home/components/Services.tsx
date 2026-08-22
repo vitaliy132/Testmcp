@@ -88,7 +88,7 @@ export function Services() {
                         isActive ? 'translate-x-0 delay-0 md:translate-x-6' : 'translate-x-0 delay-100 lg:translate-x-0'
                       }`}
                     >
-                      <span className="block text-[clamp(1.75rem,7.5vw,3.25rem)] leading-[0.92] tracking-tight text-balance lg:text-[7vw] xl:text-[6.5vw]">
+                      <span className="block text-[clamp(1.75rem,7.5vw,3.25rem)] leading-[0.92] tracking-tight text-balance lg:text-[min(7vw,4.25rem)] xl:text-[min(6.5vw,4.5rem)]">
                         {service.name}
                       </span>
                     </div>

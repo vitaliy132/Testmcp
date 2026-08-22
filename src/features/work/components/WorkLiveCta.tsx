@@ -25,7 +25,7 @@ export function WorkLiveCta({ project }: { project: WorkCaseStudyItem }) {
 
   return (
     <div
-      className={`pointer-events-none fixed bottom-0 left-0 z-40 flex w-full justify-center pb-6 transition-opacity duration-300 ${
+      className={`pointer-events-none fixed bottom-0 left-0 z-40 flex w-full justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))] transition-opacity duration-300 ${
         visible ? 'opacity-100' : 'opacity-0'
       }`}
     >

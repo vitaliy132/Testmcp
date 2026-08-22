@@ -1,3 +1,4 @@
+import { IMG } from '@/config/assets'
 import { routes } from '@/config/routes'
 import { faqsByIds } from '@/features/faqs/data'
 import type { FaqItem } from '@/types/faq'
@@ -42,8 +43,7 @@ export const contactContent = {
   studioTitle: 'Our Studio',
   studioDescription:
     'Just a short drive from the city centre, our Studio is in a very convenient location, near two train stations, a motorway, and the east Lancashire road.',
-  studioImage:
-    'https://made-byshape.transforms.svdcdn.com/production/uploads/images/India-2022/Empty-Studio/Shape-April-2022-HR-18.jpg?w=800&h=450&q=80&fm=webp&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1651142707&s=b522e5aa7def9ed40e6b896d1ad3210d',
+  studioImage: IMG.studio1,
   directionsHref: 'https://maps.app.goo.gl/2rmk5J3Fh5z1YLFPA',
   faqsEyebrow: 'Anything else?',
   faqsTitle: 'The answers to your questions.',

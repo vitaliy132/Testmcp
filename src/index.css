@@ -16,6 +16,8 @@ html {
   scroll-behavior: smooth;
   color-scheme: light;
   overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -411,83 +413,13 @@ html.dark .btn-soft {
   }
 }
 
-/*
-  Greeting, headline fragments, and CTA sit in one filtered cluster.
-  The SVG goo melts their page-color backgrounds into a single blob;
-  box-decoration-break:clone keeps each headline line as its own chip.
-  An 8px fill ring is eaten by the threshold so the visual edge stays
-  flush with the showreel instead of letting video show through.
-*/
-.hero-gooey {
-  display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.hero-gooey-chip {
-  box-shadow: 0 0 0 8px #fff;
-}
-
-html.dark .hero-gooey-chip,
-.dark .hero-gooey-chip {
-  box-shadow: 0 0 0 8px #121212;
-}
-
-@supports (-moz-appearance: none) {
-  .hero-gooey-cluster {
-    filter: none !important;
-  }
-
-  .hero-gooey {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-  }
-
-  .hero-gooey br {
-    display: none;
-  }
-
-  .hero-gooey-wrap {
-    overflow: hidden;
-    border-bottom-right-radius: 1.5rem;
-  }
-}
-
-/* MadeByShape-style rounded showreel frame */
+/* Rounded showreel frame */
 .hero-reel-frame {
   border-radius: 1.5rem;
-  box-shadow: 0 0 0 2px #fff;
-}
-
-html.dark .hero-reel-frame,
-.dark .hero-reel-frame {
-  box-shadow: 0 0 0 2px #121212;
-}
-
-/* Cut video out of the top-left radius (+2px) so it cannot antialias into the blob */
-.hero-reel-media {
-  --hero-cut: calc(1.5rem + 2px);
-  -webkit-mask-image: radial-gradient(
-    circle at 0 0,
-    transparent var(--hero-cut),
-    #000 calc(var(--hero-cut) + 1px)
-  );
-  mask-image: radial-gradient(
-    circle at 0 0,
-    transparent var(--hero-cut),
-    #000 calc(var(--hero-cut) + 1px)
-  );
 }
 
 @media (min-width: 1024px) {
   .hero-reel-frame {
     border-radius: 2rem;
-  }
-
-  .hero-reel-media {
-    --hero-cut: calc(2rem + 2px);
   }
 }

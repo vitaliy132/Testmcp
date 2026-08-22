@@ -107,7 +107,7 @@ export function Header() {
 
             <div className="relative z-10 flex shrink-0 items-center gap-2 sm:gap-3">
               <ThemeToggle />
-              <span className="hidden sm:inline-flex" onMouseEnter={scheduleClose}>
+              <span className="hidden lg:inline-flex" onMouseEnter={scheduleClose}>
                 <StartProjectButton />
               </span>
               <button

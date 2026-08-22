@@ -5,8 +5,8 @@ import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
 export function CareersLife() {
   return (
     <section className="border-t border-black/5 py-16 lg:py-24 dark:border-white/10">
-      <PageContainer className="flex flex-wrap justify-between gap-10 lg:gap-16">
-        <div className="w-full lg:w-[38%]">
+      <PageContainer className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-16">
+        <div className="w-full lg:w-[38%] lg:shrink-0">
           <div className="mb-4">
             <SectionEyebrow>{careersContent.lifeEyebrow}</SectionEyebrow>
           </div>
@@ -14,7 +14,7 @@ export function CareersLife() {
             {careersContent.lifeHeading}
           </h2>
         </div>
-        <div className="w-full space-y-6 lg:w-[52%]">
+        <div className="w-full min-w-0 space-y-6 lg:flex-1">
           {careersContent.lifeParagraphs.map((paragraph) => (
             <p
               key={paragraph.slice(0, 40)}

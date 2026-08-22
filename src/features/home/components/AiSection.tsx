@@ -15,7 +15,7 @@ const floatImgs = [
   {
     src: IMG.studio2,
     alt: 'Designers collaborating',
-    className: 'left-3 top-8 w-16 sm:left-4 sm:top-10 sm:w-20 md:w-52 lg:left-20 lg:top-20 xl:w-72',
+    className: 'left-3 top-8 hidden w-16 md:block md:w-52 lg:left-20 lg:top-20 xl:w-72',
     aspect: 'aspect-[3/2]',
   },
   {
@@ -33,7 +33,7 @@ const floatImgs = [
   {
     src: IMG.studio5,
     alt: 'Team in the studio',
-    className: 'right-3 bottom-0 w-16 sm:right-4 sm:w-20 md:w-40 lg:right-10 xl:w-52',
+    className: 'right-3 bottom-0 hidden w-16 md:block md:w-40 lg:right-10 xl:w-52',
     aspect: 'aspect-[3/2]',
   },
   {

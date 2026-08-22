@@ -25,8 +25,8 @@ export function ContactHero() {
           {contactContent.headline}
         </Reveal>
 
-        <div className="flex flex-wrap justify-between gap-12 lg:gap-16">
-          <div className="w-full lg:w-[38%]">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-16">
+          <div className="w-full lg:w-[38%] lg:shrink-0">
             <p className="mb-8 text-base font-light leading-7 text-nd-muted lg:text-[1.05rem] dark:text-white/65">
               {contactContent.intro}
             </p>
@@ -45,7 +45,7 @@ export function ContactHero() {
             </a>
           </div>
 
-          <div className="w-full lg:w-[54%]">
+          <div className="w-full min-w-0 lg:flex-1">
             <ContactForm />
           </div>
         </div>

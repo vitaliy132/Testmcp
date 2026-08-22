@@ -49,7 +49,7 @@ export function Blog() {
               aria-label="Previous posts"
               disabled={atStart}
               onClick={() => scrollBy(-1)}
-              className="hidden h-10 w-10 items-center justify-center rounded-full bg-nd-soft text-nd-ink transition enabled:hover:bg-nd-lime disabled:opacity-30 sm:inline-flex dark:bg-[#2a2a2a] dark:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-nd-soft text-nd-ink transition enabled:hover:bg-nd-lime disabled:opacity-30 dark:bg-[#2a2a2a] dark:text-white"
             >
               <svg className="h-3 w-3 fill-current" viewBox="0 0 448 512" aria-hidden>
                 <path d="M25.4 278.6L2.7 256l22.6-22.6 144-144L192 66.7l45.2 45.3-22.6 22.6-89.4 89.4H448v64H125.3l89.4 89.4 22.5 22.6-45.2 45.3-22.6-22.6-144-144z" />
@@ -60,7 +60,7 @@ export function Blog() {
               aria-label="Next posts"
               disabled={atEnd}
               onClick={() => scrollBy(1)}
-              className="hidden h-10 w-10 items-center justify-center rounded-full bg-nd-soft text-nd-ink transition enabled:hover:bg-nd-lime disabled:opacity-30 sm:inline-flex dark:bg-[#2a2a2a] dark:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-nd-soft text-nd-ink transition enabled:hover:bg-nd-lime disabled:opacity-30 dark:bg-[#2a2a2a] dark:text-white"
             >
               <svg className="h-3 w-3 fill-current" viewBox="0 0 448 512" aria-hidden>
                 <path d="M422.6 278.6l22.7-22.6-22.6-22.6-144-144L256 66.7 210.8 112l22.6 22.6 89.4 89.4H0v64h322.7l-89.4 89.4-22.5 22.6 45.2 45.3 22.6-22.6 144-144z" />
